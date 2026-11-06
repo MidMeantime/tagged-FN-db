@@ -1,0 +1,61 @@
+name: Recover tag batch
+
+# Imports results from a tag batch whose pending_batch.json was lost (see scripts/recover_batch.py).
+on:
+  workflow_dispatch:
+    inputs:
+      batch_id:
+        description: "Batch ID (msgbatch_...)"
+        required: true
+      tagged_at:
+        description: "Commit whose data/tags.json was current when that batch was submitted"
+        required: true
+      check_map_at:
+        description: "Optional: commit with a pending_batch.json built from the same skin list, used as a safety check"
+        required: false
+      image:
+        description: "The image setting that batch used"
+        type: choice
+        options: [best, icon]
+        default: best
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: tagging   # waits for any running "Tag skins" job, so the two never write tags at once
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      FORTNITE_API_KEY: ${{ secrets.FORTNITE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # needs older commits to read their tags.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/fetch_skins.py
+      - name: Recover
+        run: |
+          ARGS="--batch-id ${{ inputs.batch_id }} --tagged-at ${{ inputs.tagged_at }} --image ${{ inputs.image }}"
+          [ -n "${{ inputs.check_map_at }}" ] && ARGS="$ARGS --check-map-at ${{ inputs.check_map_at }}"
+          python scripts/recover_batch.py $ARGS
+      - run: python scripts/build_site_data.py
+      - name: Commit tags
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Import tags from batch ${{ inputs.batch_id }}"
+          git pull --rebase && git push
+      - name: Redeploy site
+        run: gh workflow run deploy.yml
+        env:
+          GH_TOKEN: ${{ github.token }}

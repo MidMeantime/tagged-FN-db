@@ -226,6 +226,21 @@ def run_test(skins, args, system_text, allowed, tags_db, errors):
     save_json(ERRORS, errors)
 
 
+SUMMARY_ROWS = 3000  # cap for the GitHub run summary table
+
+
+def step_summary(md):
+    """Append markdown to the GitHub Actions run summary page, when running in Actions."""
+    path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if path:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(md + "\n")
+
+
+def md_cell(text):
+    return str(text).replace("|", "\\|").replace("\n", " ")
+
+
 def submit_batch(skins, args, system_text):
     id_map = {f"s{i}": s["id"] for i, s in enumerate(skins)}
     by_id = {s["id"]: s for s in skins}
@@ -236,9 +251,17 @@ def submit_batch(skins, args, system_text):
         sys.exit(f"Batch submit failed: HTTP {r.status_code}: {api_error(r)}")
     batch = r.json()
     image_map = {cid: pick_images(by_id[sid], args.image)[1] for cid, sid in id_map.items()}
-    save_json(PENDING, {"batch_id": batch["id"], "id_map": id_map, "image_map": image_map,
+    name_map = {cid: by_id[sid]["name"] for cid, sid in id_map.items()}
+    save_json(PENDING, {"batch_id": batch["id"], "id_map": id_map, "image_map": image_map, "name_map": name_map,
                         "submitted": datetime.now(timezone.utc).isoformat()})
-    print(f"Submitted batch {batch['id']} with {len(reqs)} skins.")
+    print(f"Submitted batch {batch['id']} with {len(reqs)} entries:")
+    for cid, sid in id_map.items():
+        print(f"  {cid:>6}  {name_map[cid]}  [{sid}]  images: {image_map[cid]}")
+    rows = "\n".join(f"| {cid} | {md_cell(name_map[cid])} | `{md_cell(sid)}` | {image_map[cid]} |"
+                     for cid, sid in list(id_map.items())[:SUMMARY_ROWS])
+    more = f"\n\n…and {len(id_map) - SUMMARY_ROWS} more (full list in the step log)." if len(id_map) > SUMMARY_ROWS else ""
+    step_summary(f"### Submitted batch `{batch['id']}` with {len(id_map)} entries\n\n"
+                 f"<details><summary>Entries in this batch</summary>\n\n| # | Name | ID | Images |\n|---|---|---|---|\n{rows}{more}\n\n</details>\n")
     return batch["id"]
 
 
@@ -248,6 +271,12 @@ def collect(allowed, tags_db, errors, wait=True):
         print("No pending batch.")
         return
     bid = pending["batch_id"]
+    names = pending.get("name_map", {})
+    try:
+        submitted = datetime.fromisoformat(pending["submitted"])
+    except (KeyError, ValueError):
+        submitted = datetime.now(timezone.utc)
+    print(f"Waiting on batch {bid} ({len(pending['id_map'])} entries, submitted {pending.get('submitted', '?')[:16]} UTC)", flush=True)
     last, polls = None, 0
     while True:
         r = requests.get(f"{API}/messages/batches/{bid}", headers=headers(), timeout=60)
@@ -257,38 +286,55 @@ def collect(allowed, tags_db, errors, wait=True):
         # Only log when progress changes, plus a heartbeat every 10 minutes, so the log stays readable.
         if counts != last or polls % 10 == 0 or b["processing_status"] == "ended":
             done = sum(v for k, v in counts.items() if k != "processing")
-            print(f"Batch {bid}: {b['processing_status']}, {done}/{done + counts.get('processing', 0)} finished {counts}", flush=True)
+            mins = int((datetime.now(timezone.utc) - submitted).total_seconds() // 60)
+            print(f"[{mins} min since submit] Batch {bid}: {b['processing_status']}, "
+                  f"{done}/{done + counts.get('processing', 0)} finished {counts}", flush=True)
         last, polls = counts, polls + 1
         if b["processing_status"] == "ended":
             break
         if not wait:
+            step_summary(f"Batch `{bid}` is still {b['processing_status']}: {counts}")
             return
         time.sleep(60)
     res = requests.get(b["results_url"], headers=headers(), timeout=300)
     res.raise_for_status()
     ok = bad = 0
+    report = []
+    print("Results:")
     for line in res.text.splitlines():
         if not line.strip():
             continue
         row = json.loads(line)
-        sid = pending["id_map"].get(row["custom_id"])
+        cid = row["custom_id"]
+        sid = pending["id_map"].get(cid)
+        name = names.get(cid, sid)
         result = row["result"]
         if result["type"] != "succeeded":
-            errors[sid] = result["type"] + ": " + json.dumps(result.get("error", {}))[:300]
-            bad += 1
-            continue
-        rec, err = parse_message(result["message"], allowed, pending.get("image_map", {}).get(row["custom_id"], ""))
+            err = result["type"] + ": " + json.dumps(result.get("error", {}))[:300]
+            rec = None
+        else:
+            rec, err = parse_message(result["message"], allowed, pending.get("image_map", {}).get(cid, ""))
         if err:
             errors[sid] = err
             bad += 1
+            print(f"  FAILED  {name}  [{sid}]  {err}")
+            report.append((name, sid, "❌ " + err))
         else:
             tags_db[sid] = rec
             errors.pop(sid, None)
             ok += 1
+            feet = "" if rec["feet_visible"] else ", feet not visible"
+            print(f"  ok      {name}  [{sid}]  {len(rec['tags'])} tags{feet}")
+            report.append((name, sid, f"✅ {len(rec['tags'])} tags{feet}"))
     save_json(TAGS, tags_db)
     save_json(ERRORS, errors)
     PENDING.unlink()
-    print(f"Saved tags for {ok} skins; {bad} failed (see data/tag_errors.json).")
+    print(f"Saved tags for {ok} entries; {bad} failed (see data/tag_errors.json).")
+    report.sort(key=lambda r: (not r[2].startswith("❌"), r[0]))  # failures first
+    rows = "\n".join(f"| {md_cell(n)} | `{md_cell(i)}` | {md_cell(st)} |" for n, i, st in report[:SUMMARY_ROWS])
+    step_summary(f"### Batch `{bid}` finished: {ok} tagged, {bad} failed\n\n"
+                 f"<details{' open' if bad else ''}><summary>Per-entry results</summary>\n\n"
+                 f"| Name | ID | Result |\n|---|---|---|\n{rows}\n\n</details>\n")
 
 
 def main():

@@ -81,3 +81,9 @@ Tags in the `outfit_traits` category (reactive, color selectable, multiple style
 
 - Fortnite-API is a free community API. If it ever starts requiring a key, add it as a repository secret named `FORTNITE_API_KEY`; the workflows already pass it along.
 - Not affiliated with Epic Games. All Fortnite images and names belong to Epic Games.
+
+## Logs and recovering a lost batch
+
+Every batch run lists each entry it sends (number, name, ID and images) in the **Tag** step log, and lists each result in the **Wait for batch results** step log. Both lists also appear on the run's summary page.
+
+If a batch's `data/pending_batch.json` is ever lost (for example, a run was cancelled before it saved), run **Actions → Recover tag batch** with the batch ID and the commit whose `data/tags.json` was current when that batch was submitted. It rebuilds the entry order and imports the results only if the order checks out. Do this the same day if you can, before new skins change the list.
