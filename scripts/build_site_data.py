@@ -104,9 +104,14 @@ def main():
             "id": s["id"], "n": s["name"], "d": s.get("description", ""), "r": s.get("rarity", ""),
             "sr": s.get("series", ""), "st": s.get("set", ""), "ch": s.get("chapter", ""), "se": s.get("season", ""),
             "a": s.get("added", ""), "img": s.get("small") or s.get("icon", ""),
-            "big": s.get("render") or s.get("featured") or s.get("icon", ""),
+            "big": s.get("icon") or s.get("small", ""),
             "t": tags,
         }
+        alt = s.get("render") or s.get("featured")
+        if alt and alt != rec["big"]:
+            rec["alt"] = alt  # full-body promo image; may show a different style
+        if s.get("of"):
+            rec["of"], rec["sty"] = s["of"], s.get("style", "")
         if low:
             rec["low"] = low
         if m.get("caption"):
@@ -140,7 +145,8 @@ def main():
     (DATA / "suggestions.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     tagged = sum(1 for r in out if "u" not in r)
-    print(f"Built site data: {len(out)} skins, {tagged} tagged, {len(overrides)} with hand edits")
+    styles = sum(1 for r in out if "of" in r)
+    print(f"Built site data: {len(out) - styles} skins + {styles} styles, {tagged} tagged, {len(overrides)} with hand edits")
 
 
 if __name__ == "__main__":

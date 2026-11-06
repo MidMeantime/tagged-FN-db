@@ -12,7 +12,7 @@
   const STATUSES = { verified: "Hand-verified", unverified: "Not verified", untagged: "Not tagged yet", unsure: "Has unsure tags", nofeet: "Shoes not visible" };
 
   let skins = [], cats = [], tagCat = {}, results = [], shown = 0;
-  const state = { q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
+  const state = { styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
 
   const pretty = (t) => t.replace(/_/g, " ");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -25,6 +25,7 @@
     state.q = p.get("q") || "";
     state.sort = p.get("sort") || "new";
     state.any = p.get("any") === "1";
+    state.styles = p.get("ns") !== "1";
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       state[k] = new Set((p.get(key) || "").split(",").filter(Boolean));
     }
@@ -34,6 +35,7 @@
     if (state.q) p.set("q", state.q);
     if (state.sort !== "new") p.set("sort", state.sort);
     if (state.any) p.set("any", "1");
+    if (!state.styles) p.set("ns", "1");
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       if (state[k].size) p.set(key, [...state[k]].join(","));
     }
@@ -43,6 +45,7 @@
 
   // ---------- filtering ----------
   function passesBase(s) {
+    if (!state.styles && s.of) return false;
     if (state.q) {
       const words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
       if (!words.every((w) => s._hay.includes(w))) return false;
@@ -81,7 +84,9 @@
     results = base.filter(passesTags).sort(sorters[state.sort] || sorters.new);
     renderFacets(state.any ? base : results);
     renderActive();
-    $("#count").textContent = `${results.length.toLocaleString()} of ${skins.length.toLocaleString()} skins`;
+    const nStyles = results.filter((s) => s.of).length;
+    $("#count").textContent = `${results.length.toLocaleString()} results` +
+      (nStyles ? ` (${(results.length - nStyles).toLocaleString()} skins + ${nStyles.toLocaleString()} styles)` : "");
     $("#empty").hidden = results.length > 0;
     $("#grid").innerHTML = "";
     shown = 0;
@@ -153,7 +158,7 @@
       <button class="card rar" style="--rc:${RARITY_COLORS[group(s)] || "#555"}" data-id="${esc(s.id)}">
         <img loading="lazy" src="${esc(s.img)}" alt="${esc(s.n)}">
         <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}</div>
-        <div class="sub">${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
+        <div class="sub">${s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
       </button>`).join(""));
   }
 
@@ -170,6 +175,21 @@
     if (!s) return;
     $("#dImg").src = s.big || s.img;
     $("#dImg").alt = s.n;
+    let showingAlt = false;
+    const altBtn = $("#dAltToggle");
+    altBtn.hidden = !s.alt; $("#dAltNote").hidden = true;
+    altBtn.textContent = "Show full-body promo image";
+    altBtn.onclick = () => {
+      showingAlt = !showingAlt;
+      $("#dImg").src = showingAlt ? s.alt : s.big || s.img;
+      altBtn.textContent = showingAlt ? "Show this style's icon" : "Show full-body promo image";
+      $("#dAltNote").hidden = !showingAlt;
+    };
+    const fam = s.of || s.id;
+    const family = skins.filter((x) => x.id === fam || x.of === fam);
+    $("#dStyles").innerHTML = family.length > 1 ? family.map((x) => `
+      <button class="style-thumb ${x.id === s.id ? "cur" : ""}" data-style-id="${esc(x.id)}" title="${esc(x.sty || "Default style")}">
+        <img loading="lazy" src="${esc(x.img)}" alt="${esc(x.sty || "Default style")}"></button>`).join("") : "";
     $("#dName").textContent = s.n;
     $("#dMeta").textContent = [group(s), s.st && `Set: ${s.st}`, s.ch && `Chapter ${s.ch}, Season ${s.se}`, s.a && `Added ${s.a}`].filter(Boolean).join(" · ");
     $("#dDesc").textContent = s.d || "";
@@ -190,7 +210,8 @@
       link.hidden = false;
     } else link.hidden = true;
     $("#dId").textContent = s.id;
-    $("#detail").showModal();
+    if (!$("#detail").open) $("#detail").showModal();
+    $(".detail-info").scrollTop = 0;
   }
 
   // ---------- events ----------
@@ -219,6 +240,8 @@
       }
       return toggle(c.dataset.kind, c.dataset.val);
     }
+    const thumb = e.target.closest(".style-thumb");
+    if (thumb) return openDetail(thumb.dataset.styleId);
     const card = e.target.closest(".card");
     if (card) return openDetail(card.dataset.id);
   });
@@ -229,6 +252,7 @@
   $("#tagSearch").addEventListener("input", () => { clearTimeout(t); t = setTimeout(update, 120); });
   $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; update(); });
   $("#matchAny").addEventListener("change", (e) => { state.any = e.target.checked; update(); });
+  $("#showStyles").addEventListener("change", (e) => { state.styles = e.target.checked; update(); });
   $("#clearAll").addEventListener("click", () => {
     Object.assign(state, { q: "", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() });
     $("#search").value = ""; $("#tagSearch").value = ""; $("#matchAny").checked = false; update();
@@ -252,6 +276,7 @@
       $("#search").value = state.q;
       $("#sort").value = state.sort;
       $("#matchAny").checked = state.any;
+      $("#showStyles").checked = state.styles;
       update();
     })
     .catch((err) => {

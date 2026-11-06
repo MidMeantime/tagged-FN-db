@@ -46,7 +46,45 @@ def slim(item):
         "reactive": any("Reactive" in t for t in tags),
         "variant_channels": [val(v, "channel") or "" for v in variants],
         "last_seen_in_shop": (item.get("shopHistory") or [""])[-1][:10] if item.get("shopHistory") else "",
+        "_variants": variants,
     }
+
+
+# Style channels that would flood the list with near-identical entries (jersey numbers, etc.).
+SKIP_CHANNELS = {"numeric", "jerseycolor", "jerseynumber", "particle", "emote", "lobbymusic"}
+MAX_OPTIONS_PER_CHANNEL = 16
+
+
+def style_entries(base):
+    """Turn each selectable style of an outfit into its own entry, with that style's own image.
+
+    The first option of each channel is the default look, which the base entry already covers.
+    Channels with very many options are skipped (usually number/jersey pickers).
+    """
+    out, seen_images = [], {base.get("icon"), base.get("small")}
+    for v in base.get("_variants") or []:
+        channel = val(v, "channel") or ""
+        options = v.get("options") or []
+        if channel.lower() in SKIP_CHANNELS or len(options) > MAX_OPTIONS_PER_CHANNEL:
+            continue
+        for opt in options[1:]:
+            img = opt.get("image")
+            tag = opt.get("tag") or ""
+            if not img or not tag or img in seen_images:
+                continue
+            seen_images.add(img)
+            style_name = opt.get("name") or tag
+            e = {k: val_ for k, val_ in base.items() if k != "_variants"}
+            e.update({
+                "id": f"{base['id']}::{channel}::{tag}",
+                "of": base["id"],
+                "style": style_name,
+                "channel": channel,
+                "name": f"{base['name']} ({style_name})",
+                "icon": img, "small": img, "featured": "", "render": "",
+            })
+            out.append(e)
+    return out
 
 
 def harvest_shop_renders(headers, outfit_ids):
@@ -95,12 +133,20 @@ def main():
     if not outfits:
         sys.exit("No outfits returned; Fortnite-API response format may have changed.")
     renders = harvest_shop_renders(headers, {o["id"] for o in outfits})
+    entries = []
     for o in outfits:
         o["render"] = (renders.get(o["id"]) or {}).get("url", "")
-    outfits.sort(key=lambda s: s["added"], reverse=True)
+        styles = style_entries(o)
+        o.pop("_variants", None)
+        o["styles"] = len(styles)
+        entries.append(o)
+        entries += styles
+    print(f"{len(outfits)} outfits + {len(entries) - len(outfits)} alternate styles")
+    outfits = entries
+    outfits.sort(key=lambda s: s["added"], reverse=True)  # stable sort keeps styles right after their base
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(outfits, indent=1, ensure_ascii=False), encoding="utf-8")
-    print(f"Saved {len(outfits)} outfits to {OUT.relative_to(ROOT)}")
+    print(f"Saved {len(outfits)} entries to {OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

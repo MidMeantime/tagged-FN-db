@@ -28,7 +28,7 @@ site/                       the website (plain HTML/JS, no build step)
 2. **Do a test run first:** go to **Actions → Tag skins → Run workflow**, enter `5` in *test_count* and run it. The log prints the tags for 5 skins. Check that they look right before you spend more.
 3. Run it again with every box blank. This sends all untagged skins through the Batch API at half price. Batches usually finish within an hour; the job waits, commits `data/tags.json`, then redeploys the site.
 
-Rough cost: about 4k input + 600 output tokens per skin. At Haiku 5.5 batch prices that's well under $1 for 2,000 skins. The script prints an estimate before it submits.
+Rough cost: about 5k input + 600 output tokens per entry. At Haiku 5.5 batch prices that's a few dollars at most, even counting every style as its own entry. The script prints an estimate before it submits.
 
 ### Running it on your own computer instead
 
@@ -42,18 +42,21 @@ python scripts/build_site_data.py
 python -m http.server -d site 8000        # open http://localhost:8000
 ```
 
-Useful flags: `--limit 200`, `--ids CID_A,CID_B --retag`, `--image icon` (smaller images, cheaper, less detail), `--upgrade` (see below), `--no-wait` then `--collect` later.
+Useful flags: `--limit 200`, `--ids CID_A,CID_B --retag`, `--image icon` (icon only, no full-body image, cheapest), `--upgrade` (see below), `--no-wait` then `--collect` later.
 If the API rejects structured outputs, add `--mode tool`.
 
-### Which image the model sees
+### Styles and images
 
-Fortnite-API has no guaranteed full-body image, so the tagger picks the best one available for each skin:
+**Every selectable style is its own entry.** `fetch_skins.py` turns each style option on a skin (from Fortnite-API's `variants`) into its own entry, with its own image and tags. The ID is `BASEID::Channel::Tag`, and you can use it in the overrides sheet like any other ID.
+- The default look stays on the base entry.
+- Channels with lots of near-identical options are skipped (jersey numbers and similar, or more than 16 options). You can change this with `SKIP_CHANNELS` / `MAX_OPTIONS_PER_CHANNEL` in `fetch_skins.py`.
+- On the site, a checkbox hides or shows styles as separate cards. Each skin's detail view shows all of its styles as thumbnails.
 
-1. **Shop render** (`newDisplayAsset.renderImages` from the shop endpoint). These are often the most complete, but they only exist for skins that have been in the Item Shop. The daily deploy saves every one it sees into `data/renders.json`, so coverage grows over time.
-2. **`featured`**: a large promo render. Many skins have one, but not all.
-3. **`icon`**: the locker portrait. Every skin has one, but it's usually cut off at the knees or waist.
+**What the model sees:**
+1. **The icon for that exact style always comes first**, and it's the authority on colors, hair, headwear and so on.
+2. **For base skins, a full-body image is sent second when there is one.** That's the shop render (`newDisplayAsset.renderImages`, saved into `data/renders.json` each day) or else `featured`. These promo images can show a different style than the default, so the model is told to use them only for parts the icon cuts off (legs, shoes) and only when they match.
 
-The model reports whether the feet were visible and skips shoe tags when they weren't. On the site, those skins get a note in the detail view and show up under **Review status → Shoes not visible**, so you can add shoe tags by hand. Once shop renders have piled up, run **Tag skins** with **upgrade** checked. That re-tags only the skins whose feet were cut off and that now have a saved render (pennies).
+Style entries only have their own icon, which is usually cut off above the feet. The model reports whether the feet were visible and skips shoe tags when they weren't. Those entries get a note in the detail view and show up under **Review status → Shoes not visible**. Once shop renders have piled up, run **Tag skins** with **upgrade** checked to re-tag base skins that now have a full-body render.
 
 ## 3. Fix tags by hand
 

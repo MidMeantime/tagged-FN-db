@@ -31,6 +31,7 @@
       <label class="match"><input type="checkbox" id="matchAny"> Match any tag</label>
       <button id="clearAll" class="link-btn">Clear all</button>
     </div>
+    <label class="match"><input type="checkbox" id="showStyles" checked> Show alternate styles as their own cards</label>
     <p class="hint">Click a tag to require it, click again to exclude it, a third time to clear.</p>
     <input id="tagSearch" type="search" placeholder="Find a tag…" autocomplete="off">
     <details class="facet" open>
@@ -62,12 +63,17 @@
 <dialog id="detail">
   <form method="dialog"><button class="icon-btn close" aria-label="Close">✕</button></form>
   <div class="detail-body">
-    <img id="dImg" alt="">
+    <div class="detail-media">
+      <img id="dImg" alt="">
+      <button id="dAltToggle" class="link-btn" hidden>Show full-body promo image</button>
+      <p id="dAltNote" class="alt-note" hidden>This promo image may show a different style.</p>
+    </div>
     <div class="detail-info">
       <h2 id="dName"></h2>
       <p id="dMeta" class="meta"></p>
       <p id="dDesc" class="desc"></p>
       <p id="dCaption" class="caption"></p>
+      <div id="dStyles" class="styles-strip"></div>
       <div id="dTags"></div>
       <p class="detail-links"><a id="dReport" target="_blank" rel="noopener">Suggest a tag fix</a> <span id="dId" class="mono"></span></p>
     </div>

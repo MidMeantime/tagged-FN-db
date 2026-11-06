@@ -23,9 +23,9 @@ on:
         type: boolean
         default: false
       image:
-        description: "Image to send (best = shop render, else featured, else icon)"
+        description: "Images to send (best = icon + full-body render when available; icon = icon only)"
         type: choice
-        options: [best, render, featured, icon]
+        options: [best, icon]
         default: best
   # schedule:
   #   - cron: "41 9 * * 1"

@@ -66,7 +66,9 @@ Rules:
 - confidence: high = clearly visible; medium = probably right; low = guess. Prefer leaving a tag out over a low-confidence guess.
 - suggested_new_tags: up to 5 important visible things the vocabulary is missing, written as Danbooru-style tags (lowercase_with_underscores). Leave empty if nothing is missing.
 - caption: one plain sentence describing the outfit.
-- feet_visible: true only if the character's feet are in the image. If they are cut off, do NOT tag footwear (boots, sneakers, high_heels, sandals, barefoot) and only tag legwear you can actually see.
+- feet_visible: true only if the character's feet are visible in an image that shows this exact style. If they are cut off, do NOT tag footwear (boots, sneakers, high_heels, sandals, barefoot) and only tag legwear you can actually see.
+
+Images: the FIRST image always shows the exact style you are tagging, so it is the authority on colors, hair, headwear, face and materials. If there is a SECOND image, it is a larger promo render of the same outfit that may show a DIFFERENT style. Use it only for parts the first image cuts off (legs, shoes) and only when its visible parts match the first image; if it clearly shows another style, ignore it.
 
 Shading definitions (pick the closest one as the main shading tag):
 - cel_shading: hard-edged shadow bands with only 2-3 tones per color, comic or anime look, often with outlines.
@@ -97,20 +99,28 @@ def vocab_tags():
     return text, allowed
 
 
-def pick_image(skin, kind):
-    """Return (url, kind_used). 'best' prefers the shop render, then featured, then the locker icon."""
-    order = {"best": ["render", "featured", "icon"], "render": ["render", "icon"],
-             "featured": ["featured", "icon"], "icon": ["icon", "featured"]}[kind]
-    for k in order:
-        if skin.get(k):
-            return skin[k], k
-    return "", ""
+def pick_images(skin, kind):
+    """Return (list of urls, label). The icon always comes first because it shows this exact style.
+
+    'best' adds the shop render (or else the featured image) as a second image, to help with shoes.
+    Style entries only have their own icon.
+    """
+    urls, used = [], []
+    if skin.get("icon"):
+        urls.append(skin["icon"]); used.append("icon")
+    if kind == "best":
+        for k in ("render", "featured"):
+            if skin.get(k) and skin[k] not in urls:
+                urls.append(skin[k]); used.append(k)
+                break
+    return urls, "+".join(used)
 
 
 def build_params(skin, model, image_kind, mode, system_text):
-    img, _ = pick_image(skin, image_kind)
+    imgs, _ = pick_images(skin, image_kind)
+    style = f"Style being tagged: {skin['style']} (an alternate style of {skin['name'].rsplit(' (', 1)[0]})\n" if skin.get("of") else ""
     user_text = (
-        f"Outfit name: {skin['name']}\n"
+        f"Outfit name: {skin['name']}\n{style}"
         f"In-game description: {skin.get('description') or '(none)'}\n"
         f"Set: {skin.get('set') or '(none)'}\n"
         "Tag the outfit shown in the image."
@@ -121,10 +131,8 @@ def build_params(skin, model, image_kind, mode, system_text):
         "system": [{"type": "text", "text": system_text, "cache_control": {"type": "ephemeral"}}],
         "messages": [{
             "role": "user",
-            "content": [
-                {"type": "image", "source": {"type": "url", "url": img}},
-                {"type": "text", "text": user_text},
-            ],
+            "content": [{"type": "image", "source": {"type": "url", "url": u}} for u in imgs]
+                       + [{"type": "text", "text": user_text}],
         }],
     }
     if mode == "tool":
@@ -201,7 +209,7 @@ def run_test(skins, args, system_text, allowed, tags_db, errors):
             if args.mode == "structured" and ("output_config" in msg or "format" in msg):
                 print("  -> structured outputs were rejected; try again with --mode tool")
             continue
-        rec, err = parse_message(r.json(), allowed, pick_image(skin, args.image)[1])
+        rec, err = parse_message(r.json(), allowed, pick_images(skin, args.image)[1])
         if err:
             errors[skin["id"]] = err
             print(f"[{skin['name']}] error: {err}")
@@ -227,7 +235,7 @@ def submit_batch(skins, args, system_text):
     if r.status_code != 200:
         sys.exit(f"Batch submit failed: HTTP {r.status_code}: {api_error(r)}")
     batch = r.json()
-    image_map = {cid: pick_image(by_id[sid], args.image)[1] for cid, sid in id_map.items()}
+    image_map = {cid: pick_images(by_id[sid], args.image)[1] for cid, sid in id_map.items()}
     save_json(PENDING, {"batch_id": batch["id"], "id_map": id_map, "image_map": image_map,
                         "submitted": datetime.now(timezone.utc).isoformat()})
     print(f"Submitted batch {batch['id']} with {len(reqs)} skins.")
@@ -287,8 +295,8 @@ def main():
     ap.add_argument("--no-wait", action="store_true", help="submit the batch and exit")
     ap.add_argument("--collect", action="store_true", help="collect results of a submitted batch")
     ap.add_argument("--model", default=DEFAULT_MODEL)
-    ap.add_argument("--image", choices=["best", "render", "featured", "icon"], default="best",
-                    help="best = shop render if saved, else featured, else icon; icon = smallest and cheapest")
+    ap.add_argument("--image", choices=["best", "icon"], default="best",
+                    help="best = icon plus the full-body render (or featured image) when there is one; icon = icon only, cheapest")
     ap.add_argument("--upgrade", action="store_true",
                     help="re-tag skins whose feet weren't visible, if a shop render has been saved since")
     ap.add_argument("--mode", choices=["structured", "tool"], default="structured",
@@ -314,10 +322,10 @@ def main():
         skins = [s for s in skins if s["id"] in wanted]
     if args.upgrade:
         skins = [s for s in skins if s["id"] in tags_db and s.get("render")
-                 and not tags_db[s["id"]].get("feet_visible", True) and tags_db[s["id"]].get("image") != "render"]
+                 and not tags_db[s["id"]].get("feet_visible", True) and "render" not in tags_db[s["id"]].get("image", "")]
     elif not args.retag:
         skins = [s for s in skins if s["id"] not in tags_db]
-    skins = [s for s in skins if s.get("icon") or s.get("featured")]
+    skins = [s for s in skins if s.get("icon")]
     if args.test:
         skins = skins[: args.test]
     elif args.limit:
@@ -329,8 +337,8 @@ def main():
     if args.test:
         return run_test(skins, args, system_text, allowed, tags_db, errors)
 
-    # Rough estimate at Batch prices: ~4k prompt tokens (vocab + image) and ~600 output tokens per skin.
-    est = len(skins) * (4000 * 0.05 + 600 * 0.25) / 1_000_000
+    # Rough estimate at Batch prices: ~5k prompt tokens (vocab + images) and ~600 output tokens per entry.
+    est = len(skins) * (5000 * 0.05 + 600 * 0.25) / 1_000_000
     print(f"About to batch-tag {len(skins)} skins with {args.model}. Rough cost: ${est:.2f}")
     if not args.yes and sys.stdin.isatty() and input("Continue? [y/N] ").strip().lower() != "y":
         return
