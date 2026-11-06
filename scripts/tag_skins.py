@@ -16,6 +16,7 @@ Needs env ANTHROPIC_API_KEY.
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -32,6 +33,12 @@ VOCAB = ROOT / "tagging" / "vocab.json"
 
 API = "https://api.anthropic.com/v1"
 DEFAULT_MODEL = "claude-haiku-5-5"
+
+# Captions from before the model could say "icon_only" that describe an icon instead of a character.
+ICON_CAPTION = re.compile(
+    r"no character|not (?:a|the) character|without (?:a|any) character|shown alone|shows only|"
+    r"only (?:a|an|the) [a-z ]{0,30}(?:icon|swatch|symbol|shape|ball|circle|logo)|\b(?:swatch|color chip)\b|"
+    r"^th(?:e|is) image (?:is|shows) (?:a|an) (?:small |flat )?(?:icon|circular|round|plain|simple|single)", re.I)
 
 SCHEMA = {
     "type": "object",
@@ -51,8 +58,9 @@ SCHEMA = {
         "suggested_new_tags": {"type": "array", "items": {"type": "string"}},
         "caption": {"type": "string"},
         "feet_visible": {"type": "boolean"},
+        "image_kind": {"type": "string", "enum": ["character", "icon_only"]},
     },
-    "required": ["tags", "suggested_new_tags", "caption", "feet_visible"],
+    "required": ["tags", "suggested_new_tags", "caption", "feet_visible", "image_kind"],
     "additionalProperties": False,
 }
 
@@ -66,6 +74,7 @@ Rules:
 - confidence: high = clearly visible; medium = probably right; low = guess. Prefer leaving a tag out over a low-confidence guess.
 - suggested_new_tags: up to 5 important visible things the vocabulary is missing, written as Danbooru-style tags (lowercase_with_underscores). Leave empty if nothing is missing.
 - caption: one plain sentence describing the outfit.
+- image_kind: "character" if the FIRST image shows the character wearing the outfit. "icon_only" if it doesn't, e.g. a color swatch, emblem, logo, symbol, pattern chip, or a picture of an item. For icon_only, describe the icon in the caption, tag only the colors (*_theme tags) and patterns you can see in it, and set feet_visible to false.
 - feet_visible: true only if the character's feet are visible in an image that shows this exact style. If they are cut off, do NOT tag footwear (boots, sneakers, high_heels, sandals, barefoot) and only tag legwear you can actually see.
 
 Images: the FIRST image always shows the exact style you are tagging, so it is the authority on colors, hair, headwear, face and materials. If there is a SECOND image, it is a larger promo render of the same outfit that may show a DIFFERENT style. Use it only for parts the first image cuts off (legs, shoes) and only when its visible parts match the first image; if it clearly shows another style, ignore it.
@@ -179,6 +188,7 @@ def parse_message(msg, allowed, image_used=""):
         "suggested": suggestions,
         "caption": data.get("caption", ""),
         "feet_visible": bool(data.get("feet_visible", True)),
+        "icon_only": data.get("image_kind") == "icon_only",
         "image": image_used,
         "model": msg.get("model", ""),
         "tagged_at": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -348,6 +358,8 @@ def main():
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--image", choices=["best", "icon"], default="best",
                     help="best = icon plus the full-body render (or featured image) when there is one; icon = icon only, cheapest")
+    ap.add_argument("--recheck-icons", action="store_true",
+                    help="also re-tag styles tagged before icon detection whose caption describes an icon, not a character")
     ap.add_argument("--upgrade", action="store_true",
                     help="re-tag skins whose feet weren't visible, if a shop render has been saved since")
     ap.add_argument("--mode", choices=["structured", "tool"], default="structured",
@@ -375,7 +387,16 @@ def main():
         skins = [s for s in skins if s["id"] in tags_db and s.get("render")
                  and not tags_db[s["id"]].get("feet_visible", True) and "render" not in tags_db[s["id"]].get("image", "")]
     elif not args.retag:
-        skins = [s for s in skins if s["id"] not in tags_db]
+        def needs_tags(s):
+            rec = tags_db.get(s["id"])
+            if rec is None:
+                return True
+            return (args.recheck_icons and s.get("of") and "icon_only" not in rec
+                    and bool(ICON_CAPTION.search(rec.get("caption", ""))))
+        recheck = sum(1 for s in skins if s["id"] in tags_db and needs_tags(s))
+        if recheck:
+            print(f"Re-checking {recheck} styles whose old caption describes an icon.")
+        skins = [s for s in skins if needs_tags(s)]
     skins = [s for s in skins if s.get("icon")]
     shading_only = [s for s in skins if "shading_only" in s]
     if shading_only:

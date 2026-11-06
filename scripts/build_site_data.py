@@ -89,14 +89,25 @@ def main():
         if row.get("notes"):
             o["notes"] = row["notes"]
 
+    color_tags = set(vocab["categories"].get("color", {}).get("tags", []))
     by_id, suggestions = {}, Counter()
-    # Shading-only styles go last so their base skin's final tags (hand edits included) exist already.
-    for s in sorted(skins, key=lambda x: "shading_only" in x):
+    # Styles go after base skins so the base's final tags (hand edits included) exist already.
+    for s in sorted(skins, key=lambda x: "of" in x):
         m = model_tags.get(s["id"], {})
         o = overrides.get(s["id"], {"add": set(), "remove": set(), "verified": False, "notes": ""})
-        base = by_id.get(s.get("of")) if "shading_only" in s else None
-        inherit = base is not None and "u" not in base
-        if inherit:
+        base = by_id.get(s.get("of"))
+        base_ok = base is not None and "u" not in base
+        inherit = base_ok and "shading_only" in s
+        icon_only = bool(s.get("of") and m.get("icon_only"))
+        if base_ok and icon_only:
+            # The style's preview is just an icon (swatch, emblem...), not the character. Copy the base
+            # skin's tags; if the icon shows colors, use those instead of the base's colors.
+            icon_colors = [t for t, c in m.get("tags", []) if t in color_tags and c != "low"]
+            sure = ([t for t in base["t"] if t not in color_tags] + icon_colors) if icon_colors else list(base["t"])
+            low = [t for t in base.get("low", []) if t not in color_tags or not icon_colors]
+            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base, "icon_caption": m.get("caption", "")}
+            extra_tags = []
+        elif inherit:
             # Same outfit as the default look: copy its tags and swap the shading tag.
             sure = [t for t in base["t"] if t not in MAIN_SHADING] + s["shading_only"]
             low = [t for t in base.get("low", []) if t not in MAIN_SHADING]
@@ -136,6 +147,12 @@ def main():
             rec["sh"] = 1  # shading-only style
             if inherit:
                 rec["inh"] = 1  # tags copied from the base skin
+        if icon_only:
+            rec["ico"] = 1  # style preview is only an icon
+            if base_ok:
+                rec["inh"] = 1
+                if m.get("icon_caption"):
+                    rec["ic"] = m["icon_caption"]
         if not m:
             rec["u"] = 1  # not tagged yet (for shading-only styles: the base skin isn't tagged yet)
         elif not m.get("feet_visible", True):
@@ -168,8 +185,9 @@ def main():
 
     tagged = sum(1 for r in out if "u" not in r)
     styles = sum(1 for r in out if "of" in r)
-    copied = sum(1 for r in out if "inh" in r)
-    print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only styles copied their base's tags), {tagged} tagged, {len(overrides)} with hand edits")
+    copied = sum(1 for r in out if "inh" in r and "sh" in r)
+    icons = sum(1 for r in out if "ico" in r)
+    print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only and {icons} icon-only styles use their base's tags), {tagged} tagged, {len(overrides)} with hand edits")
 
 
 if __name__ == "__main__":

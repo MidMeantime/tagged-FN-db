@@ -91,3 +91,9 @@ If a batch's `data/pending_batch.json` is ever lost (for example, a run was canc
 ## Shading-only styles
 
 Some styles only change the shading ("Gradient", "Gradient Outline", "Cel Shaded", "Toon"…). `fetch_skins.py` spots them by name, and the tagger skips them. At build time they copy their base skin's final tags, including your hand edits, with the base's shading tag swapped for theirs (e.g. `gradient_shading` + `outline`). A style only counts as shading-only if every word of its name is a shading word, so "Gold Gradient" or "Gradient Hair" still get tagged on their own. You can adjust the word lists (`SHADING_WORDS`, `FILLER_WORDS`) at the top of `fetch_skins.py`; the fetch log prints every style name it treated as shading-only. You can still add or remove tags on a shading-only style in the overrides, using its own ID. On the site, these styles are marked in the detail view and listed under **Review status → Shading-only style**.
+
+## Styles shown only as an icon
+
+Some styles' preview image isn't the character at all, just a color swatch, emblem, logo or item. The tagger now reports `image_kind`. When a style's preview is `icon_only`, the site copies the base skin's tags. If the icon shows colors, those replace the base's color tags (so a red/blue swatch style gets `red_theme` and `blue_theme`). These styles are listed under **Review status → Style shown only as an icon**.
+
+Styles tagged before this change didn't report `image_kind`. To fix those, run **Tag skins** with **recheck_icons** checked. It re-tags only the styles whose old caption describes an icon (around 100, a few cents), alongside anything still untagged.

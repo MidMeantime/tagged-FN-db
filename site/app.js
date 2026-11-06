@@ -9,7 +9,7 @@
     "Star Wars Series": "#3a4fb8", "Gaming Legends Series": "#7b5cf0", "Shadow Series": "#6b6b6b",
     "Slurp Series": "#29d0e8", "Dark Series": "#d63fc4", "Frozen Series": "#9ad4f5", "Lava Series": "#d9551e",
   };
-  const STATUSES = { verified: "Hand-verified", unverified: "Not verified", untagged: "Not tagged yet", unsure: "Has unsure tags", nofeet: "Shoes not visible", copied: "Shading-only style (tags copied)" };
+  const STATUSES = { verified: "Hand-verified", unverified: "Not verified", untagged: "Not tagged yet", unsure: "Has unsure tags", nofeet: "Shoes not visible", copied: "Shading-only style (tags copied)", icononly: "Style shown only as an icon" };
 
   let skins = [], cats = [], tagCat = {}, results = [], shown = 0;
   const state = { styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
@@ -58,7 +58,8 @@
       if (s.u) st.add("untagged");
       if (s.low && s.low.length) st.add("unsure");
       if (s.nf) st.add("nofeet");
-      if (s.inh) st.add("copied");
+      if (s.inh && s.sh) st.add("copied");
+      if (s.ico) st.add("icononly");
       for (const want of state.status) if (!st.has(want)) return false;
     }
     for (const t of state.exc) if (s._tags.has(t)) return false;
@@ -201,7 +202,8 @@
     $("#dTags").innerHTML = cats.filter((c) => byCat[c.key]).map((c) => `
       <div class="tag-group"><h4>${esc(c.label)}</h4><div class="chips">
         ${byCat[c.key].map(([t, low]) => chip("tag", t, pretty(t) + (low ? " (unsure)" : ""), null, low ? "low" : "")).join("")}
-      </div></div>`).join("") + (s.inh ? `<p class="caption">This style only changes the shading, so its tags are copied from the default style with the shading tag swapped.</p>` : "")
+      </div></div>`).join("") + (s.ico ? `<p class="caption">This style's preview is only an icon${s.ic ? ` (${esc(s.ic)})` : ""}, not the character, so ${s.inh ? "its tags are copied from the default style, with colors taken from the icon" : "it gets its tags once the default style is tagged"}.</p>` : "")
+      + (s.inh && s.sh ? `<p class="caption">This style only changes the shading, so its tags are copied from the default style with the shading tag swapped.</p>` : "")
       + (s.sh && s.u ? `<p class="caption">This style only changes the shading. It gets its tags once the default style is tagged.</p>` : "")
       + (s.nf ? `<p class="caption">The feet weren't visible in the image this skin was tagged from, so shoe tags may be missing.</p>` : "")
       + (s.no ? `<p class="caption">Note: ${esc(s.no)}</p>` : "");

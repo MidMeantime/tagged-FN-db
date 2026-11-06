@@ -18,6 +18,10 @@ on:
         description: "Re-tag skins that already have tags"
         type: boolean
         default: false
+      recheck_icons:
+        description: "Also re-tag styles tagged before icon detection whose caption describes an icon (about $0.05)"
+        type: boolean
+        default: false
       upgrade:
         description: "Re-tag skins whose feet were cut off, if a shop render has been saved since"
         type: boolean
@@ -64,6 +68,7 @@ jobs:
           [ -n "${{ inputs.ids }}" ] && ARGS="$ARGS --ids ${{ inputs.ids }}"
           [ "${{ inputs.retag }}" = "true" ] && ARGS="$ARGS --retag"
           [ "${{ inputs.upgrade }}" = "true" ] && ARGS="$ARGS --upgrade"
+          [ "${{ inputs.recheck_icons }}" = "true" ] && ARGS="$ARGS --recheck-icons"
           # Batch runs submit and exit here; the wait happens in its own step below.
           [ -z "${{ inputs.test_count }}" ] && ARGS="$ARGS --no-wait"
           python scripts/tag_skins.py $ARGS
