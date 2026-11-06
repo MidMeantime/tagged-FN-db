@@ -75,8 +75,7 @@ jobs:
           [ -f data/pending_batch.json ] || exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pending_batch.json
-          git diff --cached --quiet || (git commit -m "Save pending tag batch" && git pull --rebase && git push)
+          python scripts/commit_data.py -m "Save pending tag batch" data/pending_batch.json
 
       - name: Wait for batch results
         timeout-minutes: 300
@@ -93,10 +92,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data/
-          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "Update skin tags"
-          git pull --rebase && git push
+          python scripts/commit_data.py -m "Update skin tags" data/tags.json data/tag_errors.json data/pending_batch.json data/suggestions.md data/renders.json
 
       - name: Redeploy site
         if: success()

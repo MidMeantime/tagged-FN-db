@@ -51,10 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data/
-          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "Import tags from batch ${{ inputs.batch_id }}"
-          git pull --rebase && git push
+          python scripts/commit_data.py -m "Import tags from batch ${{ inputs.batch_id }}" data/tags.json data/suggestions.md data/renders.json
       - name: Redeploy site
         run: gh workflow run deploy.yml
         env:
