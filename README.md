@@ -1,124 +1,116 @@
 # Skin Finder
 
-A free, static, searchable database of every Fortnite outfit, tagged with Danbooru-style tags (hair, colors, accessories, shading style, theme…) by Claude Haiku 5.5, with hand corrections from a CSV file or a Google Sheet.
+**[midmeantime.github.io/tagged-FN-db](https://midmeantime.github.io/tagged-FN-db/)**
 
-- **Hosting:** GitHub Pages. Images are loaded straight from Fortnite-API, so the repo only stores text.
-- **Skin list:** pulled from Fortnite-API every day by a GitHub Action, so new skins show up automatically (untagged until the next tagging run).
-- **Tags:** `data/tags.json`, written by `scripts/tag_skins.py`. It only tags skins that don't have tags yet, so re-running costs almost nothing.
-- **Hand edits:** `data/overrides.csv` and/or a published Google Sheet. These always win over the AI tags.
+Skin Finder is a searchable catalog of every Fortnite outfit and its styles, tagged by what they actually look like. Instead of searching by name, you can filter by hair, colors, accessories, headwear, art style, theme and more: "blonde, ponytail, sunglasses, cel-shaded", "anything with wings", or "every Slytherin style".
 
-```
-tagging/vocab.json          tag vocabulary (Danbooru names + a few marked extras)
-scripts/fetch_skins.py      Fortnite-API  -> data/skins.json
-scripts/tag_skins.py        Claude Haiku  -> data/tags.json
-scripts/build_site_data.py  skins + tags + overrides -> site/data/*
-site/                       the website (plain HTML/JS, no build step)
-.github/workflows/          deploy.yml (daily + on push), tag.yml (when you start it)
-```
+The tags were written by an AI model (Claude Haiku) that looked at each outfit's image, and people correct them by hand over time. Expect some mistakes. If you spot one, you can [help fix it](#contributing).
 
-Rough cost: about 5k input + 600 output tokens per entry. At Haiku 5.5 batch prices that's a few dollars at most, even counting every style as its own entry. The script prints an estimate before it submits.
+## Using the site
 
-### Running it on your own computer instead
+- **Search** matches names, in-game descriptions and tags.
+- **Filters** on the left group tags by category. Click a tag once to require it, again to exclude it, and a third time to clear it. "Match any tag" switches from all-of to any-of.
+- **Styles:** most selectable styles appear as their own cards, so a style with a different color or look can be found by its own tags. Styles that only change the team or house (like the Hogwarts houses or club kits), or whose preview is just a crest or swatch, are folded into the main skin's card and appear as previews in its popup.
+- **The popup** shows the skin's tags by category, an AI-written description, all of its styles, and a full-body promo image when one exists.
+- **Review status** filters show what has been checked by hand (✓), which tags the model was unsure about, and where the image didn't show the shoes.
+- **Links** to filtered views can be shared; the filters are kept in the URL.
+- **All tags** can be downloaded as a CSV from the link in the footer.
+
+## How it works
+
+Everything runs on free GitHub services. There's no server or database: the site is a static page, and the repo only stores text. Images load directly from [Fortnite-API](https://fortnite-api.com).
+
+1. **Daily skin list.** A GitHub Action pulls every outfit and its selectable styles from Fortnite-API, then rebuilds and redeploys the site. New skins show up the next day, untagged until the next tagging run.
+2. **Tagging.** When a maintainer runs it, `scripts/tag_skins.py` sends each untagged outfit or style image to Claude Haiku through the Batch API. The model picks tags from a fixed vocabulary (`tagging/vocab.json`), rates its confidence in each, writes a one-line description, and reports whether the feet were visible and whether the image shows the character or just an icon. Only untagged entries are sent, so each run costs a few cents to a few dollars.
+3. **Hand edits** from `data/overrides.csv` (and a maintainer's Google Sheet) are applied on top of the AI tags and always win.
+4. **Build.** `scripts/build_site_data.py` merges skins, AI tags and hand edits into the JSON files the site loads.
+
+### Tags
+
+Tags follow [Danbooru](https://danbooru.donmai.us/wiki_pages/tag_groups) naming (`blonde_hair`, `cel_shading`, `red_theme`), grouped into categories such as subject, hair, eyes, headwear, face, clothing, accessories, held items, colors, art style and theme. Danbooru has no good term for some things common in Fortnite, so about 20 extra tags were added (`gradient_shading`, `food_costume`…); these are listed under `_extras` in the vocabulary. A few tags come from Fortnite-API data rather than the model: reactive outfits, color-selectable outfits and outfits with multiple styles.
+
+### Styles
+
+Each selectable style is its own entry, with an ID like `BASEID::Channel::Tag`. A few kinds of style are handled specially, so they don't need their own tagging or clutter the grid:
+
+- **Shading-only styles** ("Gradient", "Cel Shaded", "Toon"…) are the same outfit with different shading. They copy the main skin's tags and swap in the right shading tag.
+- **Icon-only styles**, whose preview is a swatch, emblem or logo rather than the character, copy the main skin's tags and take their colors from the icon.
+- **Team, house and club styles** are marked by hand as "themes". Each style gets its team or house as a tag (`slytherin`, `hufflepuff`…), and its description is rewritten from the main skin's, changing only the team or house and its colors.
+- Style pickers with lots of near-identical options (jersey numbers and similar) are skipped.
+
+### Images
+
+Fortnite-API has no guaranteed full-body image. The model always sees the icon for the exact style it's tagging first. For main skins it also gets a full-body promo image when one exists: a shop render (collected daily into `data/renders.json`) or the featured image. Promo images can show a different style, so the model only uses them for parts the icon cuts off, like legs and shoes. When the feet aren't visible, shoe tags are left out, and the entry is listed under **Review status → Shoes not visible**.
+
+## Contributing
+
+### Report a wrong or missing tag
+
+The easiest way: open a skin on the site and click **Suggest a tag fix**. That opens a GitHub issue with the skin's ID and current tags filled in. Just write which tags to add or remove.
+
+### Fix tags directly
+
+Hand edits live in `data/overrides.csv`. Edit it on GitHub (or in your fork) and open a pull request. Only `id` is required; leave other columns blank.
+
+| column | what it does |
+|---|---|
+| `id` | Skin or style ID, shown at the bottom of each popup. An ID ending in `*` matches every skin and style starting with it (`Character_DroveRay*`). |
+| `name` | Ignored; just makes the file easier to read. |
+| `add_tags`, `remove_tags` | Tags separated by spaces or commas, in Danbooru style (`red_hair`). Tags outside the vocabulary are allowed and appear under "Other". |
+| `verified` | `yes` once every tag on the skin has been checked. Shows a ✓ on the site. |
+| `notes` | Shown in the popup. |
+| `group` | For skins whose styles are different teams or houses: `themes`, or `themes:Material` to name the style channel. `yes` folds the styles into one card without team tags; `no` keeps them as separate cards. |
+| `caption` | Replaces the AI description. |
+| `caption_replace` | Swaps words in the description, e.g. `Gryffindor => Slytherin; red => green`. |
+
+Example:
+
+| id | name | add_tags | remove_tags | verified | notes | group | caption | caption_replace |
+|---|---|---|---|---|---|---|---|---|
+| CID_028_Athena_Commando_F | Renegade Raider | aviators | sunglasses | yes | | | | |
+| Character_ToadCycle* | Hogwarts students | | | | | themes | | |
+
+Helpful files the site publishes:
+- [`data/tags.csv`](https://midmeantime.github.io/tagged-FN-db/data/tags.csv): every entry's current tags.
+- [`data/style_groups.csv`](https://midmeantime.github.io/tagged-FN-db/data/style_groups.csv): skins whose style previews are crests or logos, likely candidates for `group = themes`, with their style names.
+
+### Improve the vocabulary
+
+After each tagging run, [`data/suggestions.md`](data/suggestions.md) lists tags the model wanted to use but couldn't, most common first. To add tags, open a pull request against `tagging/vocab.json`: put each tag in the category where it fits, and list any tag that isn't a real Danbooru tag in `_extras`. New tags apply to entries the next time they're tagged.
+
+### Improve the code
+
+The site is plain HTML, CSS and JavaScript in `site/`, with no build step. The scripts are Python and need only `requests`. To work on it locally:
 
 ```bash
 pip install -r requirements.txt
-python scripts/fetch_skins.py
-export ANTHROPIC_API_KEY=sk-ant-...
-python scripts/tag_skins.py --test 5      # quick check, prints tags
-python scripts/tag_skins.py               # batch-tag everything untagged
-python scripts/build_site_data.py
-python -m http.server -d site 8000        # open http://localhost:8000
+python scripts/fetch_skins.py          # download the skin list from Fortnite-API
+python scripts/build_site_data.py      # merge it with the committed tags and hand edits
+python -m http.server -d site 8000     # open http://localhost:8000
 ```
 
-Useful flags: `--limit 200`, `--ids CID_A,CID_B --retag`, `--image icon` (icon only, no full-body image, cheapest), `--upgrade` (see below), `--no-wait` then `--collect` later.
-If the API rejects structured outputs, add `--mode tool`.
+You don't need an API key for any of that; the AI tags are already in `data/tags.json`. Tagging (`scripts/tag_skins.py`) needs an Anthropic API key, and you'll rarely need to run it yourself: `--test 5` tags five entries right away, prints the results and saves them to `data/tags.json`.
 
-### Styles and images
+```
+tagging/vocab.json          tag vocabulary
+scripts/fetch_skins.py      Fortnite-API -> data/skins.json (outfits + styles, shop renders)
+scripts/tag_skins.py        Claude Haiku -> data/tags.json
+scripts/theme_captions.py   rewrites descriptions for team/house styles
+scripts/build_site_data.py  skins + tags + overrides -> site/data/*
+scripts/commit_data.py      lets workflows commit data files without merge conflicts
+scripts/recover_batch.py    imports a tagging batch whose bookkeeping was lost
+site/                       the website
+.github/workflows/          deploy (daily + on push), tag (manual), recover (manual)
+```
 
-**Every selectable style is its own entry.** `fetch_skins.py` turns each style option on a skin (from Fortnite-API's `variants`) into its own entry, with its own image and tags. The ID is `BASEID::Channel::Tag`, and you can use it in the overrides sheet like any other ID.
-- The default look stays on the base entry.
-- Channels with lots of near-identical options are skipped (jersey numbers and similar, or more than 16 options). You can change this with `SKIP_CHANNELS` / `MAX_OPTIONS_PER_CHANNEL` in `fetch_skins.py`.
-- On the site, a checkbox hides or shows styles as separate cards. Each skin's detail view shows all of its styles as thumbnails.
+## Maintaining
 
-**What the model sees:**
-1. **The icon for that exact style always comes first**, and it's the authority on colors, hair, headwear and so on.
-2. **For base skins, a full-body image is sent second when there is one.** That's the shop render (`newDisplayAsset.renderImages`, saved into `data/renders.json` each day) or else `featured`. These promo images can show a different style than the default, so the model is told to use them only for parts the icon cuts off (legs, shoes) and only when they match.
+These need repository admin access.
 
-Style entries only have their own icon, which is usually cut off above the feet. The model reports whether the feet were visible and skips shoe tags when they weren't. Those entries get a note in the detail view and show up under **Review status → Shoes not visible**. Once shop renders have piled up, run **Tag skins** with **upgrade** checked to re-tag base skins that now have a full-body render.
+- **Secrets and variables:** `ANTHROPIC_API_KEY` (secret) for tagging. Optionally `SHEET_CSV_URL` (variable), a Google Sheet published as CSV with the same columns as `data/overrides.csv`; its rows apply after the CSV's. Also optionally `FORTNITE_API_KEY` (secret), in case Fortnite-API ever requires one.
+- **Actions → Tag skins** tags everything untagged through the half-price Batch API, then rewrites team/house descriptions and redeploys. Options: `test_count` (tag a few right away and print them), `limit`, `ids` + `retag`, `recheck_icons` (re-tag older styles whose description shows they were icons), `upgrade` (re-tag skins whose feet were cut off once a full-body render is available) and `image` (`icon` sends only the icon, which is cheaper). Every entry sent and every result is listed in the run's log and summary page.
+- **Actions → Recover tag batch** imports results from a batch whose `data/pending_batch.json` was lost (for example, a run cancelled before it saved). Give it the batch ID and the commit whose `data/tags.json` was current when the batch was submitted. It only imports if the rebuilt order checks out, so run it the same day.
 
-## 3. Fix tags by hand
+## Credits
 
-Both options use the same columns:
-
-| id | name | add_tags | remove_tags | verified | notes |
-|---|---|---|---|---|---|
-| CID_028_Athena_Commando_F | Renegade Raider | aviators | sunglasses | yes | |
-
-- Tags are separated by spaces or commas, written Danbooru style (`red_hair`, `cel_shading`).
-- `verified` = yes shows a ✓ on the site, and you can filter by review status.
-- `name` is only there to make the sheet readable.
-- You can add tags that aren't in the vocabulary; they show up under "Other".
-
-**Option A: CSV in the repo.** Edit `data/overrides.csv` right on github.com. Committing it redeploys the site.
-
-**Option B: Google Sheet** (easier for several people):
-1. Make a sheet with the header row above.
-2. **File → Share → Publish to web**, pick that sheet, format **CSV**, then publish and copy the link.
-3. In the repo: **Settings → Secrets and variables → Actions → Variables → New repository variable**, named `SHEET_CSV_URL`, with the link as its value.
-4. The site rebuilds daily with the sheet's edits. To apply them right away, run **Deploy site** by hand.
-
-Tip: the site publishes every skin's current tags at `data/tags.csv`. Import it into a second tab of the sheet as a reference while you review.
-
-Visitors can also click **Suggest a tag fix** on any skin. That opens a pre-filled GitHub issue you can copy into the sheet.
-
-## 4. Grow the vocabulary
-
-After each tagging run, `data/suggestions.md` lists tags the model wanted to use but couldn't, with the most common first. Add the good ones to a category in `tagging/vocab.json` (mark non-Danbooru tags in `_extras`), then re-tag with `--retag` (about $1 for everything).
-
-Tags in the `outfit_traits` category (reactive, color selectable, multiple styles) come from Fortnite-API data, not from the model.
-
-## Notes
-
-- Fortnite-API is a free community API. If it ever starts requiring a key, add it as a repository secret named `FORTNITE_API_KEY`; the workflows already pass it along.
-- Not affiliated with Epic Games. All Fortnite images and names belong to Epic Games.
-
-## Logs and recovering a lost batch
-
-Every batch run lists each entry it sends (number, name, ID and images) in the **Tag** step log, and lists each result in the **Wait for batch results** step log. Both lists also appear on the run's summary page.
-
-If a batch's `data/pending_batch.json` is ever lost (for example, a run was cancelled before it saved), run **Actions → Recover tag batch** with the batch ID and the commit whose `data/tags.json` was current when that batch was submitted. It rebuilds the entry order and imports the results only if the order checks out. Do this the same day if you can, before new skins change the list.
-
-## Shading-only styles
-
-Some styles only change the shading ("Gradient", "Gradient Outline", "Cel Shaded", "Toon"…). `fetch_skins.py` spots them by name, and the tagger skips them. At build time they copy their base skin's final tags, including your hand edits, with the base's shading tag swapped for theirs (e.g. `gradient_shading` + `outline`). A style only counts as shading-only if every word of its name is a shading word, so "Gold Gradient" or "Gradient Hair" still get tagged on their own. You can adjust the word lists (`SHADING_WORDS`, `FILLER_WORDS`) at the top of `fetch_skins.py`; the fetch log prints every style name it treated as shading-only. You can still add or remove tags on a shading-only style in the overrides, using its own ID. On the site, these styles are marked in the detail view and listed under **Review status → Shading-only style**.
-
-## Styles shown only as an icon
-
-Some styles' preview image isn't the character at all, just a color swatch, emblem, logo or item. The tagger now reports `image_kind`. When a style's preview is `icon_only`, the site copies the base skin's tags. If the icon shows colors, those replace the base's color tags (so a red/blue swatch style gets `red_theme` and `blue_theme`). These styles are listed under **Review status → Style shown only as an icon**.
-
-Styles tagged before this change didn't report `image_kind`. To fix those, run **Tag skins** with **recheck_icons** checked. It re-tags only the styles whose old caption describes an icon (around 100, a few cents), alongside anything still untagged.
-
-## Team / house / club styles (Hogwarts, FIFA, NASCAR…)
-
-Some skins offer the same outfit for different teams or houses, and their style previews are just crests or logos. To handle them:
-
-**Automatic:** any style whose preview is only an icon folds into its base skin's card. Its crest appears in the popup as a selectable style preview, and it's no longer a separate card in the grid. If you filter for something only a folded style matches, the base card shows with that style's crest in the corner, and opening it selects that style.
-
-**Mark the family as themes** in the overrides sheet (`group` column). Wildcards save typing:
-
-| id | group |
-|---|---|
-| `Character_DroveRay*` | themes |
-| `Character_ToadCycle*` | themes |
-
-For a "themes" skin:
-- Each house/team style gets its style name as a tag (`slytherin`, `hufflepuff`…), and the base gets its default style's name (`gryffindor`). These tags appear in a **Team / house / club** filter group.
-- Each style copies the base skin's tags, using the crest's colors in place of the base's colors.
-- After each tagging run, `scripts/theme_captions.py` rewrites the base caption for each style with a short text-only Haiku call. Only the team/house name and its colors change, so "red-and-gold striped tie" becomes "green-and-silver striped tie". This costs fractions of a cent and only reruns when the base caption changes. To run just this step, start **Tag skins** with the boxes blank. If nothing needs tagging, it skips straight to the captions.
-- Only channels with two or more crest/logo styles count as the team picker, so an unrelated "Stage 2" style isn't treated as a house. To choose channels yourself, write `themes:Material` (comma-separate several).
-
-Other `group` values: `yes` folds styles into the base card without adding name tags. `no` keeps styles as separate cards. A wildcard row's `group` only applies to the base skins it matches; to change a single style, use a row with its full ID.
-
-**Hand-fixing captions:** the optional `caption` column replaces a caption outright. `caption_replace` swaps words, like `Gryffindor => Slytherin; red => green`.
-
-The site publishes `data/style_groups.csv`, a ready-to-fill list of every skin with icon-only styles and their style names. Paste it into your sheet, fill in the `group` column for the team/house ones, and delete the reference column.
+Item data and images come from [Fortnite-API](https://fortnite-api.com). Tags and descriptions are written by Claude Haiku and corrected by contributors. Skin Finder is a fan project, not affiliated with or endorsed by Epic Games; Fortnite and all related names and images belong to Epic Games.
