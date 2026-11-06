@@ -4,9 +4,8 @@ Add the useful ones to a category in vocab.json, then re-tag with --retag.
 
 | tag | skins |
 |---|---|
-| hair_rollers | 1 |
-| long_sleeves | 1 |
-| velcro_straps | 1 |
+| durag | 1 |
+| shirtless | 1 |
 | bo_staff | 1 |
 | clima_tact | 1 |
 | haramaki | 1 |

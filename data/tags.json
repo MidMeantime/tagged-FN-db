@@ -391,14 +391,13 @@
   ]
  },
  "Character_TonicMailWeb": {
-  "caption": "A man with hair rolls and sunglasses wears a yellow t-shirt under a tan tactical vest with white straps, a white thermal sleeve, and tan cargo pants with a studded belt.",
+  "caption": "A shirtless character wearing a light grey durag and a silver chain necklace.",
   "feet_visible": false,
-  "image": "render",
+  "image": "icon+render",
   "model": "claude-haiku-5-5",
   "suggested": [
-   "hair_rollers",
-   "long_sleeves",
-   "velcro_straps"
+   "durag",
+   "shirtless"
   ],
   "tagged_at": "2026-11-06",
   "tags": [
@@ -407,87 +406,35 @@
     "high"
    ],
    [
-    "curly_hair",
+    "black_hair",
+    "medium"
+   ],
+   [
+    "bandana",
     "high"
    ],
    [
-    "short_hair",
-    "medium"
+    "chain_necklace",
+    "high"
    ],
    [
     "dark_skin",
     "high"
    ],
    [
-    "sunglasses",
-    "high"
-   ],
-   [
-    "earrings",
-    "low"
-   ],
-   [
-    "mustache",
-    "medium"
-   ],
-   [
-    "tattoo",
-    "low"
-   ],
-   [
-    "yellow_theme",
-    "high"
-   ],
-   [
-    "brown_theme",
-    "high"
-   ],
-   [
     "white_theme",
-    "medium"
+    "high"
    ],
    [
-    "black_theme",
-    "low"
+    "grey_theme",
+    "medium"
    ],
    [
     "soft_shading",
     "high"
    ],
    [
-    "shirt",
-    "high"
-   ],
-   [
-    "vest",
-    "high"
-   ],
-   [
-    "armor",
-    "medium"
-   ],
-   [
-    "belt",
-    "high"
-   ],
-   [
-    "pants",
-    "high"
-   ],
-   [
-    "cargo_pants",
-    "high"
-   ],
-   [
     "casual",
-    "high"
-   ],
-   [
-    "streetwear",
-    "medium"
-   ],
-   [
-    "hip_hop",
     "medium"
    ]
   ]
