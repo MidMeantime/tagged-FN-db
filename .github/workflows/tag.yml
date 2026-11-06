@@ -64,7 +64,25 @@ jobs:
           [ -n "${{ inputs.ids }}" ] && ARGS="$ARGS --ids ${{ inputs.ids }}"
           [ "${{ inputs.retag }}" = "true" ] && ARGS="$ARGS --retag"
           [ "${{ inputs.upgrade }}" = "true" ] && ARGS="$ARGS --upgrade"
+          # Batch runs submit and exit here; the wait happens in its own step below.
+          [ -z "${{ inputs.test_count }}" ] && ARGS="$ARGS --no-wait"
           python scripts/tag_skins.py $ARGS
+
+      - name: Save batch info right away
+        # Commits data/pending_batch.json (the map from batch results back to skin IDs) before waiting,
+        # so a run that hits GitHub's time limit can still be collected by the next run.
+        run: |
+          [ -f data/pending_batch.json ] || exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pending_batch.json
+          git diff --cached --quiet || (git commit -m "Save pending tag batch" && git pull --rebase && git push)
+
+      - name: Wait for batch results
+        timeout-minutes: 300
+        continue-on-error: true
+        run: |
+          if [ -f data/pending_batch.json ]; then python scripts/tag_skins.py --collect; fi
 
       - name: Update suggestions report
         if: always()

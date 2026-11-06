@@ -248,12 +248,17 @@ def collect(allowed, tags_db, errors, wait=True):
         print("No pending batch.")
         return
     bid = pending["batch_id"]
+    last, polls = None, 0
     while True:
         r = requests.get(f"{API}/messages/batches/{bid}", headers=headers(), timeout=60)
         r.raise_for_status()
         b = r.json()
         counts = b.get("request_counts", {})
-        print(f"Batch {bid}: {b['processing_status']} {counts}", flush=True)
+        # Only log when progress changes, plus a heartbeat every 10 minutes, so the log stays readable.
+        if counts != last or polls % 10 == 0 or b["processing_status"] == "ended":
+            done = sum(v for k, v in counts.items() if k != "processing")
+            print(f"Batch {bid}: {b['processing_status']}, {done}/{done + counts.get('processing', 0)} finished {counts}", flush=True)
+        last, polls = counts, polls + 1
         if b["processing_status"] == "ended":
             break
         if not wait:
