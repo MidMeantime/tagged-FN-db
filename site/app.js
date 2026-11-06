@@ -173,11 +173,12 @@
     shown += slice.length;
     $("#grid").insertAdjacentHTML("beforeend", slice.map(({ head: s, hit }) => {
       const viaStyle = hit !== s && hit.grp;
+      const crest = viaStyle && hit.ico;  // crest/logo previews sit in the corner; real renders replace the image
       const extra = groupedCount[s.id] ? `<span class="badge" title="Selectable styles shown in the popup">+${groupedCount[s.id]} styles</span>` : "";
       return `
       <button class="card rar" style="--rc:${RARITY_COLORS[group(s)] || "#555"}" data-id="${esc(hit.id)}">
-        <img loading="lazy" src="${esc(s.img)}" alt="${esc(s.n)}">
-        ${viaStyle ? `<img class="card-crest" loading="lazy" src="${esc(hit.img)}" alt="${esc(hit.sty)}" title="${esc(hit.sty)} style">` : ""}
+        <img loading="lazy" src="${esc(viaStyle && !crest ? hit.img : s.img)}" alt="${esc(s.n)}">
+        ${crest ? `<img class="card-crest" loading="lazy" src="${esc(hit.img)}" alt="${esc(hit.sty)}" title="${esc(hit.sty)} style">` : ""}
         <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}${extra}</div>
         <div class="sub">${viaStyle ? `<span class="style-badge">${esc(hit.sty)}</span> · ` : s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
       </button>`;
@@ -195,8 +196,9 @@
   function openDetail(id) {
     const s = byId[id];
     if (!s) return;
-    // A grouped style's own image is just a crest/logo, so show the base outfit with the crest on top.
-    const look = s.grp && byId[s.of] ? byId[s.of] : s;
+    // An icon-only style's image is just a crest/logo, so show the base outfit with the crest on top.
+    // Other folded styles (e.g. shading-only) have real renders of their own.
+    const look = s.grp && s.ico && byId[s.of] ? byId[s.of] : s;
     $("#dImg").src = look.big || look.img;
     $("#dImg").alt = s.n;
     $("#dCrest").hidden = look === s;

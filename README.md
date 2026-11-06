@@ -22,7 +22,7 @@ Everything runs on free GitHub services. There's no server or database: the site
 
 1. **Daily skin list.** A GitHub Action pulls every outfit and its selectable styles from Fortnite-API, then rebuilds and redeploys the site. New skins show up the next day, untagged until the next tagging run.
 2. **Tagging.** When a maintainer runs it, `scripts/tag_skins.py` sends each untagged outfit or style image to Claude Haiku through the Batch API. The model picks tags from a fixed vocabulary (`tagging/vocab.json`), rates its confidence in each, writes a one-line description, and reports whether the feet were visible and whether the image shows the character or just an icon. Only untagged entries are sent, so each run costs a few cents to a few dollars.
-3. **Hand edits** from `data/overrides.csv` (and a maintainer's Google Sheet) are applied on top of the AI tags and always win.
+3. **Hand edits** from `data/overrides.csv` are applied on top of the AI tags and always win.
 4. **Build.** `scripts/build_site_data.py` merges skins, AI tags and hand edits into the JSON files the site loads.
 
 ### Tags
@@ -107,7 +107,7 @@ site/                       the website
 
 These need repository admin access.
 
-- **Secrets and variables:** `ANTHROPIC_API_KEY` (secret) for tagging. Optionally `SHEET_CSV_URL` (variable), a Google Sheet published as CSV with the same columns as `data/overrides.csv`; its rows apply after the CSV's. Also optionally `FORTNITE_API_KEY` (secret), in case Fortnite-API ever requires one.
+- **Secrets and variables:** `ANTHROPIC_API_KEY` (secret) for tagging. Optionally `FORTNITE_API_KEY` (secret), in case Fortnite-API ever requires one.
 - **Actions → Tag skins** tags everything untagged through the half-price Batch API, then rewrites team/house descriptions and redeploys. Options: `test_count` (tag a few right away and print them), `limit`, `ids` + `retag`, `recheck_icons` (re-tag older styles whose description shows they were icons), `upgrade` (re-tag skins whose feet were cut off once a full-body render is available) and `image` (`icon` sends only the icon, which is cheaper). Every entry sent and every result is listed in the run's log and summary page.
 - **Actions → Recover tag batch** imports results from a batch whose `data/pending_batch.json` was lost (for example, a run cancelled before it saved). Give it the batch ID and the commit whose `data/tags.json` was current when the batch was submitted. It only imports if the rebuilt order checks out, so run it the same day.
 

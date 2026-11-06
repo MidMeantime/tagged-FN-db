@@ -189,7 +189,9 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         group_mode = o["group"] or base_group
         themed = bool(s.get("of")) and (o["group"] == "themes" or (
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
-        grouped = bool(s.get("of")) and (themed or group_mode == "yes" or (icon_only and group_mode != "no"))
+        # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
+        grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
+                                         ((icon_only or "shading_only" in s) and group_mode != "no"))
         name_tags = []
         default_name = ""
         if s.get("of"):
