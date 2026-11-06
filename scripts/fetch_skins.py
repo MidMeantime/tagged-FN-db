@@ -8,6 +8,7 @@ Optional env: FORTNITE_API_KEY (only needed if Fortnite-API starts requiring one
 """
 import json
 import os
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -54,6 +55,43 @@ def slim(item):
 SKIP_CHANNELS = {"numeric", "jerseycolor", "jerseynumber", "particle", "emote", "lobbymusic"}
 MAX_OPTIONS_PER_CHANNEL = 16
 
+# Styles whose name only describes shading ("Gradient", "Gradient Outline", "Cel Shaded"...) are the
+# same outfit as the default look. They aren't sent to the tagger; the site copies the base skin's
+# tags and swaps in these shading tags. A style counts as shading-only when EVERY word of its name
+# is in SHADING_WORDS or FILLER_WORDS, so "Gold Gradient" or "Shadow" are still tagged on their own.
+SHADING_WORDS = {
+    "gradient": ["gradient_shading"],
+    "gradients": ["gradient_shading"],
+    "outline": ["outline"],
+    "outlined": ["outline"],
+    "outlines": ["outline"],
+    "cel": ["cel_shading"],
+    "cel-shaded": ["cel_shading"],
+    "celshaded": ["cel_shading"],
+    "toon": ["toon_(style)", "cel_shading"],
+    "toon-shaded": ["toon_(style)", "cel_shading"],
+    "inked": ["outline"],
+    "flat": ["flat_color"],
+    "shaded": [],
+    "shading": [],
+}
+FILLER_WORDS = {"style", "styled", "version", "look", "mode", "with", "and", "&", "+", "-", "/"}
+
+
+def shading_only_tags(style_name):
+    """Return the shading tags for a shading-only style name, or None if the name means more than that."""
+    words = re.findall(r"[a-z]+(?:-[a-z]+)?|[&+/]", (style_name or "").lower())
+    if not words or not any(w in SHADING_WORDS and SHADING_WORDS[w] for w in words):
+        return None
+    if any(w not in SHADING_WORDS and w not in FILLER_WORDS for w in words):
+        return None
+    tags = []
+    for w in words:
+        for t in SHADING_WORDS.get(w, []):
+            if t not in tags:
+                tags.append(t)
+    return tags
+
 
 def style_entries(base):
     """Turn each selectable style of an outfit into its own entry, with that style's own image.
@@ -75,6 +113,9 @@ def style_entries(base):
             seen_images.add(img)
             style_name = opt.get("name") or tag
             e = {k: val_ for k, val_ in base.items() if k != "_variants"}
+            shading = shading_only_tags(style_name)
+            if shading is not None:
+                e["shading_only"] = shading
             e.update({
                 "id": f"{base['id']}::{channel}::{tag}",
                 "of": base["id"],
@@ -141,7 +182,12 @@ def main():
         o["styles"] = len(styles)
         entries.append(o)
         entries += styles
-    print(f"{len(outfits)} outfits + {len(entries) - len(outfits)} alternate styles")
+    shading = [e for e in entries if "shading_only" in e]
+    print(f"{len(outfits)} outfits + {len(entries) - len(outfits)} alternate styles "
+          f"({len(shading)} are shading-only and will copy their base skin's tags)")
+    names = sorted({e["style"] for e in shading})
+    if names:
+        print("  Shading-only style names: " + ", ".join(names[:60]) + (" …" if len(names) > 60 else ""))
     outfits = entries
     outfits.sort(key=lambda s: s["added"], reverse=True)  # stable sort keeps styles right after their base
     OUT.parent.mkdir(exist_ok=True)

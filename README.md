@@ -87,3 +87,7 @@ Tags in the `outfit_traits` category (reactive, color selectable, multiple style
 Every batch run lists each entry it sends (number, name, ID and images) in the **Tag** step log, and lists each result in the **Wait for batch results** step log. Both lists also appear on the run's summary page.
 
 If a batch's `data/pending_batch.json` is ever lost (for example, a run was cancelled before it saved), run **Actions → Recover tag batch** with the batch ID and the commit whose `data/tags.json` was current when that batch was submitted. It rebuilds the entry order and imports the results only if the order checks out. Do this the same day if you can, before new skins change the list.
+
+## Shading-only styles
+
+Some styles only change the shading ("Gradient", "Gradient Outline", "Cel Shaded", "Toon"…). `fetch_skins.py` spots them by name, and the tagger skips them. At build time they copy their base skin's final tags, including your hand edits, with the base's shading tag swapped for theirs (e.g. `gradient_shading` + `outline`). A style only counts as shading-only if every word of its name is a shading word, so "Gold Gradient" or "Gradient Hair" still get tagged on their own. You can adjust the word lists (`SHADING_WORDS`, `FILLER_WORDS`) at the top of `fetch_skins.py`; the fetch log prints every style name it treated as shading-only. You can still add or remove tags on a shading-only style in the overrides, using its own ID. On the site, these styles are marked in the detail view and listed under **Review status → Shading-only style**.

@@ -377,6 +377,10 @@ def main():
     elif not args.retag:
         skins = [s for s in skins if s["id"] not in tags_db]
     skins = [s for s in skins if s.get("icon")]
+    shading_only = [s for s in skins if "shading_only" in s]
+    if shading_only:
+        print(f"Skipping {len(shading_only)} shading-only styles (they copy their base skin's tags).")
+        skins = [s for s in skins if "shading_only" not in s]
     if args.test:
         skins = skins[: args.test]
     elif args.limit:

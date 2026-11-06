@@ -54,6 +54,10 @@ def read_override_rows():
     return [{(k or "").strip().lower(): (v or "").strip() for k, v in row.items()} for row in rows if row]
 
 
+# The "main shading" tags a shading-only style swaps out for its own.
+MAIN_SHADING = {"cel_shading", "toon_(style)", "flat_color", "gradient_shading", "soft_shading", "realistic_3d"}
+
+
 def derived_tags(skin):
     tags = []
     channels = skin.get("variant_channels") or []
@@ -85,21 +89,29 @@ def main():
         if row.get("notes"):
             o["notes"] = row["notes"]
 
-    out, suggestions = [], Counter()
-    csv_buf = io.StringIO()
-    w = csv.writer(csv_buf)
-    w.writerow(["id", "name", "tags", "low_confidence_tags", "verified"])
-    for s in skins:
+    by_id, suggestions = {}, Counter()
+    # Shading-only styles go last so their base skin's final tags (hand edits included) exist already.
+    for s in sorted(skins, key=lambda x: "shading_only" in x):
         m = model_tags.get(s["id"], {})
         o = overrides.get(s["id"], {"add": set(), "remove": set(), "verified": False, "notes": ""})
-        sure = [t for t, c in m.get("tags", []) if c != "low"]
-        low = [t for t, c in m.get("tags", []) if c == "low"]
+        base = by_id.get(s.get("of")) if "shading_only" in s else None
+        inherit = base is not None and "u" not in base
+        if inherit:
+            # Same outfit as the default look: copy its tags and swap the shading tag.
+            sure = [t for t in base["t"] if t not in MAIN_SHADING] + s["shading_only"]
+            low = [t for t in base.get("low", []) if t not in MAIN_SHADING]
+            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base}
+            extra_tags = []
+        else:
+            sure = [t for t, c in m.get("tags", []) if c != "low"]
+            low = [t for t, c in m.get("tags", []) if c == "low"]
+            extra_tags = derived_tags(s)
+            suggestions.update(m.get("suggested", []))
         tags = []
-        for t in sure + derived_tags(s) + sorted(o["add"]):
+        for t in sure + extra_tags + sorted(o["add"]):
             if t not in tags and t not in o["remove"]:
                 tags.append(t)
         low = [t for t in low if t not in tags and t not in o["remove"]]
-        suggestions.update(m.get("suggested", []))
         rec = {
             "id": s["id"], "n": s["name"], "d": s.get("description", ""), "r": s.get("rarity", ""),
             "sr": s.get("series", ""), "st": s.get("set", ""), "ch": s.get("chapter", ""), "se": s.get("season", ""),
@@ -120,12 +132,22 @@ def main():
             rec["v"] = 1
         if o["notes"]:
             rec["no"] = o["notes"]
+        if "shading_only" in s:
+            rec["sh"] = 1  # shading-only style
+            if inherit:
+                rec["inh"] = 1  # tags copied from the base skin
         if not m:
-            rec["u"] = 1  # not tagged by the model yet
+            rec["u"] = 1  # not tagged yet (for shading-only styles: the base skin isn't tagged yet)
         elif not m.get("feet_visible", True):
             rec["nf"] = 1  # feet were cut off in the tagged image, so shoes may be missing
-        out.append(rec)
-        w.writerow([s["id"], s["name"], " ".join(tags), " ".join(low), "yes" if o["verified"] else ""])
+        by_id[s["id"]] = rec
+
+    out = [by_id[s["id"]] for s in skins]
+    csv_buf = io.StringIO()
+    w = csv.writer(csv_buf)
+    w.writerow(["id", "name", "tags", "low_confidence_tags", "verified"])
+    for r in out:
+        w.writerow([r["id"], r["n"], " ".join(r["t"]), " ".join(r.get("low", [])), "yes" if r.get("v") else ""])
 
     cats = [{"key": k, "label": c["label"], "tags": c["tags"]} for k, c in vocab["categories"].items()]
     known = {t for c in cats for t in c["tags"]}
@@ -146,7 +168,8 @@ def main():
 
     tagged = sum(1 for r in out if "u" not in r)
     styles = sum(1 for r in out if "of" in r)
-    print(f"Built site data: {len(out) - styles} skins + {styles} styles, {tagged} tagged, {len(overrides)} with hand edits")
+    copied = sum(1 for r in out if "inh" in r)
+    print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only styles copied their base's tags), {tagged} tagged, {len(overrides)} with hand edits")
 
 
 if __name__ == "__main__":
