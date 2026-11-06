@@ -1,0 +1,5 @@
+# Regenerated on every run from Fortnite-API / the build script
+data/skins.json
+site/data/
+__pycache__/
+.venv/

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skin Finder — searchable Fortnite outfit tags</title>
+<meta name="description" content="Filter every Fortnite outfit by hair, colors, accessories, shading style and theme.">
+<link rel="stylesheet" href="style.css">
+</head>
+<!-- Set data-repo="owner/repo" if the site isn't hosted at owner.github.io/repo -->
+<body data-repo="">
+<header class="top">
+  <div class="brand">
+    <button class="icon-btn filters-toggle" id="filtersToggle" aria-label="Show filters">☰</button>
+    <h1>Skin Finder</h1>
+  </div>
+  <input id="search" type="search" placeholder="Search names, descriptions, tags…" autocomplete="off">
+  <select id="sort" aria-label="Sort">
+    <option value="new">Newest</option>
+    <option value="old">Oldest</option>
+    <option value="az">Name A–Z</option>
+    <option value="za">Name Z–A</option>
+    <option value="rarity">Rarity</option>
+    <option value="tags">Most tags</option>
+  </select>
+</header>
+
+<div class="layout">
+  <aside id="filters" class="filters">
+    <div class="filter-head">
+      <label class="match"><input type="checkbox" id="matchAny"> Match any tag</label>
+      <button id="clearAll" class="link-btn">Clear all</button>
+    </div>
+    <p class="hint">Click a tag to require it, click again to exclude it, a third time to clear.</p>
+    <input id="tagSearch" type="search" placeholder="Find a tag…" autocomplete="off">
+    <details class="facet" open>
+      <summary>Rarity / series</summary>
+      <div id="rarityList" class="chips"></div>
+    </details>
+    <details class="facet">
+      <summary>Chapter</summary>
+      <div id="chapterList" class="chips"></div>
+    </details>
+    <div id="tagFacets"></div>
+    <details class="facet">
+      <summary>Review status</summary>
+      <div class="chips" id="statusList"></div>
+    </details>
+  </aside>
+
+  <main>
+    <div class="status-bar">
+      <span id="count"></span>
+      <div id="active" class="chips active"></div>
+    </div>
+    <div id="grid" class="grid"></div>
+    <div id="sentinel"></div>
+    <p id="empty" class="empty" hidden>No skins match these filters.</p>
+  </main>
+</div>
+
+<dialog id="detail">
+  <form method="dialog"><button class="icon-btn close" aria-label="Close">✕</button></form>
+  <div class="detail-body">
+    <img id="dImg" alt="">
+    <div class="detail-info">
+      <h2 id="dName"></h2>
+      <p id="dMeta" class="meta"></p>
+      <p id="dDesc" class="desc"></p>
+      <p id="dCaption" class="caption"></p>
+      <div id="dTags"></div>
+      <p class="detail-links"><a id="dReport" target="_blank" rel="noopener">Suggest a tag fix</a> <span id="dId" class="mono"></span></p>
+    </div>
+  </div>
+</dialog>
+
+<footer>
+  Images and item data from <a href="https://fortnite-api.com" rel="noopener">Fortnite-API</a>. Tags were made by AI and corrected by hand, so some may be wrong.
+  Not affiliated with or endorsed by Epic Games. <a href="data/tags.csv">Download all tags (CSV)</a>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
