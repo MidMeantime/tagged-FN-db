@@ -2,4 +2,5 @@ id,name,add_tags,remove_tags,verified,notes,group,caption,caption_replace
 EXAMPLE_SKIN_ID,Example tag fix,"aviators, ponytail",sunglasses,yes,"Example row: matches no skin, so it changes nothing. Copy it, replace the ID with a real one from the bottom of a skin's popup, and leave columns you don't need blank.",,,
 Character_DroveRay*,Hogwarts students (boys),,,,,themes,,
 Character_ToadCycle*,Hogwarts students (girls),,,,,themes,,
-Character_BlockStack_Ziggy*,Wrixel,"gamer, ",,yes,,"customization, yes",,A mix-and-match customizable stacked androgynous block character.
+Character_BlockStack_Ziggy*,Wrixel,"gamer, ",,yes,,themes::Outfit,,A mix-and-match customizable stacked androgynous block character.
+Character_BlockStack*,Wrixel,"gamer, ",,yes,,themes::Outfit,,A mix-and-match customizable stacked androgynous block character.
