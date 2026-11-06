@@ -2,7 +2,7 @@
 
 A free, static, searchable database of every Fortnite outfit, tagged with Danbooru-style tags (hair, colors, accessories, shading style, theme…) by Claude Haiku 5.5, with hand corrections from a CSV file or a Google Sheet.
 
-- **Hosting:** GitHub Pages (free). Images are loaded straight from Fortnite-API, so the repo only stores text.
+- **Hosting:** GitHub Pages. Images are loaded straight from Fortnite-API, so the repo only stores text.
 - **Skin list:** pulled from Fortnite-API every day by a GitHub Action, so new skins show up automatically (untagged until the next tagging run).
 - **Tags:** `data/tags.json`, written by `scripts/tag_skins.py`. It only tags skins that don't have tags yet, so re-running costs almost nothing.
 - **Hand edits:** `data/overrides.csv` and/or a published Google Sheet. These always win over the AI tags.
@@ -15,18 +15,6 @@ scripts/build_site_data.py  skins + tags + overrides -> site/data/*
 site/                       the website (plain HTML/JS, no build step)
 .github/workflows/          deploy.yml (daily + on push), tag.yml (when you start it)
 ```
-
-## 1. Put it on GitHub Pages
-
-1. Create a **public** repo on GitHub (public repos get free Pages and free Actions minutes) and push this folder to `main`.
-2. In the repo, go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
-3. Go to **Actions → Deploy site → Run workflow**. A couple of minutes later the site is live at `https://<you>.github.io/<repo>/`, listing every skin, untagged for now.
-
-## 2. Tag the skins with Haiku
-
-1. Get an API key at <https://platform.claude.com> and add it under **Settings → Secrets and variables → Actions → New repository secret**, named `ANTHROPIC_API_KEY`.
-2. **Do a test run first:** go to **Actions → Tag skins → Run workflow**, enter `5` in *test_count* and run it. The log prints the tags for 5 skins. Check that they look right before you spend more.
-3. Run it again with every box blank. This sends all untagged skins through the Batch API at half price. Batches usually finish within an hour; the job waits, commits `data/tags.json`, then redeploys the site.
 
 Rough cost: about 5k input + 600 output tokens per entry. At Haiku 5.5 batch prices that's a few dollars at most, even counting every style as its own entry. The script prints an estimate before it submits.
 
