@@ -3,10 +3,21 @@
 Hand edits come from data/overrides.csv and, if SHEET_CSV_URL is set, from a Google Sheet
 published as CSV (File > Share > Publish to web > CSV). Both use the same columns:
 
-  id, name, add_tags, remove_tags, verified, notes
+  id, name, add_tags, remove_tags, verified, notes, group, caption, caption_replace
 
-Tags in add_tags/remove_tags are separated by spaces or commas. Rows from the Google Sheet
-are applied after the CSV in the repo, so the sheet wins.
+Only id is required. Tags in add_tags/remove_tags are separated by spaces or commas. An id ending
+in * matches every skin and style whose id starts with the rest (Character_DroveRay* covers
+Character_DroveRay, Character_DroveRay_B... and all their styles). Rows from the Google Sheet are
+applied after the CSV in the repo, so the sheet wins.
+
+group (on a base skin, or on one style):
+  themes - each style is the same outfit for a different team/house/club. Styles fold into the
+           base card, each style gets its style name as a tag (slytherin), and the base gets its
+           default style's name (gryffindor). Captions swap the default name for the style's name.
+  yes    - fold styles into the base card without adding name tags.
+  no     - keep styles as separate cards.
+  (blank) - styles whose preview is only an icon fold in; others stay separate.
+caption: replaces the AI caption. caption_replace: "Gryffindor => Slytherin; red => green".
 
 Writes:
   site/data/skins.json   - what the site loads
@@ -54,6 +65,59 @@ def read_override_rows():
     return [{(k or "").strip().lower(): (v or "").strip() for k, v in row.items()} for row in rows if row]
 
 
+def norm_tag(name):
+    return re.sub(r"[^a-z0-9]+", "_", (name or "").lower()).strip("_")
+
+
+def parse_replacements(text):
+    pairs = []
+    for part in (text or "").split(";"):
+        if "=>" in part:
+            a, b = part.split("=>", 1)
+            if a.strip():
+                pairs.append((a.strip(), b.strip()))
+    return pairs
+
+
+def swap_words(text, old, new):
+    """Replace whole-word `old` with `new`, keeping it case-insensitive. Returns (text, changed)."""
+    if not text or not old:
+        return text, False
+    pat = re.compile(r"\b" + re.escape(old) + r"\b", re.I)
+    return (pat.sub(new, text), True) if pat.search(text) else (text, False)
+
+
+def load_overrides(all_ids):
+    """Read override rows (repo CSV, then Google Sheet) and expand wildcard ids."""
+    overrides = {}
+    for row in read_override_rows():
+        rid = row.get("id")
+        if not rid:
+            continue
+        targets = [i for i in all_ids if i.startswith(rid[:-1])] if rid.endswith("*") else [rid]
+        for sid in targets:
+            o = overrides.setdefault(sid, {"add": set(), "remove": set(), "verified": False, "notes": "",
+                                           "group": "", "caption": "", "replace": []})
+            o["add"] |= set(split_tags(row.get("add_tags")))
+            o["remove"] |= set(split_tags(row.get("remove_tags")))
+            o["add"] -= o["remove"]
+            if row.get("verified", "").lower() in ("y", "yes", "true", "1", "x", "✓"):
+                o["verified"] = True
+            for k in ("notes", "caption"):
+                if row.get(k):
+                    o[k] = row[k]
+            # A wildcard row's group setting is meant for the base skins it matches, not each style.
+            g = "" if (rid.endswith("*") and "::" in sid) else row.get("group", "").strip()
+            mode, _, chans = g.partition(":")
+            mode = mode.strip().lower()
+            if mode in ("themes", "theme", "yes", "no", "y", "n", "true", "false"):
+                o["group"] = {"theme": "themes", "y": "yes", "true": "yes", "n": "no", "false": "no"}.get(mode, mode)
+                if o["group"] == "themes" and chans.strip():
+                    o["theme_channels"] = {c.strip().lower() for c in chans.split(",") if c.strip()}
+            o["replace"] += parse_replacements(row.get("caption_replace"))
+    return overrides
+
+
 # The "main shading" tags a shading-only style swaps out for its own.
 MAIN_SHADING = {"cel_shading", "toon_(style)", "flat_color", "gradient_shading", "soft_shading", "realistic_3d"}
 
@@ -70,48 +134,92 @@ def derived_tags(skin):
     return tags
 
 
-def main():
-    skins = load_json(DATA / "skins.json", [])
-    model_tags = load_json(DATA / "tags.json", {})
-    vocab = load_json(ROOT / "tagging" / "vocab.json", {"categories": {}})
+THEME_CAPTIONS = DATA / "theme_captions.json"
 
-    overrides = {}
-    for row in read_override_rows():
-        sid = row.get("id")
-        if not sid:
-            continue
-        o = overrides.setdefault(sid, {"add": set(), "remove": set(), "verified": False, "notes": ""})
-        o["add"] |= set(split_tags(row.get("add_tags")))
-        o["remove"] |= set(split_tags(row.get("remove_tags")))
-        o["add"] -= o["remove"]
-        if row.get("verified", "").lower() in ("y", "yes", "true", "1", "x", "✓"):
-            o["verified"] = True
-        if row.get("notes"):
-            o["notes"] = row["notes"]
+
+def build_records(skins, model_tags, vocab, theme_caps=None):
+    """Merge everything into one record per entry. Returns (by_id, suggestions, variant_tags, overrides).
+
+    Records for themed styles whose caption still needs rewriting carry a temporary "_req" key
+    (used by scripts/theme_captions.py, stripped before writing the site data).
+    """
+    theme_caps = theme_caps or {}
+    skin_by_id = {s["id"]: s for s in skins}
+    overrides = load_overrides([s["id"] for s in skins])
+    EMPTY = {"add": set(), "remove": set(), "verified": False, "notes": "", "group": "", "caption": "", "replace": []}
+    style_channels, icon_channels = {}, {}
+    for s in skins:
+        if s.get("of"):
+            style_channels.setdefault(s["of"], []).append(s.get("channel", ""))
+            if model_tags.get(s["id"], {}).get("icon_only"):
+                per = icon_channels.setdefault(s["of"], Counter())
+                per[s.get("channel", "")] += 1
+
+    def themed_channels(base_id):
+        """Channels a "themes" base treats as team/house picks: the ones you named; else channels with
+        at least two crest/logo (icon-only) styles, since a team picker always offers several; else
+        the channel with the most icon-only styles; else all of them."""
+        o = overrides.get(base_id, EMPTY)
+        named = o.get("theme_channels")
+        chans = style_channels.get(base_id, [])
+        if named:
+            return {c for c in chans if c.lower() in named}
+        per = icon_channels.get(base_id) or Counter()
+        multi = {c for c, n in per.items() if n >= 2}
+        if multi:
+            return multi
+        if per:
+            return {per.most_common(1)[0][0]}
+        return set(chans)
+
+    variant_tags = set()  # team/house/club name tags made from style names
 
     color_tags = set(vocab["categories"].get("color", {}).get("tags", []))
     by_id, suggestions = {}, Counter()
     # Styles go after base skins so the base's final tags (hand edits included) exist already.
     for s in sorted(skins, key=lambda x: "of" in x):
         m = model_tags.get(s["id"], {})
-        o = overrides.get(s["id"], {"add": set(), "remove": set(), "verified": False, "notes": ""})
+        o = overrides.get(s["id"], EMPTY)
         base = by_id.get(s.get("of"))
         base_ok = base is not None and "u" not in base
         inherit = base_ok and "shading_only" in s
         icon_only = bool(s.get("of") and m.get("icon_only"))
+        # Grouping: the style's own override wins, then the base skin's, then the default.
+        base_group = overrides.get(s.get("of"), EMPTY)["group"] if s.get("of") else ""
+        group_mode = o["group"] or base_group
+        themed = bool(s.get("of")) and (o["group"] == "themes" or (
+            base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
+        grouped = bool(s.get("of")) and (themed or group_mode == "yes" or (icon_only and group_mode != "no"))
+        name_tags = []
+        default_name = ""
+        if s.get("of"):
+            default_name = (skin_by_id.get(s["of"], {}).get("default_styles") or {}).get(s.get("channel", ""), "")
+            if themed and norm_tag(s.get("style")):
+                name_tags = [norm_tag(s["style"])]
+        elif o["group"] == "themes":
+            ds = s.get("default_styles") or {}
+            name_tags = [norm_tag(ds.get(c)) for c in sorted(themed_channels(s["id"])) if norm_tag(ds.get(c))]
+        variant_tags.update(name_tags)
+        copied = False  # caption copied from the base skin
+        req = None      # caption rewrite request for scripts/theme_captions.py
         if base_ok and icon_only:
             # The style's preview is just an icon (swatch, emblem...), not the character. Copy the base
             # skin's tags; if the icon shows colors, use those instead of the base's colors.
             icon_colors = [t for t, c in m.get("tags", []) if t in color_tags and c != "low"]
             sure = ([t for t in base["t"] if t not in color_tags] + icon_colors) if icon_colors else list(base["t"])
             low = [t for t in base.get("low", []) if t not in color_tags or not icon_colors]
+            # A themed style is the base outfit with another team/house: drop the base's name tags.
+            base_names = set(base.get("vt", []))
+            sure = [t for t in sure if t not in base_names]
             m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base, "icon_caption": m.get("caption", "")}
+            copied = True
             extra_tags = []
         elif inherit:
             # Same outfit as the default look: copy its tags and swap the shading tag.
             sure = [t for t in base["t"] if t not in MAIN_SHADING] + s["shading_only"]
             low = [t for t in base.get("low", []) if t not in MAIN_SHADING]
             m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base}
+            copied = True
             extra_tags = []
         else:
             sure = [t for t, c in m.get("tags", []) if c != "low"]
@@ -119,7 +227,7 @@ def main():
             extra_tags = derived_tags(s)
             suggestions.update(m.get("suggested", []))
         tags = []
-        for t in sure + extra_tags + sorted(o["add"]):
+        for t in sure + extra_tags + name_tags + sorted(o["add"]):
             if t not in tags and t not in o["remove"]:
                 tags.append(t)
         low = [t for t in low if t not in tags and t not in o["remove"]]
@@ -137,8 +245,32 @@ def main():
             rec["of"], rec["sty"] = s["of"], s.get("style", "")
         if low:
             rec["low"] = low
-        if m.get("caption"):
-            rec["c"] = m["caption"]
+        caption = m.get("caption", "")
+        if caption and copied:
+            base_caption = caption
+            rewritten = theme_caps.get(s["id"], {})
+            if themed and rewritten.get("src") == base_caption and rewritten.get("caption"):
+                caption = rewritten["caption"]  # rewritten by scripts/theme_captions.py
+            else:
+                # Swap the default style's name for this style's name; for themes, say which one it is.
+                caption, swapped = swap_words(caption, default_name, s.get("style", ""))
+                if themed and not swapped and s.get("style"):
+                    caption = f"{caption.rstrip('.')} ({s['style']} style)."
+                if themed and s.get("style"):
+                    req = {"src": base_caption, "style": s["style"], "default": default_name,
+                           "icon": m.get("icon_caption", ""), "name": s["name"]}
+        for old, new in o["replace"]:
+            caption = swap_words(caption, old, new)[0]
+        if o["caption"]:
+            caption = o["caption"]
+        if caption:
+            rec["c"] = caption
+        if name_tags:
+            rec["vt"] = name_tags  # team/house name tags
+        if grouped:
+            rec["grp"] = 1  # folds into the base skin's card on the site
+        if req:
+            rec["_req"] = req
         if o["verified"]:
             rec["v"] = 1
         if o["notes"]:
@@ -159,6 +291,19 @@ def main():
             rec["nf"] = 1  # feet were cut off in the tagged image, so shoes may be missing
         by_id[s["id"]] = rec
 
+    return by_id, suggestions, variant_tags, overrides
+
+
+def main():
+    skins = load_json(DATA / "skins.json", [])
+    model_tags = load_json(DATA / "tags.json", {})
+    vocab = load_json(ROOT / "tagging" / "vocab.json", {"categories": {}})
+    by_id, suggestions, variant_tags, overrides = build_records(skins, model_tags, vocab, load_json(THEME_CAPTIONS, {}))
+    EMPTY = {"group": ""}  # stand-in for skins without override rows
+    pending_captions = 0
+    for r in by_id.values():
+        if r.pop("_req", None):
+            pending_captions += 1
     out = [by_id[s["id"]] for s in skins]
     csv_buf = io.StringIO()
     w = csv.writer(csv_buf)
@@ -167,6 +312,8 @@ def main():
         w.writerow([r["id"], r["n"], " ".join(r["t"]), " ".join(r.get("low", [])), "yes" if r.get("v") else ""])
 
     cats = [{"key": k, "label": c["label"], "tags": c["tags"]} for k, c in vocab["categories"].items()]
+    if variant_tags:
+        cats.insert(0, {"key": "variant", "label": "Team / house / club", "tags": sorted(variant_tags)})
     known = {t for c in cats for t in c["tags"]}
     extra = sorted({t for r in out for t in r["t"]} - known)
     if extra:
@@ -176,6 +323,22 @@ def main():
     (SITE_DATA / "skins.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     (SITE_DATA / "vocab.json").write_text(json.dumps({"categories": cats, "extras": vocab.get("_extras", [])}, separators=(",", ":")), encoding="utf-8")
     (SITE_DATA / "tags.csv").write_text(csv_buf.getvalue(), encoding="utf-8")
+
+    # Overrides template: every base skin with icon-only styles, to mark as themes/yes/no in the sheet.
+    tpl = io.StringIO()
+    tw = csv.writer(tpl)
+    tw.writerow(["id", "name", "add_tags", "remove_tags", "verified", "notes", "group", "caption", "caption_replace", "styles (reference only)"])
+    fams = {}
+    for r in out:
+        if r.get("ico"):
+            fams.setdefault(r["of"], []).append(r.get("sty", ""))
+    for bid, names in fams.items():
+        b = by_id.get(bid)
+        if b:
+            ob = overrides.get(bid, EMPTY)
+            g = ob["group"] + (":" + ",".join(sorted(ob["theme_channels"])) if ob.get("theme_channels") else "")
+            tw.writerow([bid, b["n"], "", "", "", "", g, "", "", "; ".join(names)])
+    (SITE_DATA / "style_groups.csv").write_text(tpl.getvalue(), encoding="utf-8")
 
     lines = ["# Tags the model suggested that aren't in tagging/vocab.json", "",
              "Add the useful ones to a category in vocab.json, then re-tag with --retag.", "",
@@ -187,7 +350,10 @@ def main():
     styles = sum(1 for r in out if "of" in r)
     copied = sum(1 for r in out if "inh" in r and "sh" in r)
     icons = sum(1 for r in out if "ico" in r)
-    print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only and {icons} icon-only styles use their base's tags), {tagged} tagged, {len(overrides)} with hand edits")
+    grouped = sum(1 for r in out if "grp" in r)
+    if pending_captions:
+        print(f"{pending_captions} themed styles still use a simple name swap; run scripts/theme_captions.py to rewrite them.")
+    print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only and {icons} icon-only styles use their base's tags; {grouped} styles fold into their base card), {tagged} tagged, {len(overrides)} with hand edits")
 
 
 if __name__ == "__main__":

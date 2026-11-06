@@ -178,6 +178,9 @@ def main():
     for o in outfits:
         o["render"] = (renders.get(o["id"]) or {}).get("url", "")
         styles = style_entries(o)
+        # Name of each channel's default option (e.g. "Gryffindor"), used to swap names in captions.
+        o["default_styles"] = {val(v, "channel") or "": ((v.get("options") or [{}])[0].get("name") or "")
+                               for v in o.get("_variants") or [] if v.get("options")}
         o.pop("_variants", None)
         o["styles"] = len(styles)
         entries.append(o)

@@ -97,3 +97,28 @@ Some styles only change the shading ("Gradient", "Gradient Outline", "Cel Shaded
 Some styles' preview image isn't the character at all, just a color swatch, emblem, logo or item. The tagger now reports `image_kind`. When a style's preview is `icon_only`, the site copies the base skin's tags. If the icon shows colors, those replace the base's color tags (so a red/blue swatch style gets `red_theme` and `blue_theme`). These styles are listed under **Review status → Style shown only as an icon**.
 
 Styles tagged before this change didn't report `image_kind`. To fix those, run **Tag skins** with **recheck_icons** checked. It re-tags only the styles whose old caption describes an icon (around 100, a few cents), alongside anything still untagged.
+
+## Team / house / club styles (Hogwarts, FIFA, NASCAR…)
+
+Some skins offer the same outfit for different teams or houses, and their style previews are just crests or logos. To handle them:
+
+**Automatic:** any style whose preview is only an icon folds into its base skin's card. Its crest appears in the popup as a selectable style preview, and it's no longer a separate card in the grid. If you filter for something only a folded style matches, the base card shows with that style's crest in the corner, and opening it selects that style.
+
+**Mark the family as themes** in the overrides sheet (`group` column). Wildcards save typing:
+
+| id | group |
+|---|---|
+| `Character_DroveRay*` | themes |
+| `Character_ToadCycle*` | themes |
+
+For a "themes" skin:
+- Each house/team style gets its style name as a tag (`slytherin`, `hufflepuff`…), and the base gets its default style's name (`gryffindor`). These tags appear in a **Team / house / club** filter group.
+- Each style copies the base skin's tags, using the crest's colors in place of the base's colors.
+- After each tagging run, `scripts/theme_captions.py` rewrites the base caption for each style with a short text-only Haiku call. Only the team/house name and its colors change, so "red-and-gold striped tie" becomes "green-and-silver striped tie". This costs fractions of a cent and only reruns when the base caption changes. To run just this step, start **Tag skins** with the boxes blank. If nothing needs tagging, it skips straight to the captions.
+- Only channels with two or more crest/logo styles count as the team picker, so an unrelated "Stage 2" style isn't treated as a house. To choose channels yourself, write `themes:Material` (comma-separate several).
+
+Other `group` values: `yes` folds styles into the base card without adding name tags. `no` keeps styles as separate cards. A wildcard row's `group` only applies to the base skins it matches; to change a single style, use a row with its full ID.
+
+**Hand-fixing captions:** the optional `caption` column replaces a caption outright. `caption_replace` swaps words, like `Gryffindor => Slytherin; red => green`.
+
+The site publishes `data/style_groups.csv`, a ready-to-fill list of every skin with icon-only styles and their style names. Paste it into your sheet, fill in the `group` column for the team/house ones, and delete the reference column.

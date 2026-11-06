@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-JSON_DICT_FILES = {"data/tags.json", "data/renders.json", "data/tag_errors.json"}
+JSON_DICT_FILES = {"data/tags.json", "data/renders.json", "data/tag_errors.json", "data/theme_captions.json"}
 MISSING = object()
 
 

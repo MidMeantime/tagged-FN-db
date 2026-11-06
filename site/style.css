@@ -99,3 +99,12 @@ footer { color: var(--dim); font-size: 12px; padding: 16px; border-top: 1px soli
   .detail-media img { max-height: 45vh; }
   .grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
 }
+
+.card { position: relative; }
+.card-crest { position: absolute; top: 6px; right: 6px; width: 34px !important; height: 34px; aspect-ratio: auto !important;
+  object-fit: contain !important; background: rgba(15,17,23,.75); border-radius: 8px; padding: 2px; }
+.detail-img-wrap { position: relative; width: 100%; }
+.detail-crest { position: absolute; top: 10px; left: 10px; width: 64px !important; aspect-ratio: auto !important;
+  background: rgba(15,17,23,.8); border-radius: 10px; padding: 4px; }
+
+.detail-crest[hidden], .card-crest[hidden] { display: none; }

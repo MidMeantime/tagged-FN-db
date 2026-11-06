@@ -48,6 +48,7 @@ jobs:
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       FORTNITE_API_KEY: ${{ secrets.FORTNITE_API_KEY }}
+      SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -88,6 +89,11 @@ jobs:
         run: |
           if [ -f data/pending_batch.json ]; then python scripts/tag_skins.py --collect; fi
 
+      - name: Rewrite captions for themed styles (text only, fractions of a cent)
+        if: always()
+        continue-on-error: true
+        run: python scripts/theme_captions.py
+
       - name: Update suggestions report
         if: always()
         run: python scripts/build_site_data.py
@@ -97,7 +103,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python scripts/commit_data.py -m "Update skin tags" data/tags.json data/tag_errors.json data/pending_batch.json data/suggestions.md data/renders.json
+          python scripts/commit_data.py -m "Update skin tags" data/tags.json data/tag_errors.json data/pending_batch.json data/suggestions.md data/renders.json data/theme_captions.json
 
       - name: Redeploy site
         if: success()

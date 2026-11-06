@@ -11,7 +11,7 @@
   };
   const STATUSES = { verified: "Hand-verified", unverified: "Not verified", untagged: "Not tagged yet", unsure: "Has unsure tags", nofeet: "Shoes not visible", copied: "Shading-only style (tags copied)", icononly: "Style shown only as an icon" };
 
-  let skins = [], cats = [], tagCat = {}, results = [], shown = 0;
+  let skins = [], cats = [], tagCat = {}, results = [], shown = 0, byId = {}, groupedCount = {};
   const state = { styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
 
   const pretty = (t) => t.replace(/_/g, " ");
@@ -45,7 +45,7 @@
 
   // ---------- filtering ----------
   function passesBase(s) {
-    if (!state.styles && s.of) return false;
+    if (!state.styles && s.of && !s.grp) return false;  // grouped styles live inside their base card
     if (state.q) {
       const words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
       if (!words.every((w) => s._hay.includes(w))) return false;
@@ -81,12 +81,27 @@
     tags: (a, b) => b.t.length - a.t.length,
   };
 
+  // Fold grouped styles (team/house crests etc.) into one card per base skin.
+  // Each card remembers which entry matched, so opening it selects that style.
+  function fold(list) {
+    const cards = new Map();
+    for (const s of list) {
+      const key = s.grp ? s.of : s.id;
+      let c = cards.get(key);
+      if (!c) { c = { head: byId[key] || s, hit: s, tags: new Set() }; cards.set(key, c); }
+      if (!s.grp) c.hit = s;
+      for (const t of s._tags) c.tags.add(t);
+    }
+    return [...cards.values()];
+  }
+
   function update() {
     const base = skins.filter(passesBase);
-    results = base.filter(passesTags).sort(sorters[state.sort] || sorters.new);
-    renderFacets(state.any ? base : results);
+    const sorter = sorters[state.sort] || sorters.new;
+    results = fold(base.filter(passesTags)).sort((a, b) => sorter(a.head, b.head));
+    renderFacets(state.any ? fold(base) : results);
     renderActive();
-    const nStyles = results.filter((s) => s.of).length;
+    const nStyles = results.filter((c) => c.head.of).length;
     $("#count").textContent = `${results.length.toLocaleString()} results` +
       (nStyles ? ` (${(results.length - nStyles).toLocaleString()} skins + ${nStyles.toLocaleString()} styles)` : "");
     $("#empty").hidden = results.length > 0;
@@ -108,12 +123,12 @@
 
   function renderFacets(pool) {
     const tagCounts = {}, grpCounts = {}, chCounts = {};
-    for (const s of pool) {
-      for (const t of s._tags) tagCounts[t] = (tagCounts[t] || 0) + 1;
+    for (const c of pool) {
+      for (const t of c.tags) tagCounts[t] = (tagCounts[t] || 0) + 1;
     }
     // Group/chapter counts ignore their own filter so you can pick several.
     for (const s of skins) {
-      if (!passesTags(s)) continue;
+      if (s.grp || !passesTags(s)) continue;
       const g = group(s), c = chapterOf(s);
       const savedG = state.grp, savedC = state.ch;
       state.grp = new Set(); if (passesBase(s)) grpCounts[g] = (grpCounts[g] || 0) + 1; state.grp = savedG;
@@ -156,12 +171,17 @@
   function renderMore() {
     const slice = results.slice(shown, shown + PAGE);
     shown += slice.length;
-    $("#grid").insertAdjacentHTML("beforeend", slice.map((s) => `
-      <button class="card rar" style="--rc:${RARITY_COLORS[group(s)] || "#555"}" data-id="${esc(s.id)}">
+    $("#grid").insertAdjacentHTML("beforeend", slice.map(({ head: s, hit }) => {
+      const viaStyle = hit !== s && hit.grp;
+      const extra = groupedCount[s.id] ? `<span class="badge" title="Selectable styles shown in the popup">+${groupedCount[s.id]} styles</span>` : "";
+      return `
+      <button class="card rar" style="--rc:${RARITY_COLORS[group(s)] || "#555"}" data-id="${esc(hit.id)}">
         <img loading="lazy" src="${esc(s.img)}" alt="${esc(s.n)}">
-        <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}</div>
-        <div class="sub">${s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
-      </button>`).join(""));
+        ${viaStyle ? `<img class="card-crest" loading="lazy" src="${esc(hit.img)}" alt="${esc(hit.sty)}" title="${esc(hit.sty)} style">` : ""}
+        <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}${extra}</div>
+        <div class="sub">${viaStyle ? `<span class="style-badge">${esc(hit.sty)}</span> · ` : s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
+      </button>`;
+    }).join(""));
   }
 
   function repoSlug() {
@@ -173,17 +193,21 @@
   }
 
   function openDetail(id) {
-    const s = skins.find((x) => x.id === id);
+    const s = byId[id];
     if (!s) return;
-    $("#dImg").src = s.big || s.img;
+    // A grouped style's own image is just a crest/logo, so show the base outfit with the crest on top.
+    const look = s.grp && byId[s.of] ? byId[s.of] : s;
+    $("#dImg").src = look.big || look.img;
     $("#dImg").alt = s.n;
+    $("#dCrest").hidden = look === s;
+    if (look !== s) { $("#dCrest").src = s.img; $("#dCrest").alt = s.sty || ""; }
     let showingAlt = false;
     const altBtn = $("#dAltToggle");
-    altBtn.hidden = !s.alt; $("#dAltNote").hidden = true;
+    altBtn.hidden = !look.alt; $("#dAltNote").hidden = true;
     altBtn.textContent = "Show full-body promo image";
     altBtn.onclick = () => {
       showingAlt = !showingAlt;
-      $("#dImg").src = showingAlt ? s.alt : s.big || s.img;
+      $("#dImg").src = showingAlt ? look.alt : look.big || look.img;
       altBtn.textContent = showingAlt ? "Show this style's icon" : "Show full-body promo image";
       $("#dAltNote").hidden = !showingAlt;
     };
@@ -193,16 +217,16 @@
       <button class="style-thumb ${x.id === s.id ? "cur" : ""}" data-style-id="${esc(x.id)}" title="${esc(x.sty || "Default style")}">
         <img loading="lazy" src="${esc(x.img)}" alt="${esc(x.sty || "Default style")}"></button>`).join("") : "";
     $("#dName").textContent = s.n;
-    $("#dMeta").textContent = [group(s), s.st && `Set: ${s.st}`, s.ch && `Chapter ${s.ch}, Season ${s.se}`, s.a && `Added ${s.a}`].filter(Boolean).join(" · ");
+    $("#dMeta").textContent = [s.grp && s.sty && `Style: ${s.sty}`, group(s), s.st && `Set: ${s.st}`, s.ch && `Chapter ${s.ch}, Season ${s.se}`, s.a && `Added ${s.a}`].filter(Boolean).join(" · ");
     $("#dDesc").textContent = s.d || "";
-    $("#dCaption").textContent = s.c ? (s.inh ? "AI caption (default style): " : "AI caption: ") + s.c : s.u && !s.sh ? "Not tagged yet." : "";
+    $("#dCaption").textContent = s.c ? (s.inh && !s.vt ? "AI caption (default style): " : "AI caption: ") + s.c : s.u && !s.sh ? "Not tagged yet." : "";
     const byCat = {};
     for (const t of s.t) (byCat[tagCat[t] || "other"] ||= []).push([t, ""]);
     for (const t of s.low || []) (byCat[tagCat[t] || "other"] ||= []).push([t, "low"]);
     $("#dTags").innerHTML = cats.filter((c) => byCat[c.key]).map((c) => `
       <div class="tag-group"><h4>${esc(c.label)}</h4><div class="chips">
         ${byCat[c.key].map(([t, low]) => chip("tag", t, pretty(t) + (low ? " (unsure)" : ""), null, low ? "low" : "")).join("")}
-      </div></div>`).join("") + (s.ico ? `<p class="caption">This style's preview is only an icon${s.ic ? ` (${esc(s.ic)})` : ""}, not the character, so ${s.inh ? "its tags are copied from the default style, with colors taken from the icon" : "it gets its tags once the default style is tagged"}.</p>` : "")
+      </div></div>`).join("") + (s.ico && !s.grp ? `<p class="caption">This style's preview is only an icon${s.ic ? ` (${esc(s.ic)})` : ""}, not the character, so ${s.inh ? "its tags are copied from the default style, with colors taken from the icon" : "it gets its tags once the default style is tagged"}.</p>` : "")
       + (s.inh && s.sh ? `<p class="caption">This style only changes the shading, so its tags are copied from the default style with the shading tag swapped.</p>` : "")
       + (s.sh && s.u ? `<p class="caption">This style only changes the shading. It gets its tags once the default style is tagged.</p>` : "")
       + (s.nf ? `<p class="caption">The feet weren't visible in the image this skin was tagged from, so shoe tags may be missing.</p>` : "")
@@ -271,11 +295,12 @@
   Promise.all([fetch("data/skins.json").then((r) => r.json()), fetch("data/vocab.json").then((r) => r.json())])
     .then(([data, vocab]) => {
       cats = vocab.categories;
+      for (const s of data) { byId[s.id] = s; if (s.grp) groupedCount[s.of] = (groupedCount[s.of] || 0) + 1; }
       for (const c of cats) for (const tag of c.tags) tagCat[tag] = c.key;
-      skins = data.map((s) => ({
+      skins = data.map((s) => (byId[s.id] = {
         ...s,
         _tags: new Set(s.t),
-        _hay: [s.n, s.d, s.st, s.sr, s.r, s.c, ...s.t.map(pretty)].join(" ").toLowerCase(),
+        _hay: [s.n, s.d, s.st, s.sr, s.r, s.c, s.sty, ...s.t.map(pretty)].join(" ").toLowerCase(),
       }));
       readHash();
       $("#search").value = state.q;
