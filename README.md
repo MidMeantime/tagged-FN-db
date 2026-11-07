@@ -36,7 +36,7 @@ Each selectable style is its own entry, with an ID like `BASEID::Channel::Tag`. 
 - **Shading-only styles** ("Gradient", "Cel Shaded", "Toon"…) are the same outfit with different shading. They copy the main skin's tags, swap in the right shading tag, and fold into the main skin's card.
 - **Icon-only styles**, whose preview is a swatch, emblem or logo rather than the character, copy the main skin's tags and take their colors from the icon.
 - **Reactive styles**, like the Five Nights at Freddy's skins' damage states, are detected when a style channel's name or styles mention "reactive" or "damage". They fold into the main skin's card but keep their own tags, since they look different, and the whole outfit is tagged `reactive_outfit`.
-- **On/off styles** that switch lighting or effects fold into the main skin's card and copy its tags. Accessory toggles ("Glasses: Off", "Hat: On") keep their own cards and tags, since they change how the outfit looks.
+- **On/off styles** that switch lighting or effects fold into the main skin's card and copy its tags. Accessory toggles ("Glasses: Off", "Hat Off", "No Mask", "Hood Up") keep their own cards, since they change how the outfit looks, but copy the main skin's tags with only that accessory's tags added or removed. The accessories it knows (hats, helmets, hoods, masks, bandanas, glasses, goggles, capes, scarves and more) and the tags each one covers are listed in `ACCESSORIES` in `scripts/fetch_skins.py`. Toggles for anything else are tagged from their own image.
 - **Team, house and club styles** are marked by hand as "themes". Each style gets its team or house as a tag (`slytherin`, `hufflepuff`…), and its description is rewritten from the main skin's, changing only the team or house and its colors.
 - Style pickers with lots of near-identical options (jersey numbers and similar) are skipped.
 
@@ -161,6 +161,7 @@ These need repository admin access.
 
 - **Secrets and variables:** `ANTHROPIC_API_KEY` (secret) for tagging. Optionally `FORTNITE_API_KEY` (secret), in case Fortnite-API ever requires one.
 - **Actions → Tag skins** tags everything untagged through the half-price Batch API, then rewrites team/house descriptions and redeploys. Options: `test_count` (tag a few right away and print them), `limit`, `ids` + `retag`, `recheck_icons` (re-tag older styles whose description shows they were icons), `upgrade` (re-tag skins whose feet were cut off once a full-body render is available) and `image` (`icon` sends only the icon, which is cheaper). Every entry sent and every result is listed in the run's log and summary page.
+- **Tag fix issues:** `python scripts/issue_to_override.py 42` reads issue #42, compares its edited tag list with the skin's current tags on the live site, and adds or updates that skin's row in `data/overrides.csv`. Add `--dry-run` to preview, or `--verified` to mark the skin checked. It warns about tags that aren't in the vocabulary (usually typos). Commit with "Fixes #42" to close the issue.
 - **Actions → Recover tag batch** imports results from a batch whose `data/pending_batch.json` was lost (for example, a run cancelled before it saved). Give it the batch ID and the commit whose `data/tags.json` was current when the batch was submitted. It only imports if the rebuilt order checks out, so run it the same day.
 
 ## Credits

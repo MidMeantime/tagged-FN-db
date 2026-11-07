@@ -130,6 +130,69 @@ def toggle_kind(style_name, channel, ctype):
     return None
 
 
+# Accessories that styles switch on or off. Each entry: the words that name it, the tag to add when
+# it's switched on, and every tag that belongs to it (removed when it's switched off). A style whose
+# name or channel type names one of these ("Glasses" -> "Off", "Hat Off", "No Mask", "Unmasked")
+# copies its main skin's tags with just that accessory's tags changed, instead of being tagged.
+ACCESSORIES = {
+    "hat": (["hat", "hats", "cap", "beanie", "fedora", "beret", "headwear", "top hat", "cowboy hat"], "hat",
+            ["hat", "baseball_cap", "beanie", "cowboy_hat", "top_hat", "witch_hat", "pirate_hat", "santa_hat",
+             "beret", "bucket_hat", "fedora"]),
+    "helmet": (["helmet", "helm"], "helmet",
+               ["helmet", "motorcycle_helmet", "space_helmet", "military_helmet", "visor"]),
+    "hood": (["hood", "hoodie hood"], "hood_up", ["hood", "hood_up", "hood_down", "animal_hood"]),
+    "mask": (["mask", "masks", "masked", "facemask", "face mask", "balaclava"], "mask",
+             ["mask", "face_mask", "mouth_mask", "gas_mask", "skull_mask", "oni_mask", "masquerade_mask",
+              "full_face_covered", "balaclava"]),
+    "bandana": (["bandana", "bandanna", "neckerchief"], "bandana", ["bandana"]),
+    "glasses": (["glasses", "sunglasses", "shades", "eyewear", "specs", "spectacles", "aviators", "monocle"],
+                "glasses", ["glasses", "sunglasses", "aviators", "monocle"]),
+    "goggles": (["goggles"], "goggles", ["goggles", "goggles_on_head"]),
+    "visor": (["visor"], "visor", ["visor"]),
+    "cape": (["cape", "capes", "cloak", "mantle"], "cape", ["cape", "cloak"]),
+    "scarf": (["scarf", "scarves"], "scarf", ["scarf"]),
+    "headphones": (["headphones", "headset", "earphones"], "headphones", ["headphones", "headset"]),
+    "crown": (["crown", "tiara"], "crown", ["crown", "tiara"]),
+    "backpack": (["backpack", "bag", "pack"], "backpack", ["backpack", "bag", "satchel"]),
+    "wings": (["wings"], "wings", ["wings", "angel_wings", "demon_wings", "bat_wings", "mechanical_wings"]),
+    "jacket": (["jacket", "coat", "hoodie", "vest"], "jacket",
+               ["jacket", "hooded_jacket", "leather_jacket", "bomber_jacket", "hoodie", "coat", "trench_coat", "vest"]),
+    "gloves": (["gloves", "gauntlets"], "gloves", ["gloves", "fingerless_gloves", "gauntlets"]),
+    "earrings": (["earrings", "earring"], "earrings", ["earrings"]),
+    "headband": (["headband"], "headband", ["headband"]),
+    "necklace": (["necklace", "chain", "chains"], "necklace", ["necklace", "chain_necklace", "chain"]),
+}
+_ACC_WORDS = sorted(((w, k) for k, (words, _, _) in ACCESSORIES.items() for w in words), key=lambda x: -len(x[0]))
+_ACC_ALT = "|".join(re.escape(w) for w, _ in _ACC_WORDS)
+ON_WORDS, OFF_WORDS = ("on", "up", "equipped", "with"), ("off", "down", "removed", "none", "no", "without")
+ACC_NAME = [
+    re.compile(rf"(?P<state>no|without)\s+(?:the\s+)?(?P<acc>{_ACC_ALT})", re.I),                 # "No Hat"
+    re.compile(rf"(?P<acc>{_ACC_ALT})\s*[:\-]?\s*(?P<state>on|off|up|down|removed|equipped)", re.I),  # "Hat Off"
+    re.compile(rf"(?P<state>on|off|up|down|with)\s*[:\-]?\s*(?:the\s+)?(?P<acc>{_ACC_ALT})", re.I),  # "With Cape"
+    re.compile(rf"(?P<acc>{_ACC_ALT})(?P<state>less)", re.I),                                       # "Hatless"
+]
+
+
+def accessory_toggle(style_name, ctype):
+    """Return (accessory key, "on"|"off") if this style just puts an accessory on or takes it off."""
+    name = (style_name or "").strip()
+    words = {w: k for w, k in _ACC_WORDS}
+    m = ONOFF_NAME.fullmatch(name)
+    if m and ctype.lower() in words:                       # channel type "Glasses", style "Off"
+        return words[ctype.lower()], m.group(1).lower()
+    if re.fullmatch(r"un-?masked", name, re.I):
+        return "mask", "off"
+    if re.fullmatch(r"masked", name, re.I):
+        return "mask", "on"
+    for pat in ACC_NAME:
+        m = pat.fullmatch(name)
+        if m:
+            state = m.group("state").lower()
+            state = "off" if state in OFF_WORDS or state == "less" else "on"
+            return words[m.group("acc").lower()], state
+    return None
+
+
 def shading_only_tags(style_name):
     """Return the shading tags for a shading-only style name, or None if the name means more than that."""
     name = (style_name or "").lower()
@@ -182,6 +245,11 @@ def style_entries(base):
             if shading is not None:
                 e["shading_only"] = shading
             toggle = toggle_kind(style_name, channel, ctype)
+            acc = accessory_toggle(style_name, ctype)
+            if acc and not (toggle and toggle[0] == "effect"):
+                _, add_tag, all_tags = ACCESSORIES[acc[0]]
+                # Copies the base's tags, adding or removing just this accessory's tags.
+                e["accessory"] = {"key": acc[0], "state": acc[1], "tag": add_tag, "tags": all_tags}
             if toggle and toggle[0] == "effect":
                 e["effect_toggle"] = toggle[1]       # same outfit with lights/effects on or off
             elif toggle and toggle[0] == "part":
@@ -291,6 +359,15 @@ def main():
         fams = Counter((e["of"], e["channel"]) for e in reactive)
         print(f"Reactive styles: {len(reactive)} in {len(fams)} channels (fold into their base card, keep their own tags). "
               "Style names: " + ", ".join(sorted({e["style"] for e in reactive})[:40]))
+    accs = [e for e in entries if e.get("accessory")]
+    if accs:
+        per = Counter(e["accessory"]["key"] for e in accs)
+        print(f"Accessory styles: {len(accs)} (copy their base's tags, adding/removing just the accessory): "
+              + ", ".join(f"{k} {n}" for k, n in per.most_common()))
+    unknown = Counter(e.get("channel_type", "") for e in entries if e.get("part_toggle") and not e.get("accessory"))
+    if unknown:
+        print("  On/off styles with an accessory type not in ACCESSORIES (tagged on their own): "
+              + ", ".join(f"{t} {n}" for t, n in unknown.most_common(25)))
     names = sorted({e["style"] for e in shading})
     if names:
         print("  Shading-only style names: " + ", ".join(names[:60]) + (" …" if len(names) > 60 else ""))

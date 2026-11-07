@@ -229,7 +229,7 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         base_ok = base is not None and "u" not in base
         # group = no on a style's own row means "this is a real, different look": no copying from the base.
         own_look = bool(s.get("of")) and o["group"] == "no"
-        copy_kind = ("shading_only" in s or "effect_toggle" in s) and not own_look
+        copy_kind = ("shading_only" in s or "effect_toggle" in s or "accessory" in s) and not own_look
         inherit = base_ok and copy_kind
         # group = icon on a style's own row: its image is only a preview (swatch, emblem, blank...).
         icon_only = bool(s.get("of") and (m.get("icon_only") or o["group"] == "icon"))
@@ -242,10 +242,11 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or blank or copy_kind or s.get("reactive_state"))
-                                          and group_mode != "no"))
+                                         ((icon_only or blank or (copy_kind and "accessory" not in s)
+                                           or s.get("reactive_state")) and group_mode != "no"))
         # Accessory toggles ("Glasses: Off", "Cape: Off") really look different, so they keep their own
-        # cards. To fold a family's broken ones, use a row like Character_X*::Parts with group = icon.
+        # cards (while copying the base's tags). To fold a family's broken ones, use a row like
+        # Character_X*::Parts with group = icon.
         name_tags = []
         default_name = ""
         if s.get("of"):
@@ -271,6 +272,22 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             sure = [t for t in sure if t not in base_names]
             m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base,
                  "icon_caption": "" if blank else m.get("caption", "")}
+            copied = True
+            extra_tags = []
+        elif inherit and "accessory" in s:
+            # Same outfit with one accessory put on or taken off: copy the base's tags and change only that.
+            acc = s["accessory"]
+            group = set(acc["tags"])
+            if acc["key"] == "hood":
+                # Hoods don't disappear, they go up or down.
+                keep = [t for t in base["t"] if t not in ("hood_up", "hood_down")]
+                sure = keep + (["hood_up"] if acc["state"] == "on" else ["hood_down"])
+            elif acc["state"] == "off":
+                sure = [t for t in base["t"] if t not in group]
+            else:
+                sure = list(base["t"]) + ([] if group & set(base["t"]) else [acc["tag"]])
+            low = [t for t in base.get("low", []) if t not in group]
+            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base}
             copied = True
             extra_tags = []
         elif inherit and "effect_toggle" in s:
@@ -345,6 +362,10 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             rec["v"] = 1
         if o["notes"]:
             rec["no"] = o["notes"]
+        if "accessory" in s and not own_look:
+            rec["acc"] = f'{s["accessory"]["key"]} {s["accessory"]["state"]}'  # e.g. "glasses off"
+            if inherit:
+                rec["inh"] = 1
         if "effect_toggle" in s and not own_look:
             rec["fx"] = s["effect_toggle"]  # lights/effects on or off
             if inherit:

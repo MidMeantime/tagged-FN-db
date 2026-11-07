@@ -230,6 +230,7 @@
       <div class="tag-group"><h4>${esc(c.label)}</h4><div class="chips">
         ${byCat[c.key].map(([t, low]) => chip("tag", t, pretty(t) + (low ? " (unsure)" : ""), null, low ? "low" : "")).join("")}
       </div></div>`).join("") + (s.ico && !s.grp ? `<p class="caption">This style's preview is only an icon${s.ic ? ` (${esc(s.ic)})` : ""}, not the character, so ${s.inh ? "its tags are copied from the default style, with colors taken from the icon" : "it gets its tags once the default style is tagged"}.</p>` : "")
+      + (s.acc ? `<p class="caption">This style is the default look with the ${esc(s.acc.split(" ")[0])} ${s.acc.endsWith(" on") ? "on" : "off"}, so ${s.inh ? "its tags are copied from the default style with just that changed" : "it gets its tags once the default style is tagged"}.</p>` : "")
       + (s.fx ? `<p class="caption">This style only switches lights or effects ${s.fx === "on" ? "on" : "off"}, so ${s.inh ? "its tags are copied from the default style" : "it gets its tags once the default style is tagged"}.</p>` : "")
       + (s.inh && s.sh ? `<p class="caption">This style only changes the shading, so its tags are copied from the default style with the shading tag swapped.</p>` : "")
       + (s.sh && s.u ? `<p class="caption">This style only changes the shading. It gets its tags once the default style is tagged.</p>` : "")
