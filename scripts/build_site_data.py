@@ -314,6 +314,7 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             caption = swap_words(caption, old, new)[0]
         if o["caption"]:
             caption = o["caption"]
+            rec["cv"] = 1  # caption written by hand in the overrides
         if caption:
             rec["c"] = caption
         if name_tags:

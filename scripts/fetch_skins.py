@@ -205,7 +205,7 @@ def style_entries(base):
 
 def is_placeholder(name):
     """True for outfits Epic hasn't named yet ("TBD", "tbd", "TBD." ...)."""
-    return re.fullmatch(r"\s*tbd\W*", name or "", re.I) is not None
+    return re.fullmatch(r"\s*(?:tbd|null)?\W*", name or "", re.I) is not None
 
 
 def harvest_shop_renders(headers, outfit_ids):

@@ -221,7 +221,8 @@
     $("#dName").textContent = s.n;
     $("#dMeta").textContent = [s.grp && s.sty && `Style: ${s.sty}`, group(s), s.st && `Set: ${s.st}`, s.ch && `Chapter ${s.ch}, Season ${s.se}`, s.a && `Added ${s.a}`].filter(Boolean).join(" · ");
     $("#dDesc").textContent = s.d || "";
-    $("#dCaption").textContent = s.c ? (s.inh && !s.vt ? "AI caption (default style): " : "AI caption: ") + s.c : s.u && !s.sh ? "Not tagged yet." : "";
+    const captionLabel = s.cv ? "Verified caption: " : s.inh && !s.vt ? "AI caption (default style): " : "AI caption: ";
+    $("#dCaption").textContent = s.c ? captionLabel + s.c : s.u && !s.sh ? "Not tagged yet." : "";
     const byCat = {};
     for (const t of s.t) (byCat[tagCat[t] || "other"] ||= []).push([t, ""]);
     for (const t of s.low || []) (byCat[tagCat[t] || "other"] ||= []).push([t, "low"]);
