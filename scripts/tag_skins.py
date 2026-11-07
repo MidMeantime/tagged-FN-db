@@ -125,6 +125,30 @@ def pick_images(skin, kind):
     return urls, "+".join(used)
 
 
+# Human corrections from data/overrides.csv, keyed by skin ID: {"add": set, "remove": set}.
+# Filled in main(); build_params mentions them so re-tagged skins agree with the reviewers.
+HINTS = {}
+
+
+def hint_text(sid):
+    h = HINTS.get(sid)
+    if not h or not (h["add"] or h["remove"]):
+        return ""
+    parts = ["Human reviewers already corrected this outfit's tags."]
+    if h["add"]:
+        parts.append("It DOES have: " + ", ".join(sorted(h["add"])) + ".")
+    if h["remove"]:
+        parts.append("It does NOT have: " + ", ".join(sorted(h["remove"])) + ".")
+    parts.append("Keep these corrections, and tag everything else from the image as usual.")
+    return "\n" + " ".join(parts)
+
+
+def load_hints(build_site_data, all_ids):
+    for sid, o in build_site_data.load_overrides(all_ids).items():
+        if o["add"] or o["remove"]:
+            HINTS[sid] = {"add": set(o["add"]), "remove": set(o["remove"])}
+
+
 def build_params(skin, model, image_kind, mode, system_text):
     imgs, _ = pick_images(skin, image_kind)
     style = f"Style being tagged: {skin['style']} (an alternate style of {skin['name'].rsplit(' (', 1)[0]})\n" if skin.get("of") else ""
@@ -133,6 +157,7 @@ def build_params(skin, model, image_kind, mode, system_text):
         f"In-game description: {skin.get('description') or '(none)'}\n"
         f"Set: {skin.get('set') or '(none)'}\n"
         "Tag the outfit shown in the image."
+        + hint_text(skin["id"])
     )
     params = {
         "model": model,
@@ -234,9 +259,35 @@ def run_test(skins, args, system_text, allowed, tags_db, errors):
         print(f"  tokens in/out: {usage.get('input_tokens', 0) + usage.get('cache_read_input_tokens', 0) + usage.get('cache_creation_input_tokens', 0)}/{usage.get('output_tokens')}")
     save_json(TAGS, tags_db)
     save_json(ERRORS, errors)
+    report_conflicts([s["id"] for s in skins], tags_db)
 
 
 SUMMARY_ROWS = 3000  # cap for the GitHub run summary table
+
+
+def report_conflicts(ids, tags_db):
+    """After re-tagging, list skins where the model still disagrees with a human correction.
+    The corrections still win on the site; this just shows where the model keeps getting it wrong."""
+    if not HINTS:
+        import build_site_data
+        load_hints(build_site_data, list(tags_db))
+    rows = []
+    for sid in ids:
+        h, rec = HINTS.get(sid), tags_db.get(sid)
+        if not h or not rec:
+            continue
+        got = {t for t, c in rec.get("tags", []) if c != "low"}
+        wrong, missing = sorted(got & h["remove"]), sorted(h["add"] - got)
+        if wrong or missing:
+            rows.append((sid, wrong, missing))
+    if not rows:
+        return
+    print(f"{len(rows)} re-tagged entries still disagree with a human correction (the correction still wins on the site):")
+    for sid, wrong, missing in rows[:30]:
+        print(f"  {sid}: model added {' '.join(wrong) or '-'}; model missed {' '.join(missing) or '-'}")
+    step_summary(f"### {len(rows)} entries where the model disagrees with a human correction\n\n"
+                 "The corrections from data/overrides.csv still win on the site.\n\n| ID | model added | model missed |\n|---|---|---|\n"
+                 + "\n".join(f"| `{sid}` | {' '.join(w) or '-'} | {' '.join(m) or '-'} |" for sid, w, m in rows[:SUMMARY_ROWS]))
 
 
 def step_summary(md):
@@ -339,6 +390,7 @@ def collect(allowed, tags_db, errors, wait=True):
     save_json(TAGS, tags_db)
     save_json(ERRORS, errors)
     PENDING.unlink()
+    report_conflicts(list(pending["id_map"].values()), tags_db)
     print(f"Saved tags for {ok} entries; {bad} failed (see data/tag_errors.json).")
     report.sort(key=lambda r: (not r[2].startswith("❌"), r[0]))  # failures first
     rows = "\n".join(f"| {md_cell(n)} | `{md_cell(i)}` | {md_cell(st)} |" for n, i, st in report[:SUMMARY_ROWS])
@@ -353,6 +405,8 @@ def main():
     ap.add_argument("--limit", type=int, help="only send this many skins")
     ap.add_argument("--ids", help="comma-separated skin IDs to tag")
     ap.add_argument("--retag", action="store_true", help="also re-tag skins that already have tags")
+    ap.add_argument("--include-verified", action="store_true",
+                    help="let --retag/--recheck-icons/--upgrade re-tag skins marked verified too")
     ap.add_argument("--no-wait", action="store_true", help="submit the batch and exit")
     ap.add_argument("--collect", action="store_true", help="collect results of a submitted batch")
     ap.add_argument("--model", default=DEFAULT_MODEL)
@@ -380,6 +434,9 @@ def main():
     skins = load_json(SKINS, None)
     if skins is None:
         sys.exit("data/skins.json not found; run scripts/fetch_skins.py first.")
+    import build_site_data
+    overrides = build_site_data.load_overrides([s["id"] for s in skins])
+    load_hints(build_site_data, [s["id"] for s in skins])
     if args.ids:
         wanted = set(args.ids.split(","))
         skins = [s for s in skins if s["id"] in wanted]
@@ -398,10 +455,20 @@ def main():
             print(f"Re-checking {recheck} styles whose old caption describes an icon.")
         skins = [s for s in skins if needs_tags(s)]
     skins = [s for s in skins if s.get("icon")]
+    # Skins a person marked verified (every tag checked) aren't re-tagged by a bulk run, so their
+    # checked tags can't change under them. Naming them with --ids, or --include-verified, still does.
+    if not args.ids and not args.include_verified:
+        protected = [s for s in skins if s["id"] in tags_db and overrides.get(s["id"], {}).get("verified")]
+        if protected:
+            print(f"Skipping {len(protected)} verified entries (use --include-verified or --ids to re-tag them).")
+            skins = [s for s in skins if s not in protected]
+    if HINTS:
+        n = sum(1 for s in skins if s["id"] in HINTS)
+        if n:
+            print(f"{n} of these have human corrections; the model will be told about them.")
     # Shading-only and lights on/off styles copy their base skin's tags, unless an override row with
     # group = no says the style really looks different; those get tagged like any other style.
-    import build_site_data
-    own_look = {sid for sid, o in build_site_data.load_overrides([s["id"] for s in skins]).items() if o["group"] == "no"}
+    own_look = {sid for sid, o in overrides.items() if o["group"] == "no"}
     is_copy = lambda s: ("shading_only" in s or "effect_toggle" in s or "accessory" in s) and s["id"] not in own_look
     copies = [s for s in skins if is_copy(s)]
     if copies:

@@ -161,6 +161,10 @@ These need repository admin access.
 
 - **Secrets and variables:** `ANTHROPIC_API_KEY` (secret) for tagging. Optionally `FORTNITE_API_KEY` (secret), in case Fortnite-API ever requires one.
 - **Actions → Tag skins** tags everything untagged through the half-price Batch API, then rewrites team/house descriptions and redeploys. Options: `test_count` (tag a few right away and print them), `limit`, `ids` + `retag`, `recheck_icons` (re-tag older styles whose description shows they were icons), `upgrade` (re-tag skins whose feet were cut off once a full-body render is available) and `image` (`icon` sends only the icon, which is cheaper). Every entry sent and every result is listed in the run's log and summary page.
+- **Re-tagging keeps hand edits.** Corrections in `data/overrides.csv` are applied on top of the AI tags every time the site is built, so a re-tag can't undo them. A re-tag run also:
+  - skips skins marked `verified` (check `include_verified` to re-tag them anyway, or name them in `ids`),
+  - tells the model about each skin's corrections ("it does NOT have: hat"), so its new tags agree with them,
+  - lists on the run's summary page any skin where the model still disagreed. The correction wins on the site either way, but that list shows where the vocabulary or prompt could use work.
 - **Tag fix issues:** `python scripts/issue_to_override.py 42` reads issue #42, compares its edited tag list with the skin's current tags on the live site, and adds or updates that skin's row in `data/overrides.csv`. Add `--dry-run` to preview, or `--verified` to mark the skin checked. It warns about tags that aren't in the vocabulary (usually typos). Commit with "Fixes #42" to close the issue.
 - **Actions → Recover tag batch** imports results from a batch whose `data/pending_batch.json` was lost (for example, a run cancelled before it saved). Give it the batch ID and the commit whose `data/tags.json` was current when the batch was submitted. It only imports if the rebuilt order checks out, so run it the same day.
 
