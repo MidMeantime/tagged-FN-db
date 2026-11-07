@@ -238,7 +238,11 @@
     const slug = repoSlug();
     const link = $("#dReport");
     if (slug) {
-      const body = `Skin: ${s.n}\nID: ${s.id}\n\nTags to add:\n\nTags to remove:\n\nCurrent tags: ${s.t.join(" ")}`;
+      // Like a Danbooru tag edit: the reporter fixes the whole list in place (delete wrong tags, type
+      // missing ones), and maintainers diff it against the current tags.
+      const body = `Skin: ${s.n}\nID: ${s.id}\n\nEdit the tag list below: delete wrong tags and add missing ones, separated by spaces.\n\n` +
+        "```\n" + s.t.join(" ") + "\n```" +
+        (s.low && s.low.length ? `\n\nUnsure tags (shown as \"unsure\" and left out of filters; move any that are right into the list above): ${s.low.join(" ")}` : "");
       link.href = `https://github.com/${slug}/issues/new?title=${encodeURIComponent("Tag fix: " + s.n)}&body=${encodeURIComponent(body)}&labels=tag-fix`;
       link.hidden = false;
     } else link.hidden = true;

@@ -48,7 +48,7 @@ Fortnite-API has no guaranteed full-body image. The model always sees the icon f
 
 ### Report a wrong or missing tag
 
-The easiest way: open a skin on the site and click **Suggest a tag fix**. That opens a GitHub issue with the skin's ID and current tags filled in. Just write which tags to add or remove.
+The easiest way: open a skin on the site and click **Suggest a tag fix**. That opens a GitHub issue with the skin's ID and its current tags as one list. Edit the list in place, the way you would on Danbooru: delete the wrong tags, type in the missing ones, and submit.
 
 ### Fix tags directly
 
@@ -56,7 +56,7 @@ Hand edits live in `data/overrides.csv`. Edit it on GitHub (or in your fork) and
 
 | column | what it does |
 |---|---|
-| `id` | Skin or style ID, shown at the bottom of each popup. An ID ending in `*` matches every skin and style starting with it (`Character_DroveRay*`). |
+| `id` | Skin or style ID, shown at the bottom of each popup. A `*` matches anything: `Character_DroveRay*` covers every skin and style in that family, and `Character_DroveRay*::Parts` covers just their Parts styles. |
 | `name` | Ignored; just makes the file easier to read. |
 | `add_tags`, `remove_tags` | Tags separated by spaces or commas, in Danbooru style (`red_hair`). Tags outside the vocabulary are allowed and appear under "Other". |
 | `verified` | `yes` once every tag on the skin has been checked. Shows a ✓ on the site. |
@@ -90,7 +90,7 @@ Helpful files the site publishes:
 
 4. Open a pull request. Once it's merged, the style gets its own card, and the next tagging run tags it from its own image. Until then it shows as "Not tagged yet". If you know the right tags, fill in `add_tags` in the same row so it's correct right away.
 
-Use the style's own ID, not the main skin's: `no` on a main skin keeps all of its styles apart, and a wildcard ID (`*`) only sets `group` for main skins.
+Use the style's own ID, not the main skin's: `no` on a main skin keeps all of its styles apart. To cover the same style on several skins, use a wildcard that names the style channel, like `Character_Example*::Parts`. A family wildcard (`Character_Example*`) only sets `group` for main skins.
 
 **A style's preview is just an icon, but it shows up as its own card.** Styles whose preview image is only a crest, logo, color swatch or blank square are usually caught automatically. They fold into the main skin's card and show the main outfit with the preview in the corner. If one slips through, it shows its icon as if it were the whole outfit, either as its own card or as a full-size style in the popup. To fix it:
 
@@ -104,6 +104,14 @@ Use the style's own ID, not the main skin's: `no` on a main skin keeps all of it
 3. Open a pull request. Once it's merged, the style folds into the main card, copies the main skin's tags (taking colors from the icon, if the model saw any), and its icon appears in the corner of the main outfit's picture.
 
 Use `icon` rather than `yes`: `yes` only folds a style in, so its icon still stands in for the outfit.
+
+If the same style is broken across a whole family of skins, one row can cover them all. Use a `*` for the part of the ID that changes and stop at the style channel. `Character_DroveRay*::Parts` covers the Parts styles of every DroveRay skin, and leaves their Material (house) styles alone:
+
+| id | name | add_tags | remove_tags | verified | notes | group | caption | caption_replace |
+|---|---|---|---|---|---|---|---|---|
+| Character_DroveRay*::Parts | Hogwarts (Cape: Off) | | | | | icon | | |
+
+A wildcard that names a style channel like this sets `group` on the matching styles. One over whole families (`Character_DroveRay*`) sets `group` only on the main skins, which is what `themes` needs.
 
 **A skin reacts in game (changes as you play) but isn't tagged "reactive outfit".** Reactive skins are detected from Fortnite-API data, which misses some. To add the tag:
 
