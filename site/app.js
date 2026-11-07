@@ -12,7 +12,9 @@
   const STATUSES = { verified: "Hand-verified", unverified: "Not verified", untagged: "Not tagged yet", unsure: "Has unsure tags", nofeet: "Shoes not visible", copied: "Shading-only style (tags copied)", icononly: "Style shown only as an icon" };
 
   let skins = [], cats = [], tagCat = {}, results = [], shown = 0, byId = {}, groupedCount = {};
-  const state = { styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
+  let savedView = "icon";
+  try { savedView = localStorage.getItem("view") || "icon"; } catch (e) { /* storage blocked */ }
+  const state = { view: savedView, styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
 
   const pretty = (t) => t.replace(/_/g, " ");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -26,6 +28,7 @@
     state.sort = p.get("sort") || "new";
     state.any = p.get("any") === "1";
     state.styles = p.get("ns") !== "1";
+    if (p.get("v")) state.view = p.get("v") === "body" ? "body" : "icon";
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       state[k] = new Set((p.get(key) || "").split(",").filter(Boolean));
     }
@@ -36,6 +39,7 @@
     if (state.sort !== "new") p.set("sort", state.sort);
     if (state.any) p.set("any", "1");
     if (!state.styles) p.set("ns", "1");
+    if (state.view === "body") p.set("v", "body");
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       if (state[k].size) p.set(key, [...state[k]].join(","));
     }
@@ -168,6 +172,23 @@
     $("#active").innerHTML = parts.join("");
   }
 
+  // Full-body images are squares with lots of empty space at the sides. build_site_data.py gives each
+  // one a measured box ("ab": [left, top, right, bottom] as fractions) around the visible figure. This
+  // zooms and centers the figure inside a frame of the given aspect ratio (width / height) with CSS,
+  // leaving the image itself untouched. Without a box it falls back to showing the whole image.
+  const FIT_PAD = 0.03;
+  function fitImg(url, box, aspect, alt, extraClass = "") {
+    if (!box) return `<img class="${extraClass}" loading="lazy" src="${esc(url)}" alt="${esc(alt)}" style="object-fit:contain">`;
+    const [l, t, r, b] = box;
+    const H = 1 / aspect;                                      // frame height, in frame widths
+    const bw = r - l + 2 * FIT_PAD, bh = b - t + 2 * FIT_PAD;
+    const S = Math.min(1 / bw, H / bh);                        // image size, in frame widths
+    const left = 0.5 - ((l + r) / 2) * S, top = H / 2 - ((t + b) / 2) * S;
+    const st = `position:absolute;width:${(S * 100).toFixed(2)}%;height:auto;max-width:none;aspect-ratio:1;` +
+               `left:${(left * 100).toFixed(2)}%;top:${((top / H) * 100).toFixed(2)}%`;
+    return `<img class="fitted ${extraClass}" loading="lazy" src="${esc(url)}" alt="${esc(alt)}" style="${st}">`;
+  }
+
   function renderMore() {
     const slice = results.slice(shown, shown + PAGE);
     shown += slice.length;
@@ -177,7 +198,9 @@
       const extra = groupedCount[s.id] ? `<span class="badge" title="Selectable styles shown in the popup">+${groupedCount[s.id]} styles</span>` : "";
       return `
       <button class="card rar" style="--rc:${RARITY_COLORS[group(s)] || "#555"}" data-id="${esc(hit.id)}">
-        <img loading="lazy" src="${esc(viaStyle && !crest ? hit.img : s.img)}" alt="${esc(s.n)}">
+        ${state.view === "body" && s.alt && !(viaStyle && !crest)
+          ? `<div class="card-media body">${fitImg(s.alt, s.ab, 3 / 4, s.n)}</div>`
+          : `<div class="card-media${state.view === "body" ? " body icon-fallback" : ""}"><img loading="lazy" src="${esc(viaStyle && !crest ? hit.img : s.img)}" alt="${esc(s.n)}"></div>`}
         ${crest ? `<img class="card-crest" loading="lazy" src="${esc(hit.img)}" alt="${esc(hit.sty)}" title="${esc(hit.sty)} style">` : ""}
         <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}${extra}</div>
         <div class="sub">${viaStyle ? `<span class="style-badge">${esc(hit.sty)}</span> · ` : s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
@@ -199,20 +222,23 @@
     // An icon-only style's image is just a crest/logo, so show the base outfit with the crest on top.
     // Other folded styles (e.g. shading-only) have real renders of their own.
     const look = s.grp && s.ico && byId[s.of] ? byId[s.of] : s;
-    $("#dImg").src = look.big || look.img;
-    $("#dImg").alt = s.n;
     $("#dCrest").hidden = look === s;
     if (look !== s) { $("#dCrest").src = s.img; $("#dCrest").alt = s.sty || ""; }
-    let showingAlt = false;
+    // Open on the full-body image when there is one; the button switches to the icon and back.
+    let showingAlt = !!look.alt;
     const altBtn = $("#dAltToggle");
-    altBtn.hidden = !look.alt; $("#dAltNote").hidden = true;
-    altBtn.textContent = "Show full-body promo image";
-    altBtn.onclick = () => {
-      showingAlt = !showingAlt;
-      $("#dImg").src = showingAlt ? look.alt : look.big || look.img;
-      altBtn.textContent = showingAlt ? "Show this style's icon" : "Show full-body promo image";
-      $("#dAltNote").hidden = !showingAlt;
+    const showImage = () => {
+      const wrap = $("#dImgFrame");
+      wrap.classList.toggle("body", showingAlt);
+      wrap.innerHTML = showingAlt ? fitImg(look.alt, look.ab, 3 / 4, s.n)
+                                  : `<img src="${esc(look.big || look.img)}" alt="${esc(s.n)}">`;
+      altBtn.textContent = showingAlt ? "Show icon" : "Show full-body image";
+      // The promo image belongs to the default look, so say so when a different style is selected.
+      $("#dAltNote").hidden = !(showingAlt && s.of);
     };
+    altBtn.hidden = !look.alt;
+    altBtn.onclick = () => { showingAlt = !showingAlt; showImage(); };
+    showImage();
     const fam = s.of || s.id;
     const family = skins.filter((x) => x.id === fam || x.of === fam);
     $("#dStyles").innerHTML = family.length > 1 ? family.map((x) => `
@@ -291,6 +317,16 @@
   $("#sort").addEventListener("change", (e) => { state.sort = e.target.value; update(); });
   $("#matchAny").addEventListener("change", (e) => { state.any = e.target.checked; update(); });
   $("#showStyles").addEventListener("change", (e) => { state.styles = e.target.checked; update(); });
+  document.querySelectorAll("#viewSwitch button").forEach((b) => b.addEventListener("click", () => {
+    state.view = b.dataset.view;
+    try { localStorage.setItem("view", state.view); } catch (e) { /* storage blocked */ }
+    syncViewSwitch();
+    update();
+  }));
+  function syncViewSwitch() {
+    document.querySelectorAll("#viewSwitch button").forEach((b) => b.classList.toggle("on", b.dataset.view === state.view));
+    $("#grid").classList.toggle("body-view", state.view === "body");
+  }
   $("#clearAll").addEventListener("click", () => {
     Object.assign(state, { q: "", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() });
     $("#search").value = ""; $("#tagSearch").value = ""; $("#matchAny").checked = false; update();
@@ -316,6 +352,7 @@
       $("#sort").value = state.sort;
       $("#matchAny").checked = state.any;
       $("#showStyles").checked = state.styles;
+      syncViewSwitch();
       update();
     })
     .catch((err) => {

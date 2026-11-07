@@ -11,7 +11,8 @@ The tags were written by an AI model (Claude Haiku) that looked at each outfit's
 - **Search** matches names, in-game descriptions and tags.
 - **Filters** on the left group tags by category. Click a tag once to require it, again to exclude it, and a third time to clear it. "Match any tag" switches from all-of to any-of.
 - **Styles:** most selectable styles appear as their own cards, so a style with a different color or look can be found by its own tags. Styles that only change the shading (like "Gradient"), only change the team or house (like the Hogwarts houses or club kits), or whose preview is just a crest or swatch are folded into the main skin's card and appear as previews in its popup.
-- **The popup** shows the skin's tags by category, an AI-written description, all of its styles, and a full-body promo image when one exists.
+- **Icons / Full body** in the header switches the cards between the locker icons and full-body images. The site remembers your choice.
+- **The popup** shows the skin's tags by category, an AI-written description, and all of its styles. It opens on the full-body image when there is one, with a button to switch to the icon.
 - **Review status** filters show what has been checked by hand (✓), which tags the model was unsure about, and where the image didn't show the shoes.
 - **Links** to filtered views can be shared; the filters are kept in the URL.
 - **All tags** can be downloaded as a CSV from the link in the footer.
@@ -43,6 +44,8 @@ Each selectable style is its own entry, with an ID like `BASEID::Channel::Tag`. 
 ### Images
 
 Fortnite-API has no guaranteed full-body image. The model always sees the icon for the exact style it's tagging first. For main skins it also gets a full-body promo image when one exists: a shop render (collected daily into `data/renders.json`) or the featured image. Promo images can show a different style, so the model only uses them for parts the icon cuts off, like legs and shoes. When the feet aren't visible, shoe tags are left out, and the entry is listed under **Review status → Shoes not visible**.
+
+The full-body images are squares with a lot of empty space at the sides. Rather than editing or re-hosting them, `scripts/measure_images.py` uses [Pillow](https://python-pillow.org) to find the box around each image's visible figure, and saves it in `data/image_boxes.json`. The site then zooms each figure to fill its frame with CSS. The daily deploy measures new images, up to 600 per run. To have one re-measured, delete its entry from the file.
 
 ## Contributing
 
@@ -149,6 +152,7 @@ scripts/fetch_skins.py      Fortnite-API -> data/skins.json (outfits + styles, s
 scripts/tag_skins.py        Claude Haiku -> data/tags.json
 scripts/theme_captions.py   rewrites descriptions for team/house styles
 scripts/build_site_data.py  skins + tags + overrides -> site/data/*
+scripts/measure_images.py   finds the visible area of full-body images -> data/image_boxes.json
 scripts/commit_data.py      lets workflows commit data files without merge conflicts
 scripts/recover_batch.py    imports a tagging batch whose bookkeeping was lost
 site/                       the website

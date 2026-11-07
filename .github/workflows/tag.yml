@@ -103,7 +103,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python scripts/commit_data.py -m "Update skin tags" data/tags.json data/tag_errors.json data/pending_batch.json data/suggestions.md data/renders.json data/theme_captions.json
+          python scripts/commit_data.py -m "Update skin tags" data/tags.json data/tag_errors.json data/pending_batch.json data/suggestions.md data/renders.json data/theme_captions.json data/image_boxes.json
 
       - name: Redeploy site
         if: success()

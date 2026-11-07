@@ -377,6 +377,13 @@ def main():
     OUT.write_text(json.dumps(outfits, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"Saved {len(outfits)} entries to {OUT.relative_to(ROOT)}")
 
+    # Measure the visible area of new full-body images, so the site can trim their empty sides.
+    try:
+        import measure_images
+        measure_images.measure([o.get("render") or o.get("featured") for o in outfits if not o.get("of")])
+    except ImportError as e:
+        print(f"Skipping image measuring ({e}); run: pip install -r requirements.txt")
+
 
 if __name__ == "__main__":
     main()

@@ -393,6 +393,7 @@ def main():
     skins = load_json(DATA / "skins.json", [])
     model_tags = load_json(DATA / "tags.json", {})
     vocab = load_json(ROOT / "tagging" / "vocab.json", {"categories": {}})
+    boxes = load_json(DATA / "image_boxes.json", {})  # visible area of full-body images (measure_images.py)
     by_id, suggestions, variant_tags, overrides = build_records(skins, model_tags, vocab, load_json(THEME_CAPTIONS, {}))
     EMPTY = {"group": ""}  # stand-in for skins without override rows
     pending_captions = 0
@@ -400,6 +401,9 @@ def main():
         if r.pop("_req", None):
             pending_captions += 1
     out = [by_id[s["id"]] for s in skins]
+    for r in out:
+        if r.get("alt") in boxes:
+            r["ab"] = boxes[r["alt"]]  # [left, top, right, bottom] of the figure in the full-body image
     csv_buf = io.StringIO()
     w = csv.writer(csv_buf)
     w.writerow(["id", "name", "tags", "low_confidence_tags", "verified"])

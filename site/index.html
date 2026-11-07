@@ -16,6 +16,10 @@
     <h1>Skin Finder</h1>
   </div>
   <input id="search" type="search" placeholder="Search names, descriptions, tags…" autocomplete="off">
+  <div id="viewSwitch" class="view-switch" role="group" aria-label="Card images">
+    <button type="button" data-view="icon">Icons</button>
+    <button type="button" data-view="body">Full body</button>
+  </div>
   <select id="sort" aria-label="Sort">
     <option value="new">Newest</option>
     <option value="old">Oldest</option>
@@ -65,9 +69,9 @@
   <form method="dialog"><button class="icon-btn close" aria-label="Close">✕</button></form>
   <div class="detail-body">
     <div class="detail-media">
-      <div class="detail-img-wrap"><img id="dImg" alt=""><img id="dCrest" class="detail-crest" alt="" hidden></div>
-      <button id="dAltToggle" class="link-btn" hidden>Show full-body promo image</button>
-      <p id="dAltNote" class="alt-note" hidden>This promo image may show a different style.</p>
+      <div class="detail-img-wrap"><div id="dImgFrame" class="img-frame"></div><img id="dCrest" class="detail-crest" alt="" hidden></div>
+      <button id="dAltToggle" class="link-btn" hidden>Show icon</button>
+      <p id="dAltNote" class="alt-note" hidden>This full-body image shows the skin's default style.</p>
     </div>
     <div class="detail-info">
       <h2 id="dName"></h2>

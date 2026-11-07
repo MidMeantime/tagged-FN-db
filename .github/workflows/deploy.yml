@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          python scripts/commit_data.py -m "Save shop renders" data/renders.json
+          python scripts/commit_data.py -m "Save shop renders" data/renders.json data/image_boxes.json
       - run: python scripts/build_site_data.py
         env:
           SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
