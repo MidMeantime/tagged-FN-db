@@ -1,0 +1,3602 @@
+{
+ "https://fortnite-api.com/images/cosmetics/br/character_acidwhale/featured.png": [
+  0.1924,
+  0.1279,
+  0.8799,
+  0.8672
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_acrylicstitch/featured.png": [
+  0.3389,
+  0.0342,
+  0.792,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_agarbelly/featured.png": [
+  0.3174,
+  0.0762,
+  0.8145,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_agedchasm/featured.png": [
+  0.3682,
+  0.0459,
+  0.793,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_alderoptic/featured.png": [
+  0.3379,
+  0.0625,
+  0.7764,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_alpacalean_gel/featured.png": [
+  0.3828,
+  0.0664,
+  0.7812,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_altogorgon/featured.png": [
+  0.3066,
+  0.0518,
+  0.8369,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ancientleer/featured.png": [
+  0.3359,
+  0.0361,
+  0.7959,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_antipesto/featured.png": [
+  0.3174,
+  0.0625,
+  0.7949,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_antizappo/featured.png": [
+  0.334,
+  0.0518,
+  0.7891,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_anvilalarmmoth/featured.png": [
+  0.3438,
+  0.0586,
+  0.7871,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_anvilalarmrobin/featured.png": [
+  0.3262,
+  0.0576,
+  0.748,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_apronchow/featured.png": [
+  0.3076,
+  0.0439,
+  0.791,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_aquapeony/featured.png": [
+  0.3164,
+  0.0635,
+  0.7363,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_arcanaagate/featured.png": [
+  0.3506,
+  0.0674,
+  0.7412,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_armyflour/featured.png": [
+  0.3574,
+  0.0342,
+  0.9014,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_asidedepot/featured.png": [
+  0.2832,
+  0.0801,
+  0.9229,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_asterorder/featured.png": [
+  0.3525,
+  0.0537,
+  0.7969,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_astrallilac/featured.png": [
+  0.3213,
+  0.0264,
+  0.7891,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_auracop_npc/featured.png": [
+  0.374,
+  0.0586,
+  0.8428,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_auroraowl/featured.png": [
+  0.3018,
+  0.0527,
+  0.793,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_autumnfern/featured.png": [
+  0.335,
+  0.0576,
+  0.7617,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_backabsorb/featured.png": [
+  0.2822,
+  0.0547,
+  0.7803,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_baskisle/featured.png": [
+  0.3613,
+  0.0439,
+  0.8516,
+  0.9287
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_beaverstage/featured.png": [
+  0.3232,
+  0.0254,
+  0.7744,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bentcarpet/featured.png": [
+  0.3379,
+  0.0166,
+  0.7949,
+  0.9355
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_berryflight/featured.png": [
+  0.3555,
+  0.0703,
+  0.8428,
+  0.8984
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bionickitty/featured.png": [
+  0.3623,
+  0.0547,
+  0.7988,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_birchpalace/featured.png": [
+  0.3486,
+  0.0547,
+  0.7725,
+  0.8955
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bisondrain/featured.png": [
+  0.3984,
+  0.0127,
+  0.7568,
+  0.8574
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bitfight/featured.png": [
+  0.3018,
+  0.0479,
+  0.7969,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_blessflan/featured.png": [
+  0.3379,
+  0.0654,
+  0.7676,
+  0.9707
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_blobrock/featured.png": [
+  0.3506,
+  0.1553,
+  0.7588,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_blockstack/featured.png": [
+  0.3008,
+  0.0352,
+  0.7754,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_blockstack_ziggy/featured.png": [
+  0.3467,
+  0.1094,
+  0.7617,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bluemonday/featured.png": [
+  0.3701,
+  0.0537,
+  0.7852,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bolddormrise/featured.png": [
+  0.3486,
+  0.0576,
+  0.7959,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bolddormwork/featured.png": [
+  0.3594,
+  0.0449,
+  0.7705,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_boldtouch/featured.png": [
+  0.3604,
+  0.0293,
+  0.8105,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bombatoon/featured.png": [
+  0.3809,
+  0.085,
+  0.792,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bountypond/featured.png": [
+  0.4023,
+  0.0605,
+  0.7783,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brandcreed/featured.png": [
+  0.2871,
+  0.0537,
+  0.7686,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brassspar/featured.png": [
+  0.3818,
+  0.0381,
+  0.7568,
+  0.9102
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brawngraze/featured.png": [
+  0.2412,
+  0.0117,
+  0.7988,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brightbionic/featured.png": [
+  0.2412,
+  0.0342,
+  0.75,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_briskreign/featured.png": [
+  0.2715,
+  0.0898,
+  0.8027,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brokengravel_brunt/featured.png": [
+  0.3057,
+  0.0361,
+  0.7969,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_brutalburglar/featured.png": [
+  0.3857,
+  0.0605,
+  0.7822,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bugbandit/featured.png": [
+  0.3691,
+  0.0166,
+  1.0,
+  0.9131
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bugbeliever/featured.png": [
+  0.3252,
+  0.0537,
+  0.7715,
+  0.9678
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bullkeynote/featured.png": [
+  0.3848,
+  0.0645,
+  0.8311,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_burnleer/featured.png": [
+  0.374,
+  0.0166,
+  0.7725,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_bytegear/featured.png": [
+  0.3428,
+  0.0479,
+  0.792,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cadetfrog_slide/featured.png": [
+  0.3555,
+  0.0332,
+  0.7998,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_camelgram/featured.png": [
+  0.3398,
+  0.0381,
+  0.8193,
+  0.9727
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_campussire/featured.png": [
+  0.2529,
+  0.0469,
+  0.8975,
+  0.9795
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_campwrench/featured.png": [
+  0.376,
+  0.0762,
+  0.7461,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_candycharm/featured.png": [
+  0.252,
+  0.0,
+  0.7559,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_caninecronutdig/featured.png": [
+  0.3584,
+  0.0166,
+  0.7891,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_caninecronutmix/featured.png": [
+  0.3125,
+  0.0449,
+  0.8594,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_canyonvale/featured.png": [
+  0.3369,
+  0.0146,
+  0.8516,
+  0.9766
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cargolying/featured.png": [
+  0.3721,
+  0.0576,
+  0.75,
+  0.9014
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_carrymazeflap/featured.png": [
+  0.3623,
+  0.0586,
+  0.8154,
+  0.9082
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cephalochef/featured.png": [
+  0.2979,
+  0.0234,
+  0.8164,
+  0.9463
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cheftartar/featured.png": [
+  0.3545,
+  0.0586,
+  0.7637,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cheftartar_b/featured.png": [
+  0.292,
+  0.0469,
+  0.7275,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cheftartar_c/featured.png": [
+  0.3223,
+  0.0361,
+  0.7637,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cheftartar_d/featured.png": [
+  0.3467,
+  0.0439,
+  0.7617,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cherryknot/featured.png": [
+  0.3389,
+  0.0488,
+  0.7568,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chewystavecurve/featured.png": [
+  0.3555,
+  0.0117,
+  0.7891,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chewystavegerm/featured.png": [
+  0.3555,
+  0.0254,
+  0.8037,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chiliabide/featured.png": [
+  0.3242,
+  0.0312,
+  0.8008,
+  0.9463
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chimecurlcorn/featured.png": [
+  0.375,
+  0.0449,
+  0.8047,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chimecurltell/featured.png": [
+  0.2578,
+  0.0615,
+  0.9932,
+  0.916
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_choicecrave/featured.png": [
+  0.3838,
+  0.0479,
+  0.7812,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chromesiren/featured.png": [
+  0.3213,
+  0.042,
+  0.7568,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_chubbyjingle/featured.png": [
+  0.2617,
+  0.0127,
+  0.7715,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ciderpetalclover/featured.png": [
+  0.3604,
+  0.0391,
+  0.8184,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ciderpetalflax/featured.png": [
+  0.3594,
+  0.0439,
+  0.8213,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cindergale/featured.png": [
+  0.3057,
+  0.0273,
+  0.7461,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_claimreflect/featured.png": [
+  0.3359,
+  0.0732,
+  0.7432,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_climbspill/featured.png": [
+  0.2656,
+  0.0117,
+  0.7744,
+  0.9258
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_clinchmetal/featured.png": [
+  0.2432,
+  0.0449,
+  0.7461,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cloakedfaith/featured.png": [
+  0.25,
+  0.0254,
+  0.7598,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_clumsychewlaw/featured.png": [
+  0.3271,
+  0.0439,
+  0.7881,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_collarrigor/featured.png": [
+  0.2842,
+  0.0098,
+  0.7939,
+  0.9199
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_commandospy/featured.png": [
+  0.375,
+  0.0586,
+  0.9531,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_coolslice_golf/featured.png": [
+  0.2383,
+  0.0098,
+  0.8154,
+  0.8984
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_coolsuitable/featured.png": [
+  0.3203,
+  0.0547,
+  0.7939,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_coppermoggy_swan/featured.png": [
+  0.3145,
+  0.0156,
+  0.8613,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cornerweek/featured.png": [
+  0.3418,
+  0.0488,
+  0.7783,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cosmictrellis/featured.png": [
+  0.3379,
+  0.0342,
+  0.7842,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cozymechanic_hen/featured.png": [
+  0.3223,
+  0.0508,
+  0.7529,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_crawlytech/featured.png": [
+  0.3594,
+  0.0244,
+  0.7861,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_creamdecoy/featured.png": [
+  0.2549,
+  0.0029,
+  0.75,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_creamskull_dove/featured.png": [
+  0.3076,
+  0.0566,
+  0.8281,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_crimpperfume/featured.png": [
+  0.3486,
+  0.042,
+  0.793,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_crispseason/featured.png": [
+  0.3105,
+  0.0479,
+  0.7822,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_crosswiper/featured.png": [
+  0.3174,
+  0.1807,
+  0.7109,
+  0.8877
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_crownorder/featured.png": [
+  0.3262,
+  0.0625,
+  0.8076,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_curbrestore/featured.png": [
+  0.3271,
+  0.0674,
+  0.7744,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cyberfncs/featured.png": [
+  0.3799,
+  0.0576,
+  0.7891,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cybermitthomer/featured.png": [
+  0.3438,
+  0.0322,
+  0.8438,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cybertentacle/featured.png": [
+  0.3105,
+  0.0361,
+  0.7881,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cyborgwarrior/featured.png": [
+  0.3301,
+  0.0557,
+  0.7979,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_cymbalbar/featured.png": [
+  0.3184,
+  0.0596,
+  0.7803,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dairystring_wade/featured.png": [
+  0.3984,
+  0.1182,
+  0.7676,
+  0.8379
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dandyflare/featured.png": [
+  0.2188,
+  0.04,
+  0.8525,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dangerindex/featured.png": [
+  0.3896,
+  0.0693,
+  0.7881,
+  0.9189
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_debitscent/featured.png": [
+  0.2559,
+  0.0391,
+  0.7539,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_degreeproper/featured.png": [
+  0.3809,
+  0.0596,
+  0.7422,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_demureigloo/featured.png": [
+  0.3271,
+  0.0928,
+  0.8096,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_derangedmile_side/featured.png": [
+  0.2764,
+  0.0381,
+  0.8242,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dimeaviator/featured.png": [
+  0.3516,
+  0.0547,
+  0.7939,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dolphingill/featured.png": [
+  0.3525,
+  0.0342,
+  0.7783,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_donkeycrib/featured.png": [
+  0.3467,
+  0.0479,
+  0.8691,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dragonpry/featured.png": [
+  0.3818,
+  0.0654,
+  0.8125,
+  0.915
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_drapeultra/featured.png": [
+  0.3438,
+  0.0215,
+  0.8496,
+  0.9355
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_driftfable/featured.png": [
+  0.2812,
+  0.0537,
+  0.7754,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_droveray/featured.png": [
+  0.3135,
+  0.0381,
+  0.7607,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_droveray_b/featured.png": [
+  0.3359,
+  0.0557,
+  0.749,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_droveray_c/featured.png": [
+  0.3174,
+  0.0498,
+  0.751,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_droveray_d/featured.png": [
+  0.3213,
+  0.0449,
+  0.7559,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_droveray_e/featured.png": [
+  0.3047,
+  0.041,
+  0.7568,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_duckcoast/featured.png": [
+  0.3516,
+  0.0322,
+  0.7979,
+  0.9121
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dunebriefmerry/featured.png": [
+  0.3047,
+  0.0342,
+  0.7832,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dunebriefshift/featured.png": [
+  0.3008,
+  0.0537,
+  0.8457,
+  0.9844
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dustybun/featured.png": [
+  0.3027,
+  0.042,
+  0.7705,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_dyeblast/featured.png": [
+  0.373,
+  0.043,
+  0.7988,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_eagertrapper/featured.png": [
+  0.3945,
+  0.0566,
+  0.8564,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_eagerunify/featured.png": [
+  0.3477,
+  0.0781,
+  0.7432,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_earpsych/featured.png": [
+  0.4023,
+  0.0342,
+  0.8223,
+  0.917
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_eclairache/featured.png": [
+  0.2842,
+  0.0498,
+  0.7803,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_eggnogfaucet/featured.png": [
+  0.333,
+  0.0664,
+  0.79,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_emailstamp/featured.png": [
+  0.3301,
+  0.0566,
+  0.8076,
+  0.9736
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_emberyearn/featured.png": [
+  0.3496,
+  0.0693,
+  0.7754,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ensurehall_snag/featured.png": [
+  0.2002,
+  0.0322,
+  0.8682,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_essayviewmyth/featured.png": [
+  0.3232,
+  0.0596,
+  0.8027,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_essayviewpier/featured.png": [
+  0.3135,
+  0.0576,
+  0.7949,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder/featured.png": [
+  0.2578,
+  0.0342,
+  0.7432,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_b/featured.png": [
+  0.2402,
+  0.0479,
+  0.749,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_c/featured.png": [
+  0.373,
+  0.0615,
+  0.7871,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_d/featured.png": [
+  0.2383,
+  0.0352,
+  0.7441,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_e/featured.png": [
+  0.2383,
+  0.041,
+  0.7441,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_f/featured.png": [
+  0.3711,
+  0.0645,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_f_placeholder_g/featured.png": [
+  0.2422,
+  0.0117,
+  0.7461,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_facetblom/featured.png": [
+  0.3438,
+  0.041,
+  0.8203,
+  0.9082
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_faintdoor/featured.png": [
+  0.3584,
+  0.0137,
+  0.8418,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_faithperch/featured.png": [
+  0.3154,
+  0.0176,
+  0.7998,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_familypoll/featured.png": [
+  0.1914,
+  0.0518,
+  0.8701,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_farespore/featured.png": [
+  0.291,
+  0.0469,
+  0.75,
+  0.8857
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fashionfeline/featured.png": [
+  0.3389,
+  0.0479,
+  0.9609,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fastrabbit/featured.png": [
+  0.3809,
+  0.0566,
+  0.7979,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_faunapike/featured.png": [
+  0.3428,
+  0.0342,
+  0.7744,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fearcatch/featured.png": [
+  0.3359,
+  0.0898,
+  0.7979,
+  0.917
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_feelunionmoo/featured.png": [
+  0.417,
+  0.0518,
+  0.9727,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_feelunionski/featured.png": [
+  0.4434,
+  0.0146,
+  0.9951,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fiercestripe_admiral/featured.png": [
+  0.2842,
+  0.0615,
+  0.8809,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fifthfully/featured.png": [
+  0.3467,
+  0.0537,
+  0.7764,
+  0.9717
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_finchvisit/featured.png": [
+  0.2842,
+  0.0781,
+  0.8164,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_finedining/featured.png": [
+  0.3633,
+  0.041,
+  0.8564,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flakeslide/featured.png": [
+  0.3184,
+  0.0166,
+  0.8066,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flavorstock/featured.png": [
+  0.291,
+  0.0371,
+  0.8555,
+  0.9707
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flickledge/featured.png": [
+  0.2939,
+  0.0703,
+  0.8027,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flinttwirl/featured.png": [
+  0.3633,
+  0.1016,
+  0.8145,
+  0.9072
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flipperbalm/featured.png": [
+  0.3203,
+  0.0459,
+  0.7852,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_florabrisk/featured.png": [
+  0.3721,
+  0.0342,
+  0.8135,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_floralcardinal/featured.png": [
+  0.2783,
+  0.043,
+  0.7666,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_floralmane_sand/featured.png": [
+  0.332,
+  0.0557,
+  0.8242,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flossyawn/featured.png": [
+  0.3359,
+  0.0098,
+  0.7998,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fluidwedge/featured.png": [
+  0.3652,
+  0.0332,
+  0.8457,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_flutelamp/featured.png": [
+  0.3896,
+  0.0195,
+  0.8213,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fondaim/featured.png": [
+  0.3613,
+  0.0498,
+  0.8623,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fondbreak/featured.png": [
+  0.3145,
+  0.0283,
+  0.791,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fonduepaper/featured.png": [
+  0.3643,
+  0.0508,
+  0.7734,
+  0.9111
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_forestjeangrowl/featured.png": [
+  0.3643,
+  0.0557,
+  0.8027,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_forestjeanwink/featured.png": [
+  0.3584,
+  0.0547,
+  0.7871,
+  0.9287
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_foundkelp_bolt/featured.png": [
+  0.3252,
+  0.0508,
+  0.8037,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_frigidpoppet/featured.png": [
+  0.2236,
+  0.0215,
+  0.7334,
+  0.9717
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_frostgalore/featured.png": [
+  0.4121,
+  0.0889,
+  0.7061,
+  0.5518
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_frostiron/featured.png": [
+  0.3516,
+  0.0088,
+  0.8057,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_frozentouch/featured.png": [
+  0.374,
+  0.0,
+  0.9658,
+  0.9785
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fruitfire_nudge/featured.png": [
+  0.3857,
+  0.1113,
+  0.7168,
+  0.8525
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fumefleececlap/featured.png": [
+  0.3418,
+  0.04,
+  0.7979,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fumefleecefade/featured.png": [
+  0.3135,
+  0.0459,
+  0.8008,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fumefleecejig/featured.png": [
+  0.332,
+  0.0576,
+  0.8242,
+  0.9268
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fumefleeceshack/featured.png": [
+  0.2695,
+  0.043,
+  0.8555,
+  0.9297
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fumefleecewag/featured.png": [
+  0.2783,
+  0.0566,
+  0.7656,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_funkyfeather_cap/featured.png": [
+  0.3379,
+  0.0342,
+  0.7432,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_futurerabbit/featured.png": [
+  0.2822,
+  0.0332,
+  0.8486,
+  0.9834
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_fuzzyglam/featured.png": [
+  0.2588,
+  0.0332,
+  0.752,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gatemouse/featured.png": [
+  0.2539,
+  0.0547,
+  0.8535,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gatherbelt/featured.png": [
+  0.3613,
+  0.0332,
+  0.7793,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gatorceladon/featured.png": [
+  0.3779,
+  0.0332,
+  0.7998,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_geminilink/featured.png": [
+  0.373,
+  0.0518,
+  0.79,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gildedbrick/featured.png": [
+  0.3281,
+  0.0449,
+  0.7969,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_giraffescallion/featured.png": [
+  0.2334,
+  0.0098,
+  0.7773,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_glacialtrooper/featured.png": [
+  0.3271,
+  0.0615,
+  0.7949,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_glamclaws/featured.png": [
+  0.3721,
+  0.0312,
+  0.8838,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_glintrush/featured.png": [
+  0.2822,
+  0.0635,
+  0.8096,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_glowfang/featured.png": [
+  0.3438,
+  0.0137,
+  0.8184,
+  0.9766
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gnatgala/featured.png": [
+  0.3418,
+  0.0576,
+  0.7871,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_goatfish/featured.png": [
+  0.2432,
+  0.0381,
+  0.7627,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_goldenvalley/featured.png": [
+  0.3125,
+  0.0498,
+  0.7295,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_goldpumpkin/featured.png": [
+  0.3584,
+  0.0303,
+  0.7939,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gongfiddle/featured.png": [
+  0.3789,
+  0.0469,
+  0.7686,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gothclaws/featured.png": [
+  0.3018,
+  0.0176,
+  0.7559,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gourdriddancerock/featured.png": [
+  0.3203,
+  0.001,
+  0.9531,
+  0.9678
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_graveflannel/featured.png": [
+  0.373,
+  0.0537,
+  0.999,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_greenhazard/featured.png": [
+  0.3477,
+  0.0391,
+  0.7852,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_grimehold/featured.png": [
+  0.3662,
+  0.0,
+  0.8145,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_grimhound/featured.png": [
+  0.3037,
+  0.1309,
+  0.8174,
+  0.9668
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_grindrex/featured.png": [
+  0.3184,
+  0.0029,
+  0.7939,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_grizzlydemise/featured.png": [
+  0.3916,
+  0.0,
+  0.8086,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_growmallet/featured.png": [
+  0.2959,
+  0.0293,
+  0.7686,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_guardhence/featured.png": [
+  0.3086,
+  0.0537,
+  0.8086,
+  0.9111
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_guidequiz/featured.png": [
+  0.3418,
+  0.0918,
+  0.8057,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_gulchtruce/featured.png": [
+  0.3896,
+  0.0107,
+  0.7949,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hadtummy/featured.png": [
+  0.2881,
+  0.0713,
+  0.7588,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hammervice/featured.png": [
+  0.2861,
+  0.0361,
+  0.751,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hangnine/featured.png": [
+  0.3701,
+  0.0508,
+  0.7979,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hangspec_screech/featured.png": [
+  0.2959,
+  0.0361,
+  0.7578,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_harborsnow/featured.png": [
+  0.2275,
+  0.0986,
+  0.8682,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_harptar/featured.png": [
+  0.3369,
+  0.0508,
+  0.79,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_herbalfist/featured.png": [
+  0.3369,
+  0.0352,
+  0.7852,
+  0.9785
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hermitflop/featured.png": [
+  0.3574,
+  0.0488,
+  0.8281,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_heroictale_fair/featured.png": [
+  0.2666,
+  0.0283,
+  0.793,
+  0.9727
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hihat/featured.png": [
+  0.3291,
+  0.0615,
+  0.8154,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_homerange/featured.png": [
+  0.3145,
+  0.0352,
+  0.8174,
+  0.9736
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_honestwasp/featured.png": [
+  0.3242,
+  0.0527,
+  0.8096,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_honorbracejoust/featured.png": [
+  0.3203,
+  0.04,
+  0.7881,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_honorbraceleap/featured.png": [
+  0.3223,
+  0.0479,
+  0.8008,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hornedwretch/featured.png": [
+  0.2598,
+  0.0137,
+  0.7715,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hornetberm/featured.png": [
+  0.333,
+  0.0508,
+  0.7861,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_humorshale_teak/featured.png": [
+  0.3281,
+  0.0547,
+  0.8711,
+  0.9287
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hybridboot/featured.png": [
+  0.3018,
+  0.0469,
+  0.7305,
+  0.9727
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_hydrodrift_metal/featured.png": [
+  0.3262,
+  0.0488,
+  0.832,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_iciclecane_bright/featured.png": [
+  0.3193,
+  0.0508,
+  0.7676,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_igniteegg/featured.png": [
+  0.3447,
+  0.0254,
+  0.7783,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_inchescape/featured.png": [
+  0.2119,
+  0.0176,
+  0.7939,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_indoorlacebeat/featured.png": [
+  0.3457,
+  0.0605,
+  0.7637,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_indoorlacescore/featured.png": [
+  0.2139,
+  0.0635,
+  0.8555,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_infernaltrooper/featured.png": [
+  0.3525,
+  0.0674,
+  0.7881,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_infoinvader/featured.png": [
+  0.3018,
+  0.0439,
+  0.7988,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_insightbawl/featured.png": [
+  0.3438,
+  0.043,
+  0.7686,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_interorbit_shock/featured.png": [
+  0.2422,
+  0.041,
+  0.7568,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ivorybrite/featured.png": [
+  0.3838,
+  0.0498,
+  0.7939,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ivorydwell/featured.png": [
+  0.3086,
+  0.0664,
+  0.7422,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ivystub/featured.png": [
+  0.3418,
+  0.0381,
+  0.9531,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_jarpmilo/featured.png": [
+  0.3545,
+  0.0547,
+  0.791,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_jigsawwaste/featured.png": [
+  0.2715,
+  0.0518,
+  0.8379,
+  0.9297
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_joltmosaic/featured.png": [
+  0.3271,
+  0.1016,
+  0.999,
+  0.9746
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_juniperburlap/featured.png": [
+  0.3027,
+  0.1045,
+  0.7373,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_kartrocket/featured.png": [
+  0.3125,
+  0.0469,
+  0.8066,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_kneelreedy/featured.png": [
+  0.1865,
+  0.1084,
+  0.8096,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ladderdoor/featured.png": [
+  0.3867,
+  0.0898,
+  0.7656,
+  0.916
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lanternfit/featured.png": [
+  0.3516,
+  0.042,
+  0.7861,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lattestir/featured.png": [
+  0.3633,
+  0.1357,
+  0.7119,
+  0.8193
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lemonwrath_ochre/featured.png": [
+  0.3359,
+  0.0361,
+  0.7676,
+  0.9297
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lemurclam/featured.png": [
+  0.3193,
+  0.1104,
+  0.7998,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lentilanise/featured.png": [
+  0.3477,
+  0.0303,
+  0.793,
+  0.9082
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lethalpoison/featured.png": [
+  0.3721,
+  0.0322,
+  0.8701,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lethalswipe/featured.png": [
+  0.3809,
+  0.04,
+  0.7988,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lexablitz/featured.png": [
+  0.374,
+  0.0186,
+  0.7979,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_liftingrays/featured.png": [
+  0.3721,
+  0.0752,
+  0.7598,
+  0.9355
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lilacleather/featured.png": [
+  0.3887,
+  0.0146,
+  0.7979,
+  0.917
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_liquidcouch/featured.png": [
+  0.291,
+  0.0918,
+  0.8096,
+  0.9297
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_livelysugar_syrup/featured.png": [
+  0.3506,
+  0.0713,
+  0.8105,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_localtalent_daisy/featured.png": [
+  0.2998,
+  0.0518,
+  0.8105,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_loosecreep/featured.png": [
+  0.3135,
+  0.0918,
+  0.79,
+  0.9053
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lowerdrop/featured.png": [
+  0.251,
+  0.0459,
+  0.7344,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_luckyseven/featured.png": [
+  0.3379,
+  0.0469,
+  0.7881,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_lycheenickel/featured.png": [
+  0.2949,
+  0.1016,
+  0.7686,
+  0.9102
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder/featured.png": [
+  0.3574,
+  0.0625,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_b/featured.png": [
+  0.3555,
+  0.0615,
+  0.79,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_c/featured.png": [
+  0.3535,
+  0.0537,
+  0.7891,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_d/featured.png": [
+  0.3584,
+  0.0508,
+  0.793,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_e/featured.png": [
+  0.335,
+  0.0625,
+  0.79,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_f/featured.png": [
+  0.3555,
+  0.0586,
+  0.79,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_m_placeholder_g/featured.png": [
+  0.3242,
+  0.0625,
+  0.791,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_majorspeech/featured.png": [
+  0.335,
+  0.043,
+  0.7676,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_maltburger/featured.png": [
+  0.3809,
+  0.0703,
+  0.7871,
+  0.9199
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_marchtreatbay/featured.png": [
+  0.3584,
+  0.0176,
+  0.8262,
+  0.9033
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_marchtreatcup/featured.png": [
+  0.3809,
+  0.0732,
+  0.8008,
+  0.9072
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_marinecarve/featured.png": [
+  0.3086,
+  0.0537,
+  0.8135,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_masakoreign/featured.png": [
+  0.2656,
+  0.0146,
+  0.7324,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_masalarail/featured.png": [
+  0.3545,
+  0.0254,
+  0.7852,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mattedecoy/featured.png": [
+  0.3545,
+  0.0117,
+  0.7861,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_melodicpull/featured.png": [
+  0.2969,
+  0.0234,
+  0.7832,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_meowknaw/featured.png": [
+  0.3809,
+  0.0195,
+  0.8096,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_microleaf/featured.png": [
+  0.3379,
+  0.0166,
+  0.7549,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mimicglean/featured.png": [
+  0.3496,
+  0.0615,
+  0.7871,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mincepounce/featured.png": [
+  0.2354,
+  0.0361,
+  0.7275,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_missmissile/featured.png": [
+  0.25,
+  0.0459,
+  0.7568,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_misttycoonhike/featured.png": [
+  0.3936,
+  0.0811,
+  0.8203,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_misttycoonlife/featured.png": [
+  0.3701,
+  0.0742,
+  0.7676,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mistybead/featured.png": [
+  0.2539,
+  0.0371,
+  0.7432,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mixedalley/featured.png": [
+  0.3135,
+  0.0439,
+  0.8535,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_moralkorefncs/featured.png": [
+  0.374,
+  0.0479,
+  0.7773,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_morningsoak_cook/featured.png": [
+  0.3291,
+  0.0977,
+  0.7939,
+  0.8682
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mrmite/featured.png": [
+  0.3379,
+  0.0615,
+  0.791,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mutedmaroon/featured.png": [
+  0.335,
+  0.0361,
+  0.7549,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_mysticfang/featured.png": [
+  0.335,
+  0.0264,
+  0.8359,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_nanaeternal/featured.png": [
+  0.3379,
+  0.0059,
+  0.9541,
+  0.8721
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_nevermore/featured.png": [
+  0.3838,
+  0.0527,
+  0.7949,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_nickelscan/featured.png": [
+  0.3174,
+  0.043,
+  0.7988,
+  0.9727
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_nightbloom/featured.png": [
+  0.3223,
+  0.0381,
+  0.8096,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_nimblepilot/featured.png": [
+  0.2217,
+  0.0625,
+  0.9619,
+  0.9717
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_noblecrusher/featured.png": [
+  0.3018,
+  0.0039,
+  0.8076,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_noblespear/featured.png": [
+  0.3838,
+  0.0596,
+  0.7861,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_noisecluegust/featured.png": [
+  0.3564,
+  0.0449,
+  0.7812,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_noisecluelurch/featured.png": [
+  0.3574,
+  0.0527,
+  0.7959,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_noondoctor/featured.png": [
+  0.3574,
+  0.0498,
+  0.8076,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_npc_umbramolt/featured.png": [
+  0.3428,
+  0.0596,
+  0.7861,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_oakweld/featured.png": [
+  0.2744,
+  0.0557,
+  0.7695,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_oasischeck/featured.png": [
+  0.375,
+  0.0576,
+  0.7852,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_oboethorn/featured.png": [
+  0.2988,
+  0.042,
+  0.7891,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_oceanpearlfncs/featured.png": [
+  0.4082,
+  0.0508,
+  0.8086,
+  0.9375
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_omelettepop/featured.png": [
+  0.3105,
+  0.0557,
+  0.9531,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_orinblitz/featured.png": [
+  0.3369,
+  0.0381,
+  0.793,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_outletverve/featured.png": [
+  0.3262,
+  0.0703,
+  0.7998,
+  0.918
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_outlinelove/featured.png": [
+  0.3682,
+  0.0557,
+  0.7568,
+  0.9268
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ovendrastic/featured.png": [
+  0.3604,
+  0.0439,
+  0.7998,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_oxidehoard/featured.png": [
+  0.3877,
+  0.0439,
+  0.8516,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ozonecredit/featured.png": [
+  0.2793,
+  0.0,
+  0.8643,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pacificsweater/featured.png": [
+  0.2734,
+  0.0635,
+  0.8496,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_paddleharp_gap/featured.png": [
+  0.2197,
+  0.0537,
+  0.7559,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pajamasoar/featured.png": [
+  0.3701,
+  0.0283,
+  0.8623,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_palemaiko/featured.png": [
+  0.3047,
+  0.0527,
+  0.7363,
+  0.9043
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pandaspeak/featured.png": [
+  0.3506,
+  0.0332,
+  0.7881,
+  0.8877
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_paradelotus/featured.png": [
+  0.3389,
+  0.1123,
+  0.8213,
+  0.9111
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pawjasminegravity/featured.png": [
+  0.3535,
+  0.0439,
+  0.8086,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pawjasminesword/featured.png": [
+  0.332,
+  0.0479,
+  0.8047,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_peacescarf/featured.png": [
+  0.3232,
+  0.0098,
+  0.7617,
+  0.9287
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pearltaffyopera/featured.png": [
+  0.3799,
+  0.0547,
+  0.8535,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pearltaffyvista/featured.png": [
+  0.2666,
+  0.0547,
+  0.751,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pebblescout_lean/featured.png": [
+  0.3584,
+  0.0371,
+  0.8955,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pepperbilly/featured.png": [
+  0.3301,
+  0.0264,
+  0.8076,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_phoenixkick_gain/featured.png": [
+  0.2959,
+  0.0469,
+  0.7842,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pinetrimpack/featured.png": [
+  0.3633,
+  0.0449,
+  0.8262,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pinetrimsurge/featured.png": [
+  0.2383,
+  0.0615,
+  0.6963,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pintpiano/featured.png": [
+  0.2764,
+  0.0596,
+  0.7998,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_piratepeak/featured.png": [
+  0.2959,
+  0.0459,
+  0.7861,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pixieparts_lava/featured.png": [
+  0.2939,
+  0.1104,
+  0.8467,
+  0.9922
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverage/featured.png": [
+  0.2734,
+  0.0332,
+  0.7197,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverage_b/featured.png": [
+  0.2744,
+  0.0127,
+  0.7217,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverage_c/featured.png": [
+  0.2764,
+  0.041,
+  0.7217,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverage_d/featured.png": [
+  0.2705,
+  0.0459,
+  0.7178,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverage_e/featured.png": [
+  0.2744,
+  0.043,
+  0.7217,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverway/featured.png": [
+  0.3594,
+  0.0479,
+  0.7744,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverway_b/featured.png": [
+  0.3525,
+  0.0508,
+  0.7764,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverway_c/featured.png": [
+  0.3604,
+  0.0352,
+  0.7744,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverway_d/featured.png": [
+  0.3604,
+  0.0273,
+  0.7744,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_plankcoverway_e/featured.png": [
+  0.3555,
+  0.0322,
+  0.7744,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_polkaskate/featured.png": [
+  0.3486,
+  0.0537,
+  0.7627,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pollentrove/featured.png": [
+  0.3809,
+  0.0635,
+  0.7998,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_pongoquell/featured.png": [
+  0.3594,
+  0.0557,
+  0.749,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_popdroid/featured.png": [
+  0.3643,
+  0.0361,
+  0.8457,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_powerspin/featured.png": [
+  0.3174,
+  0.0137,
+  0.7949,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_prairiegizmo/featured.png": [
+  0.376,
+  0.04,
+  0.7959,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_prawntwine/featured.png": [
+  0.3379,
+  0.0146,
+  0.8135,
+  0.8145
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_prismglee/featured.png": [
+  0.3242,
+  0.0996,
+  0.7861,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_prizetray/featured.png": [
+  0.3691,
+  0.0332,
+  0.7598,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_punkdevilsummerfncs/featured.png": [
+  0.3818,
+  0.0352,
+  0.793,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_purecereal/featured.png": [
+  0.3359,
+  0.0508,
+  0.7822,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quainttoy/featured.png": [
+  0.3877,
+  0.0625,
+  0.7832,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quarterclaspjoin/featured.png": [
+  0.3105,
+  0.0693,
+  0.7393,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quarterclaspzoom/featured.png": [
+  0.3721,
+  0.0762,
+  0.7939,
+  0.9736
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quartzsqueak/featured.png": [
+  0.3076,
+  0.1143,
+  0.7676,
+  0.8945
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_queentruth_rind/featured.png": [
+  0.29,
+  0.0088,
+  0.8232,
+  0.9131
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quichelorrainecrisp/featured.png": [
+  0.3154,
+  0.0381,
+  0.7686,
+  0.9111
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quichelorrainelime/featured.png": [
+  0.3799,
+  0.0254,
+  0.7402,
+  0.9102
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_quirkluster/featured.png": [
+  0.3604,
+  0.0625,
+  0.7744,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_radardigitgloom/featured.png": [
+  0.2598,
+  0.0508,
+  0.8018,
+  0.918
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_radardigitortho/featured.png": [
+  0.2588,
+  0.0586,
+  0.8799,
+  0.916
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_radiantmove/featured.png": [
+  0.376,
+  0.0605,
+  0.7852,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_radiopaca/featured.png": [
+  0.3486,
+  0.0244,
+  0.8018,
+  0.9258
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_radrat/featured.png": [
+  0.1777,
+  0.0176,
+  0.7109,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rainbowsplash/featured.png": [
+  0.332,
+  0.0547,
+  0.8018,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rampagediva_jade/featured.png": [
+  0.3799,
+  0.0635,
+  0.791,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rampcanal/featured.png": [
+  0.3408,
+  0.0264,
+  0.7988,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rankedbayonet/featured.png": [
+  0.334,
+  0.0625,
+  0.999,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rankedphantom/featured.png": [
+  0.333,
+  0.0586,
+  0.7949,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rankedshade/featured.png": [
+  0.3701,
+  0.0703,
+  0.7959,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_raspberrypaw_gummy/featured.png": [
+  0.3125,
+  0.0303,
+  0.7988,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rebelfur/featured.png": [
+  0.3037,
+  0.0576,
+  0.8174,
+  0.9463
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rebeltempo/featured.png": [
+  0.3271,
+  0.0469,
+  0.8057,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_recipewhole/featured.png": [
+  0.3623,
+  0.0156,
+  0.7422,
+  0.8779
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_redjay/featured.png": [
+  0.2656,
+  0.0703,
+  0.7422,
+  0.9287
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_retroblade/featured.png": [
+  0.25,
+  0.0244,
+  0.751,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_revoltcrush/featured.png": [
+  0.3643,
+  0.0371,
+  0.7979,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rinkhat_trick/featured.png": [
+  0.373,
+  0.0273,
+  0.7891,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_robusttorn/featured.png": [
+  0.2969,
+  0.0332,
+  0.875,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rookgeckorye/featured.png": [
+  0.3516,
+  0.1016,
+  0.8066,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_roosterroast/featured.png": [
+  0.2979,
+  0.084,
+  0.7402,
+  0.9004
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rosejewel/featured.png": [
+  0.2803,
+  0.0547,
+  0.7568,
+  0.9268
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rosescour/featured.png": [
+  0.3438,
+  0.0293,
+  0.7715,
+  0.9229
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rosychuckle/featured.png": [
+  0.3057,
+  0.0527,
+  0.8105,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_routpinch/featured.png": [
+  0.3584,
+  0.0469,
+  0.8066,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rowdydevilfncs/featured.png": [
+  0.25,
+  0.0381,
+  0.7529,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rowliaison_cafe/featured.png": [
+  0.3691,
+  0.0547,
+  0.8037,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_royalwonk/featured.png": [
+  0.3496,
+  0.0928,
+  0.7568,
+  0.8936
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rubysnapper/featured.png": [
+  0.3809,
+  0.0576,
+  0.7686,
+  0.8896
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rubywardenfncs/featured.png": [
+  0.3809,
+  0.041,
+  0.7803,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rumblebeat_beach/featured.png": [
+  0.3555,
+  0.0635,
+  0.8018,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rustedblade/featured.png": [
+  0.3135,
+  0.0391,
+  0.7812,
+  0.9463
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sablehorizon/featured.png": [
+  0.374,
+  0.0566,
+  0.7939,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_safarignome/featured.png": [
+  0.3418,
+  0.0596,
+  0.7598,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_saltlattice/featured.png": [
+  0.3438,
+  0.0273,
+  0.7764,
+  0.8721
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_saltybrim_pin/featured.png": [
+  0.2197,
+  0.0605,
+  0.6807,
+  0.8564
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_satirecane_ode/featured.png": [
+  0.3184,
+  0.0371,
+  0.7764,
+  0.9463
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_saxopop/featured.png": [
+  0.335,
+  0.0684,
+  0.749,
+  0.9795
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_scalloplava/featured.png": [
+  0.3389,
+  0.0508,
+  0.7725,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_scooppluck/featured.png": [
+  0.3467,
+  0.1055,
+  0.8916,
+  0.9072
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_scraptunnel/featured.png": [
+  0.3457,
+  0.0586,
+  0.7764,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_scribespider/featured.png": [
+  0.334,
+  0.0156,
+  0.8916,
+  0.9209
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_selenedonna/featured.png": [
+  0.3799,
+  0.0664,
+  0.7959,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_servestreet/featured.png": [
+  0.3867,
+  0.0967,
+  0.7705,
+  0.8945
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sharpcrave/featured.png": [
+  0.3281,
+  0.0508,
+  0.7822,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sheerwill_blot/featured.png": [
+  0.2227,
+  0.0137,
+  0.9189,
+  0.8926
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shimpilon/featured.png": [
+  0.2598,
+  0.0283,
+  0.7441,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shinysear/featured.png": [
+  0.1758,
+  0.0703,
+  0.8926,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shirttilapia/featured.png": [
+  0.3467,
+  0.0391,
+  0.7715,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shortrack/featured.png": [
+  0.3477,
+  0.0605,
+  0.7959,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shovelcrop/featured.png": [
+  0.3643,
+  0.0088,
+  0.7773,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_shyturkey/featured.png": [
+  0.3311,
+  0.0498,
+  0.8193,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_silentnovel_vane/featured.png": [
+  0.3545,
+  0.0869,
+  0.7676,
+  0.8926
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_silvercanine/featured.png": [
+  0.1768,
+  0.0537,
+  0.7246,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skelflask/featured.png": [
+  0.3301,
+  0.0596,
+  0.793,
+  0.9678
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skiffgrind/featured.png": [
+  0.3389,
+  0.0811,
+  0.7275,
+  0.9141
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skilledruby/featured.png": [
+  0.3711,
+  0.0615,
+  0.7861,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skilledskull/featured.png": [
+  0.3721,
+  0.0527,
+  0.9531,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skullarcana/featured.png": [
+  0.2568,
+  0.0215,
+  0.8037,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_skyruled/featured.png": [
+  0.3398,
+  0.0625,
+  0.7979,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sleepycloud/featured.png": [
+  0.3848,
+  0.042,
+  0.7939,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sleepyduck/featured.png": [
+  0.3291,
+  0.043,
+  1.0,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sleepyuni/featured.png": [
+  0.332,
+  0.0195,
+  0.7959,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_slickintel_swipe/featured.png": [
+  0.3477,
+  0.0615,
+  0.8066,
+  0.9717
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_slickswish/featured.png": [
+  0.2969,
+  0.0625,
+  0.8135,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_slugripple/featured.png": [
+  0.335,
+  0.0713,
+  0.7773,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_slumpafter/featured.png": [
+  0.3232,
+  0.0674,
+  0.7744,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_slysheep/featured.png": [
+  0.3682,
+  0.0547,
+  0.7998,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_smoothgriffin/featured.png": [
+  0.3369,
+  0.04,
+  0.7539,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_snoutslice/featured.png": [
+  0.2871,
+  0.0322,
+  0.8242,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_snowycoast/featured.png": [
+  0.2803,
+  0.0439,
+  0.8447,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_snowypeas/featured.png": [
+  0.3203,
+  0.0283,
+  0.791,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_solardusk/featured.png": [
+  0.332,
+  0.0498,
+  0.7891,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_solosnooze/featured.png": [
+  0.3418,
+  0.04,
+  0.8154,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_solvesolid/featured.png": [
+  0.3496,
+  0.0459,
+  0.8047,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_southbalk/featured.png": [
+  0.2588,
+  0.0352,
+  0.9385,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_spaceplunge/featured.png": [
+  0.332,
+  0.0518,
+  0.7988,
+  0.8701
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_spillstrike/featured.png": [
+  0.3457,
+  0.0508,
+  0.8301,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_spiretend/featured.png": [
+  0.3037,
+  0.0137,
+  0.8311,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_splishsplash/featured.png": [
+  0.2324,
+  0.0117,
+  0.7471,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_spongehollow/featured.png": [
+  0.3584,
+  0.0518,
+  0.7803,
+  0.8994
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sprintluckslaw/featured.png": [
+  0.293,
+  0.0596,
+  0.749,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sprintlucksweat/featured.png": [
+  0.2559,
+  0.0498,
+  0.7451,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sprucebark/featured.png": [
+  0.252,
+  0.0771,
+  0.7812,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_squibblysquid/featured.png": [
+  0.3037,
+  0.123,
+  0.7578,
+  0.8945
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_stairgummy/featured.png": [
+  0.3555,
+  0.0283,
+  0.8086,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_steedshimmer_shire/featured.png": [
+  0.374,
+  0.1182,
+  0.832,
+  0.8984
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_stoutwhiz/featured.png": [
+  0.3584,
+  0.0537,
+  0.8037,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_straymanta/featured.png": [
+  0.3223,
+  0.0586,
+  0.7979,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_streetbee/featured.png": [
+  0.3369,
+  0.0518,
+  0.793,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_stridemicedeep/featured.png": [
+  0.3359,
+  0.042,
+  0.7949,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_stridemicegiant/featured.png": [
+  0.332,
+  0.0264,
+  0.7871,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_strikinglybright/featured.png": [
+  0.3672,
+  0.042,
+  0.8008,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_stuffrasp/featured.png": [
+  0.335,
+  0.0527,
+  0.8369,
+  0.9805
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_subtlesilly/featured.png": [
+  0.3037,
+  0.0312,
+  0.833,
+  0.9834
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sugarbrain/featured.png": [
+  0.3955,
+  0.0254,
+  0.7871,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sulfurdean/featured.png": [
+  0.3643,
+  0.0107,
+  0.7725,
+  0.8809
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_summerunsuitable/featured.png": [
+  0.3545,
+  0.0586,
+  0.793,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_summitreedgrit/featured.png": [
+  0.3574,
+  0.0508,
+  0.792,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_summitreedmolt/featured.png": [
+  0.3682,
+  0.0508,
+  0.8076,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_surgeraven_pack/featured.png": [
+  0.123,
+  0.0566,
+  0.793,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_sushiaware/featured.png": [
+  0.3174,
+  0.0459,
+  0.8604,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_suturehalo/featured.png": [
+  0.3984,
+  0.0322,
+  0.7773,
+  0.9209
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_swiftkestrel/featured.png": [
+  0.4297,
+  0.0957,
+  0.6602,
+  0.5684
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_swoopclasppry/featured.png": [
+  0.377,
+  0.0635,
+  0.8154,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_swornsnout/featured.png": [
+  0.3203,
+  0.0234,
+  0.7441,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tackleshow/featured.png": [
+  0.292,
+  0.0303,
+  0.8594,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tacticalrecon_grit/featured.png": [
+  0.3154,
+  0.0469,
+  0.7764,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tallchore/featured.png": [
+  0.1816,
+  0.1006,
+  0.9023,
+  0.9932
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_talonpane_flail/featured.png": [
+  0.3145,
+  0.0332,
+  0.9004,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tameeagle/featured.png": [
+  0.334,
+  0.0547,
+  0.7656,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tangyradishflame/featured.png": [
+  0.335,
+  0.0859,
+  0.7832,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tangyradishmagma/featured.png": [
+  0.3232,
+  0.0869,
+  0.7832,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_taperslink/featured.png": [
+  0.3154,
+  0.0586,
+  0.8926,
+  0.8936
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_taskforce/featured.png": [
+  0.3916,
+  0.041,
+  0.7891,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_taxiheel/featured.png": [
+  0.3633,
+  0.0186,
+  0.874,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tearerrand/featured.png": [
+  0.3262,
+  0.0215,
+  0.8291,
+  0.8711
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_technohack/featured.png": [
+  0.377,
+  0.0332,
+  0.7949,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_techspeeder/featured.png": [
+  0.334,
+  0.0,
+  0.8115,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_teddypermit/featured.png": [
+  0.3584,
+  0.0332,
+  0.8271,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_terrabulb/featured.png": [
+  0.3125,
+  0.0518,
+  0.7852,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_terriercure/featured.png": [
+  0.2822,
+  0.0527,
+  0.8135,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_terrybroke/featured.png": [
+  0.3291,
+  0.04,
+  0.792,
+  0.8906
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_thinglaze/featured.png": [
+  0.3799,
+  0.0049,
+  0.8125,
+  0.916
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_thornypoint/featured.png": [
+  0.2383,
+  0.0469,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_thunderballet/featured.png": [
+  0.3135,
+  0.0645,
+  0.8203,
+  0.9219
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_ticketpoke/featured.png": [
+  0.333,
+  0.0479,
+  0.8027,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tidalninja/featured.png": [
+  0.2686,
+  0.0615,
+  0.8643,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tidecompost/featured.png": [
+  0.3262,
+  0.0479,
+  0.7988,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tikkataste/featured.png": [
+  0.3418,
+  0.0459,
+  0.8301,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakeclub/featured.png": [
+  0.3428,
+  0.0293,
+  0.7715,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakedrift/featured.png": [
+  0.3516,
+  0.0547,
+  0.791,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakedrift_b/featured.png": [
+  0.3516,
+  0.0586,
+  0.7881,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakedrift_c/featured.png": [
+  0.3711,
+  0.0645,
+  0.7871,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakedrift_d/featured.png": [
+  0.3506,
+  0.0557,
+  0.7949,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakedrift_e/featured.png": [
+  0.3506,
+  0.0625,
+  0.7822,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakepurse/featured.png": [
+  0.3525,
+  0.0469,
+  0.7822,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakesoul/featured.png": [
+  0.292,
+  0.0527,
+  0.6992,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakesoul_b/featured.png": [
+  0.2803,
+  0.0498,
+  0.7012,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakesoul_c/featured.png": [
+  0.292,
+  0.0576,
+  0.6973,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakesoul_d/featured.png": [
+  0.3018,
+  0.0283,
+  0.7129,
+  0.9385
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timberstakesoul_e/featured.png": [
+  0.2812,
+  0.043,
+  0.6963,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_timetrotter/featured.png": [
+  0.335,
+  0.0332,
+  0.8389,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toadcycle/featured.png": [
+  0.3047,
+  0.0527,
+  0.7568,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toadcycle_b/featured.png": [
+  0.3047,
+  0.0518,
+  0.7568,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toadcycle_c/featured.png": [
+  0.3037,
+  0.0439,
+  0.7588,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toadcycle_d/featured.png": [
+  0.3096,
+  0.0342,
+  0.7588,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toadcycle_e/featured.png": [
+  0.3262,
+  0.0439,
+  0.7686,
+  0.9355
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toffeemood/featured.png": [
+  0.21,
+  0.1689,
+  0.9219,
+  0.9902
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_toothgreek/featured.png": [
+  0.2891,
+  0.0566,
+  0.7666,
+  0.9248
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_topicproud/featured.png": [
+  0.3281,
+  0.0713,
+  0.7695,
+  0.9043
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_trackwaver/featured.png": [
+  0.2695,
+  0.0654,
+  0.7676,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tremormark/featured.png": [
+  0.3545,
+  0.0186,
+  0.8242,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_trickcrate/featured.png": [
+  0.3887,
+  0.041,
+  0.793,
+  0.9258
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_triplebarker/featured.png": [
+  0.3252,
+  0.0098,
+  0.8125,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_troopfactor/featured.png": [
+  0.3213,
+  0.0342,
+  0.7861,
+  0.8682
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_trustfan/featured.png": [
+  0.3135,
+  0.0186,
+  0.7852,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tulipglory/featured.png": [
+  0.3379,
+  0.2051,
+  0.834,
+  0.8799
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_turbofueled/featured.png": [
+  0.2979,
+  0.0176,
+  0.7949,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_turnvortex/featured.png": [
+  0.2744,
+  0.0342,
+  0.7227,
+  0.9297
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tutsoothe/featured.png": [
+  0.3564,
+  0.0273,
+  0.793,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_tweaksmirk/featured.png": [
+  0.4023,
+  0.0596,
+  0.7959,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_twinginger/featured.png": [
+  0.3867,
+  0.0586,
+  0.792,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_uniquebeetle/featured.png": [
+  0.3691,
+  0.0488,
+  0.8184,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_uskthump/featured.png": [
+  0.3672,
+  0.0596,
+  0.7578,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vaguehex/featured.png": [
+  0.3877,
+  0.0439,
+  0.7939,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_valueenjoy/featured.png": [
+  0.2803,
+  0.0469,
+  0.8896,
+  0.9873
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vealcadet/featured.png": [
+  0.3555,
+  0.0293,
+  0.7822,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_veiledseer/featured.png": [
+  0.3594,
+  0.0303,
+  0.7871,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_venomsoul/featured.png": [
+  0.3789,
+  0.0508,
+  0.8047,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vertet/featured.png": [
+  0.3389,
+  0.0908,
+  0.7451,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vibrantshell/featured.png": [
+  0.3105,
+  0.0488,
+  0.8457,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vigorknackdill/featured.png": [
+  0.3281,
+  0.0557,
+  0.7793,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vigorknackgolf/featured.png": [
+  0.3271,
+  0.0498,
+  0.7646,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vilesting_crude/featured.png": [
+  0.334,
+  0.1436,
+  0.8408,
+  0.9102
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_violetink/featured.png": [
+  0.3096,
+  0.0479,
+  0.7852,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vividsplash/featured.png": [
+  0.2354,
+  0.0117,
+  0.749,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_voidspray/featured.png": [
+  0.3291,
+  0.0254,
+  0.751,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vouchtrig/featured.png": [
+  0.3643,
+  0.0361,
+  0.7812,
+  0.8701
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_vowelsleep/featured.png": [
+  0.3535,
+  0.0576,
+  0.8242,
+  0.9307
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_voyagercuboid/featured.png": [
+  0.3096,
+  0.0254,
+  0.8145,
+  0.9258
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_waltzscout/featured.png": [
+  0.3262,
+  0.041,
+  0.998,
+  0.9678
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_waningcacti/featured.png": [
+  0.3867,
+  0.0352,
+  0.7598,
+  0.9668
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wavysignalbanjo/featured.png": [
+  0.2832,
+  0.0723,
+  0.7969,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wavysignalbeef/featured.png": [
+  0.3096,
+  0.2305,
+  0.7139,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_weldflush/featured.png": [
+  0.3984,
+  0.0303,
+  0.8457,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wickedmindfncs/featured.png": [
+  0.3604,
+  0.0537,
+  0.7881,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_widowfoam/featured.png": [
+  0.2998,
+  0.0381,
+  0.7393,
+  0.877
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wingedeye/featured.png": [
+  0.3682,
+  0.0342,
+  0.8037,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wiryperk_seed/featured.png": [
+  0.2754,
+  0.0488,
+  0.874,
+  0.9795
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wisebarn/featured.png": [
+  0.3779,
+  0.0312,
+  0.8145,
+  0.916
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_witchvalve/featured.png": [
+  0.3096,
+  0.043,
+  0.7529,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_woodsprice/featured.png": [
+  0.3691,
+  0.0459,
+  0.7881,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_woolexpo/featured.png": [
+  0.2314,
+  0.0127,
+  0.752,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_wrenchpeel/featured.png": [
+  0.2676,
+  0.0381,
+  0.7402,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_yokequick/featured.png": [
+  0.3398,
+  0.0566,
+  0.999,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_yuzucrank/featured.png": [
+  0.3428,
+  0.0518,
+  0.7822,
+  0.9707
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_zencrash/featured.png": [
+  0.3701,
+  0.043,
+  0.7979,
+  0.9902
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/character_zenithpair/featured.png": [
+  0.3516,
+  0.04,
+  0.8916,
+  0.9316
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_a_309_athena_commando_m_orbitteal_forswitchlod1/featured.png": [
+  0.3438,
+  0.0225,
+  0.7998,
+  0.9863
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/02772608e6244852/renderimage_0.png": [
+  0.269,
+  0.0049,
+  0.7231,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/04f64976e70d1fe7/renderimage_0.png": [
+  0.3486,
+  0.0195,
+  0.6348,
+  0.9722
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0b917a2ca144c020/renderimage_0.png": [
+  0.1274,
+  0.021,
+  0.855,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/13297bf88524241e/renderimage_0.png": [
+  0.2197,
+  0.0322,
+  0.8145,
+  0.9878
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/254b2637a20cf83b/renderimage_0.png": [
+  0.1426,
+  0.0137,
+  0.8325,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/256832804691668d/renderimage_0.png": [
+  0.1509,
+  0.0674,
+  0.8442,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2753c6904941f7ae/renderimage_0.png": [
+  0.0186,
+  0.0498,
+  0.9482,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4630059b3b684ceb/renderimage_0.png": [
+  0.2646,
+  0.0146,
+  0.7354,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/47e7d66a6c617be3/renderimage_0.png": [
+  0.3242,
+  0.0483,
+  0.7964,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4f2eb21b6ddc6c6c/renderimage_0.png": [
+  0.1904,
+  0.0234,
+  0.8257,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/51687a62bf279eae/renderimage_0.png": [
+  0.3081,
+  0.0186,
+  0.6929,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5a62c7f439961b9b/renderimage_0.png": [
+  0.3154,
+  0.0728,
+  0.6807,
+  0.9282
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6fc7546231414524/renderimage_0.png": [
+  0.0,
+  0.0254,
+  0.7471,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/764245f1c0535262/renderimage_0.png": [
+  0.105,
+  0.0137,
+  0.6938,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/890d3f0a7bb7d959/renderimage_0.png": [
+  0.311,
+  0.0278,
+  0.6787,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8d18a7d0a6c5be85/renderimage_0.png": [
+  0.2964,
+  0.0234,
+  0.6929,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/954eb639ffabb4d8/renderimage_0.png": [
+  0.0381,
+  0.064,
+  0.98,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/95736cac2e63353c/renderimage_0.png": [
+  0.2197,
+  0.0195,
+  0.7124,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9af63ea860febe11/renderimage_0.png": [
+  0.3096,
+  0.021,
+  0.6973,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9aff7963aad5eba6/renderimage_0.png": [
+  0.1167,
+  0.0195,
+  0.8765,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b5e1ed05c979c25d/renderimage_0.png": [
+  0.2524,
+  0.0195,
+  0.6816,
+  0.9175
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bdecd93e38d47fde/renderimage_0.png": [
+  0.1978,
+  0.0215,
+  0.8672,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bea812d9c3dee4d2/renderimage_0.png": [
+  0.3267,
+  0.0322,
+  0.7983,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d732da29219d3798/renderimage_0.png": [
+  0.2734,
+  0.0083,
+  0.6699,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d86de38fdf79719c/renderimage_0.png": [
+  0.3481,
+  0.0259,
+  0.6875,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f270ae89a634b490/renderimage_0.png": [
+  0.2544,
+  0.0,
+  0.7549,
+  1.0
+ ]
+}
