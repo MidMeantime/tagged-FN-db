@@ -10,6 +10,7 @@ import json
 import os
 import re
 import sys
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -84,6 +85,40 @@ TOON_TAGS = ["toon_(style)", "cel_shading"]
 TOON_EXCEPTIONS = ("platoon", "pontoon", "spittoon", "festoon")
 
 
+# Styles named just "On"/"Off" (or "Lights Off", "Always On"...) usually toggle something. The style
+# channel's type (the label the locker shows, e.g. "Lights", "Hat", "Glasses") says what:
+#   effect - lights, glow, reactive or particle effects: the same outfit, so it copies the base's tags
+#   part   - an accessory or piece (hat, mask, cape...): a real visual change, tagged on its own
+ONOFF_NAME = re.compile(r"\s*(?:all |always |lights? |glow |fx |effects? |reactive |shader )?(on|off)\s*", re.I)
+EFFECT_WORDS = ("light", "glow", "emissive", "fx", "effect", "reactive", "particle", "shader", "neon",
+                "energy", "aura", "flame", "fire", "sparkle", "holo", "lumin", "shine", "visualizer")
+GENERIC_TYPES = {"", "style", "styles", "material", "materials", "part", "parts", "color", "colors",
+                 "variant", "variants", "mesh", "pattern", "progressive", "option", "options"}
+
+
+def channel_type(v):
+    t = v.get("type")
+    if isinstance(t, dict):
+        t = t.get("value") or t.get("displayValue") or t.get("name")
+    return str(t or "").strip()
+
+
+def toggle_kind(style_name, channel, ctype):
+    """Return ("effect"|"part", "on"|"off") for an On/Off style, or None for anything else."""
+    m = ONOFF_NAME.fullmatch(style_name or "")
+    if not m:
+        return None
+    state = m.group(1).lower()
+    words = f"{style_name} {channel} {ctype}".lower()
+    if any(w in words for w in EFFECT_WORDS):
+        return "effect", state
+    if ctype.lower() not in GENERIC_TYPES:
+        return "part", state
+    if channel.lower() in ("emissive", "particle", "particles"):
+        return "effect", state
+    return None
+
+
 def shading_only_tags(style_name):
     """Return the shading tags for a shading-only style name, or None if the name means more than that."""
     name = (style_name or "").lower()
@@ -119,6 +154,7 @@ def style_entries(base):
     out, seen_images = [], {base.get("icon"), base.get("small")}
     for v in base.get("_variants") or []:
         channel = val(v, "channel") or ""
+        ctype = channel_type(v)
         options = v.get("options") or []
         if channel.lower() in SKIP_CHANNELS or len(options) > MAX_OPTIONS_PER_CHANNEL:
             continue
@@ -133,6 +169,13 @@ def style_entries(base):
             shading = shading_only_tags(style_name)
             if shading is not None:
                 e["shading_only"] = shading
+            toggle = toggle_kind(style_name, channel, ctype)
+            if toggle and toggle[0] == "effect":
+                e["effect_toggle"] = toggle[1]       # same outfit with lights/effects on or off
+            elif toggle and toggle[0] == "part":
+                style_name = f"{ctype}: {style_name.strip()}"  # "Off" -> "Hat: Off"
+            if ctype:
+                e["channel_type"] = ctype
             e.update({
                 "id": f"{base['id']}::{channel}::{tag}",
                 "of": base["id"],
@@ -143,6 +186,11 @@ def style_entries(base):
             })
             out.append(e)
     return out
+
+
+def is_placeholder(name):
+    """True for outfits Epic hasn't named yet ("TBD", "tbd", "TBD." ...)."""
+    return re.fullmatch(r"\s*tbd\W*", name or "", re.I) is not None
 
 
 def harvest_shop_renders(headers, outfit_ids):
@@ -188,6 +236,12 @@ def main():
     r.raise_for_status()
     items = r.json().get("data") or []
     outfits = [slim(i) for i in items if val(i.get("type")) == "outfit"]
+    # Placeholder outfits Epic hasn't named yet (mostly NPCs) are called "TBD"; leave them out.
+    # Their styles go with them, since styles are built from these entries below.
+    tbd = [o for o in outfits if is_placeholder(o["name"])]
+    if tbd:
+        print(f"Skipping {len(tbd)} placeholder outfits named TBD")
+        outfits = [o for o in outfits if not is_placeholder(o["name"])]
     if not outfits:
         sys.exit("No outfits returned; Fortnite-API response format may have changed.")
     renders = harvest_shop_renders(headers, {o["id"] for o in outfits})
@@ -205,6 +259,15 @@ def main():
     shading = [e for e in entries if "shading_only" in e]
     print(f"{len(outfits)} outfits + {len(entries) - len(outfits)} alternate styles "
           f"({len(shading)} are shading-only and will copy their base skin's tags)")
+    toggles = Counter((e["channel"], e.get("channel_type", ""), "effect" if "effect_toggle" in e else
+                       ("part" if ":" in e["style"] else "unsorted"))
+                      for e in entries if e.get("of") and ONOFF_NAME.fullmatch(e["style"].split(": ")[-1]))
+    if toggles:
+        print(f"On/Off styles: {sum(n for k, n in toggles.items() if k[2] == 'effect')} lighting/effect toggles "
+              f"(copy their base's tags), {sum(n for k, n in toggles.items() if k[2] == 'part')} accessory toggles, "
+              f"{sum(n for k, n in toggles.items() if k[2] == 'unsorted')} unsorted. By channel / type:")
+        for (ch, ct, kind), n in toggles.most_common(30):
+            print(f"  {n:4}  {ch} / {ct or '(no type)'} -> {kind}")
     names = sorted({e["style"] for e in shading})
     if names:
         print("  Shading-only style names: " + ", ".join(names[:60]) + (" …" if len(names) > 60 else ""))

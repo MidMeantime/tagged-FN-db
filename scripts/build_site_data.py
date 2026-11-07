@@ -141,6 +141,9 @@ def load_overrides(all_ids):
     return overrides
 
 
+# Tags removed from an effect toggle's "Off" style, and added (if none is there) to its "On" style.
+GLOW_TAGS = {"glowing", "glowing_lines", "emissive", "glowing_eyes", "neon_trim"}
+
 # The "main shading" tags a shading-only style swaps out for its own.
 MAIN_SHADING = {"cel_shading", "toon_(style)", "flat_color", "gradient_shading", "soft_shading", "realistic_3d"}
 
@@ -210,7 +213,7 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         o = overrides.get(s["id"], EMPTY)
         base = by_id.get(s.get("of"))
         base_ok = base is not None and "u" not in base
-        inherit = base_ok and "shading_only" in s
+        inherit = base_ok and ("shading_only" in s or "effect_toggle" in s)
         icon_only = bool(s.get("of") and m.get("icon_only"))
         # The model got a blank image for this style (it says so, and found almost nothing to tag).
         blank = bool(s.get("of") and m and len(m.get("tags", [])) < 4 and BLANK_CAPTION.search(m.get("caption", "")))
@@ -221,7 +224,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or blank or "shading_only" in s) and group_mode != "no"))
+                                         ((icon_only or blank or "shading_only" in s or "effect_toggle" in s)
+                                          and group_mode != "no"))
         name_tags = []
         default_name = ""
         if s.get("of"):
@@ -246,6 +250,16 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             sure = [t for t in sure if t not in base_names]
             m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base,
                  "icon_caption": "" if blank else m.get("caption", "")}
+            copied = True
+            extra_tags = []
+        elif inherit and "effect_toggle" in s:
+            # Same outfit with lights/effects switched on or off: copy its tags, adjusting the glow ones.
+            if s["effect_toggle"] == "off":
+                sure = [t for t in base["t"] if t not in GLOW_TAGS]
+            else:
+                sure = list(base["t"]) + ([] if GLOW_TAGS & set(base["t"]) else ["glowing"])
+            low = [t for t in base.get("low", []) if t not in GLOW_TAGS]
+            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base}
             copied = True
             extra_tags = []
         elif inherit:
@@ -309,6 +323,10 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             rec["v"] = 1
         if o["notes"]:
             rec["no"] = o["notes"]
+        if "effect_toggle" in s:
+            rec["fx"] = s["effect_toggle"]  # lights/effects on or off
+            if inherit:
+                rec["inh"] = 1
         if "shading_only" in s:
             rec["sh"] = 1  # shading-only style
             if inherit:
@@ -347,7 +365,7 @@ def main():
 
     cats = [{"key": k, "label": c["label"], "tags": c["tags"]} for k, c in vocab["categories"].items()]
     if variant_tags:
-        cats.insert(0, {"key": "variant", "label": "Team / house / club", "tags": sorted(variant_tags)})
+        cats.insert(0, {"key": "variant", "label": "Style", "tags": sorted(variant_tags)})
     known = {t for c in cats for t in c["tags"]}
     extra = sorted({t for r in out for t in r["t"]} - known)
     if extra:

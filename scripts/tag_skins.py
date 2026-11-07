@@ -398,10 +398,10 @@ def main():
             print(f"Re-checking {recheck} styles whose old caption describes an icon.")
         skins = [s for s in skins if needs_tags(s)]
     skins = [s for s in skins if s.get("icon")]
-    shading_only = [s for s in skins if "shading_only" in s]
-    if shading_only:
-        print(f"Skipping {len(shading_only)} shading-only styles (they copy their base skin's tags).")
-        skins = [s for s in skins if "shading_only" not in s]
+    copies = [s for s in skins if "shading_only" in s or "effect_toggle" in s]
+    if copies:
+        print(f"Skipping {len(copies)} shading-only and lights/effects on-off styles (they copy their base skin's tags).")
+        skins = [s for s in skins if "shading_only" not in s and "effect_toggle" not in s]
     if args.test:
         skins = skins[: args.test]
     elif args.limit:
