@@ -186,6 +186,7 @@ def style_entries(base):
                 e["effect_toggle"] = toggle[1]       # same outfit with lights/effects on or off
             elif toggle and toggle[0] == "part":
                 style_name = f"{ctype}: {style_name.strip()}"  # "Off" -> "Hat: Off"
+                e["part_toggle"] = True  # same skin with a piece on/off: folds in, keeps its own tags
             if ctype:
                 e["channel_type"] = ctype
             if reactive_channel:

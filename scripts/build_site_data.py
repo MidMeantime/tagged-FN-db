@@ -227,8 +227,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or blank or copy_kind or s.get("reactive_state"))
-                                          and group_mode != "no"))
+                                         ((icon_only or blank or copy_kind or s.get("reactive_state")
+                                           or s.get("part_toggle")) and group_mode != "no"))
         name_tags = []
         default_name = ""
         if s.get("of"):
@@ -409,6 +409,10 @@ def main():
     grouped = sum(1 for r in out if "grp" in r)
     for w in sorted(WARNINGS):
         print("Warning: " + w)
+    if WARNINGS and os.environ.get("GITHUB_STEP_SUMMARY"):
+        # Also show them on the Actions run's summary page, where they're hard to miss.
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as f:
+            f.write("### Problems in data/overrides.csv\n\n" + "\n".join(f"- {w}" for w in sorted(WARNINGS)) + "\n")
     if pending_captions:
         print(f"{pending_captions} themed styles still use a simple name swap; run scripts/theme_captions.py to rewrite them.")
     print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only and {icons} icon-only styles use their base's tags; {grouped} styles fold into their base card), {tagged} tagged, {len(overrides)} with hand edits")
