@@ -54,7 +54,7 @@ def main():
         prompt = PROMPT.format(
             default=f', which represents {q["default"]}' if q["default"] else "",
             style=q["style"],
-            icon=f' Its style preview is this emblem: {q["icon"]}' if q["icon"] else "",
+            icon=f' Its style preview image shows: {q["icon"]}' if q["icon"] else "",
             src=q["src"],
         )
         r = requests.post(f"{ts.API}/messages", headers=h, timeout=120, json={

@@ -65,8 +65,13 @@ def read_override_rows():
     return [{(k or "").strip().lower(): (v or "").strip() for k, v in row.items()} for row in rows if row]
 
 
+# Style names that say nothing about a team or house, so they never become tags.
+GENERIC_STYLE_NAMES = {"default", "standard", "original", "classic", "normal", "base", "stage_1", "style_1"}
+
+
 def norm_tag(name):
-    return re.sub(r"[^a-z0-9]+", "_", (name or "").lower()).strip("_")
+    tag = re.sub(r"[^a-z0-9]+", "_", (name or "").lower()).strip("_")
+    return "" if tag in GENERIC_STYLE_NAMES else tag
 
 
 def parse_replacements(text):
@@ -87,6 +92,14 @@ def swap_words(text, old, new):
     return (pat.sub(new, text), True) if pat.search(text) else (text, False)
 
 
+WARNINGS = set()  # problems in the overrides worth printing in the build log
+
+# Captions where the model said the style's image was blank, so its own tags are useless.
+BLANK_CAPTION = re.compile(
+    r"\b(?:image|picture|it) is (?:almost |essentially |mostly |nearly )?(?:entirely |completely )?(?:blank|empty)"
+    r"|\bblank (?:white )?(?:image|field|background|canvas)|nothing (?:is )?visible|no outfit (?:is )?visible", re.I)
+
+
 def load_overrides(all_ids):
     """Read override rows (repo CSV, then Google Sheet) and expand wildcard ids."""
     overrides = {}
@@ -95,6 +108,11 @@ def load_overrides(all_ids):
         if not rid:
             continue
         targets = [i for i in all_ids if i.startswith(rid[:-1])] if rid.endswith("*") else [rid]
+        raw_group = row.get("group", "").strip()
+        if raw_group and raw_group.partition(":")[0].strip().lower() not in ("themes", "theme", "yes", "no", "y", "n", "true", "false"):
+            WARNINGS.add(f"{rid}: group '{raw_group}' isn't recognized, so it was ignored. Use themes, yes or no.")
+        if rid.endswith("*") and not targets:
+            WARNINGS.add(f"{rid}: matches no skins.")
         for sid in targets:
             o = overrides.setdefault(sid, {"add": set(), "remove": set(), "verified": False, "notes": "",
                                            "group": "", "caption": "", "replace": []})
@@ -112,9 +130,14 @@ def load_overrides(all_ids):
             mode = mode.strip().lower()
             if mode in ("themes", "theme", "yes", "no", "y", "n", "true", "false"):
                 o["group"] = {"theme": "themes", "y": "yes", "true": "yes", "n": "no", "false": "no"}.get(mode, mode)
-                if o["group"] == "themes" and chans.strip():
-                    o["theme_channels"] = {c.strip().lower() for c in chans.split(",") if c.strip()}
+                # Accept "themes:Outfit", "themes::Outfit" and "themes: Outfit, Parts".
+                names = {c.strip(" :").lower() for c in chans.split(",") if c.strip(" :")}
+                if o["group"] == "themes" and names:
+                    o["theme_channels"] = names
             o["replace"] += parse_replacements(row.get("caption_replace"))
+            if row.get("caption_replace") and "=>" not in row["caption_replace"]:
+                WARNINGS.add(f"{rid}: caption_replace has no '=>', so it was ignored. "
+                             f"To replace the whole caption, put the text in the caption column instead.")
     return overrides
 
 
@@ -163,7 +186,12 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         named = o.get("theme_channels")
         chans = style_channels.get(base_id, [])
         if named:
-            return {c for c in chans if c.lower() in named}
+            found = {c for c in chans if c.lower() in named}
+            missing = named - {c.lower() for c in chans}
+            if missing:
+                WARNINGS.add(f"{base_id}: group names style channel(s) {', '.join(sorted(missing))}, but its styles "
+                             f"use {', '.join(sorted(set(chans))) or 'no channels'}.")
+            return found
         per = icon_channels.get(base_id) or Counter()
         multi = {c for c, n in per.items() if n >= 2}
         if multi:
@@ -184,6 +212,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         base_ok = base is not None and "u" not in base
         inherit = base_ok and "shading_only" in s
         icon_only = bool(s.get("of") and m.get("icon_only"))
+        # The model got a blank image for this style (it says so, and found almost nothing to tag).
+        blank = bool(s.get("of") and m and len(m.get("tags", [])) < 4 and BLANK_CAPTION.search(m.get("caption", "")))
         # Grouping: the style's own override wins, then the base skin's, then the default.
         base_group = overrides.get(s.get("of"), EMPTY)["group"] if s.get("of") else ""
         group_mode = o["group"] or base_group
@@ -191,7 +221,7 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or "shading_only" in s) and group_mode != "no"))
+                                         ((icon_only or blank or "shading_only" in s) and group_mode != "no"))
         name_tags = []
         default_name = ""
         if s.get("of"):
@@ -204,16 +234,18 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         variant_tags.update(name_tags)
         copied = False  # caption copied from the base skin
         req = None      # caption rewrite request for scripts/theme_captions.py
-        if base_ok and icon_only:
-            # The style's preview is just an icon (swatch, emblem...), not the character. Copy the base
-            # skin's tags; if the icon shows colors, use those instead of the base's colors.
+        if base_ok and (icon_only or blank or (themed and "shading_only" not in s)):
+            # The style is the base outfit in another color/team, or its preview is just an icon (swatch,
+            # emblem...) or came through blank. Copy the base skin's tags; if the style's own image showed
+            # colors, use those instead of the base's colors.
             icon_colors = [t for t, c in m.get("tags", []) if t in color_tags and c != "low"]
             sure = ([t for t in base["t"] if t not in color_tags] + icon_colors) if icon_colors else list(base["t"])
             low = [t for t in base.get("low", []) if t not in color_tags or not icon_colors]
             # A themed style is the base outfit with another team/house: drop the base's name tags.
             base_names = set(base.get("vt", []))
             sure = [t for t in sure if t not in base_names]
-            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base, "icon_caption": m.get("caption", "")}
+            m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base,
+                 "icon_caption": "" if blank else m.get("caption", "")}
             copied = True
             extra_tags = []
         elif inherit:
@@ -281,8 +313,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             rec["sh"] = 1  # shading-only style
             if inherit:
                 rec["inh"] = 1  # tags copied from the base skin
-        if icon_only:
-            rec["ico"] = 1  # style preview is only an icon
+        if icon_only or blank:
+            rec["ico"] = 1  # style preview is only an icon (or blank), so the site shows the base outfit
             if base_ok:
                 rec["inh"] = 1
                 if m.get("icon_caption"):
@@ -353,6 +385,8 @@ def main():
     copied = sum(1 for r in out if "inh" in r and "sh" in r)
     icons = sum(1 for r in out if "ico" in r)
     grouped = sum(1 for r in out if "grp" in r)
+    for w in sorted(WARNINGS):
+        print("Warning: " + w)
     if pending_captions:
         print(f"{pending_captions} themed styles still use a simple name swap; run scripts/theme_captions.py to rewrite them.")
     print(f"Built site data: {len(out) - styles} skins + {styles} styles ({copied} shading-only and {icons} icon-only styles use their base's tags; {grouped} styles fold into their base card), {tagged} tagged, {len(overrides)} with hand edits")

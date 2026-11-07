@@ -2,7 +2,8 @@ id,name,add_tags,remove_tags,verified,notes,group,caption,caption_replace
 EXAMPLE_SKIN_ID,Example tag fix,"aviators, ponytail",sunglasses,yes,"Example row: matches no skin, so it changes nothing. Copy it, replace the ID with a real one from the bottom of a skin's popup, and leave columns you don't need blank.",,,
 Character_DroveRay*,Hogwarts students (boys),,,,,themes,,
 Character_ToadCycle*,Hogwarts students (girls),,,,,themes,,
-Character_BlockStack*,Wrixel,"gamer, ",,yes,,themes::Outfit,,A mix-and-match customizable stacked androgynous block character.
-Character_ChefTartar*,Futbol,,,,,themes::Material,,
-Character_PlankCoverAge*,Nascar (girls),,,,helmet (on),themes::Parts,,
-Character_PlankCoverWay*,Nascar (boys),,,,helmet (on),themes::Parts,,
+Character_BlockStack*,Wrixel,,,,,themes:Outfit,A mix-and-match customizable stacked androgynous block character.,
+Character_ChefTartar*,Futbol,,,,,themes:Material,,
+Character_PlankCoverAge*,Nascar (girls),,,,helmet (on),themes:Parts,,
+Character_PlankCoverWay*,Nascar (boys),,,,helmet (on),themes:Parts,,
+Character_FierceStripe_Admiral,Privateer Oscar,,,,cape (off) and cape + tail (off),"themes:Outfit, yes",,
