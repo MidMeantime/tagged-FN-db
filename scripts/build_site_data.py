@@ -28,6 +28,7 @@ Writes:
 Usage: python scripts/build_site_data.py
 """
 import csv
+import fnmatch
 import io
 import json
 import os
@@ -101,6 +102,15 @@ BLANK_CAPTION = re.compile(
     r"|no visible (?:character|outfit)|cannot be (?:determined|identified|seen|described|made out)", re.I)
 
 
+def match_ids(pattern, all_ids):
+    """IDs an override row applies to. A * matches anything, anywhere ("Character_DroveRay*::Parts::*").
+    A pattern with a * also covers everything under what it matches, so "Character_DroveRay*::Parts"
+    means every Parts style of every DroveRay skin. Without a *, only that exact ID."""
+    if "*" not in pattern:
+        return [pattern]
+    return [i for i in all_ids if fnmatch.fnmatchcase(i, pattern) or fnmatch.fnmatchcase(i, pattern + "::*")]
+
+
 def load_overrides(all_ids):
     """Read override rows (repo CSV, then Google Sheet) and expand wildcard ids."""
     overrides = {}
@@ -108,11 +118,14 @@ def load_overrides(all_ids):
         rid = row.get("id")
         if not rid:
             continue
-        targets = [i for i in all_ids if i.startswith(rid[:-1])] if rid.endswith("*") else [rid]
+        targets = match_ids(rid, all_ids)
+        # A wildcard over whole families sets group on the main skins only. One that names a style
+        # channel (it has ::, like "Character_DroveRay*::Parts") sets it on the styles it matches.
+        family_wildcard = "*" in rid and "::" not in rid
         raw_group = row.get("group", "").strip()
         if raw_group and raw_group.partition(":")[0].strip().lower() not in ("themes", "theme", "yes", "no", "y", "n", "true", "false", "icon"):
             WARNINGS.add(f"{rid}: group '{raw_group}' isn't recognized, so it was ignored. Use themes, yes, no or icon.")
-        if rid.endswith("*") and not targets:
+        if "*" in rid and not targets:
             WARNINGS.add(f"{rid}: matches no skins.")
         for sid in targets:
             o = overrides.setdefault(sid, {"add": set(), "remove": set(), "verified": False, "notes": "",
@@ -126,7 +139,7 @@ def load_overrides(all_ids):
                 if row.get(k):
                     o[k] = row[k]
             # A wildcard row's group setting is meant for the base skins it matches, not each style.
-            g = "" if (rid.endswith("*") and "::" in sid) else row.get("group", "").strip()
+            g = "" if (family_wildcard and "::" in sid) else row.get("group", "").strip()
             mode, _, chans = g.partition(":")
             mode = mode.strip().lower()
             if mode in ("themes", "theme", "yes", "no", "y", "n", "true", "false", "icon"):
@@ -251,7 +264,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             sure = ([t for t in base["t"] if t not in color_tags] + icon_colors) if icon_colors else list(base["t"])
             low = [t for t in base.get("low", []) if t not in color_tags or not icon_colors]
             # A themed style is the base outfit with another team/house: drop the base's name tags.
-            base_names = set(base.get("vt", []))
+            # Other copies (a cape-off look, a blank preview) are still the base's team, so keep them.
+            base_names = set(base.get("vt", [])) if themed else set()
             sure = [t for t in sure if t not in base_names]
             m = {"caption": base.get("c", ""), "feet_visible": "nf" not in base,
                  "icon_caption": "" if blank else m.get("caption", "")}
