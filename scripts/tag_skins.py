@@ -398,10 +398,15 @@ def main():
             print(f"Re-checking {recheck} styles whose old caption describes an icon.")
         skins = [s for s in skins if needs_tags(s)]
     skins = [s for s in skins if s.get("icon")]
-    copies = [s for s in skins if "shading_only" in s or "effect_toggle" in s]
+    # Shading-only and lights on/off styles copy their base skin's tags, unless an override row with
+    # group = no says the style really looks different; those get tagged like any other style.
+    import build_site_data
+    own_look = {sid for sid, o in build_site_data.load_overrides([s["id"] for s in skins]).items() if o["group"] == "no"}
+    is_copy = lambda s: ("shading_only" in s or "effect_toggle" in s) and s["id"] not in own_look
+    copies = [s for s in skins if is_copy(s)]
     if copies:
         print(f"Skipping {len(copies)} shading-only and lights/effects on-off styles (they copy their base skin's tags).")
-        skins = [s for s in skins if "shading_only" not in s and "effect_toggle" not in s]
+        skins = [s for s in skins if not is_copy(s)]
     if args.test:
         skins = skins[: args.test]
     elif args.limit:

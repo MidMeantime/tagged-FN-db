@@ -543,7 +543,7 @@
    ]
   },
   "outfit_traits": {
-   "label": "Outfit traits (from API data)",
+   "label": "Outfit traits",
    "tags": [
     "reactive_outfit",
     "color_selectable",

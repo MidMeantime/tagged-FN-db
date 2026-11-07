@@ -213,7 +213,10 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         o = overrides.get(s["id"], EMPTY)
         base = by_id.get(s.get("of"))
         base_ok = base is not None and "u" not in base
-        inherit = base_ok and ("shading_only" in s or "effect_toggle" in s)
+        # group = no on a style's own row means "this is a real, different look": no copying from the base.
+        own_look = bool(s.get("of")) and o["group"] == "no"
+        copy_kind = ("shading_only" in s or "effect_toggle" in s) and not own_look
+        inherit = base_ok and copy_kind
         icon_only = bool(s.get("of") and m.get("icon_only"))
         # The model got a blank image for this style (it says so, and found almost nothing to tag).
         blank = bool(s.get("of") and m and len(m.get("tags", [])) < 4 and BLANK_CAPTION.search(m.get("caption", "")))
@@ -224,7 +227,7 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or blank or "shading_only" in s or "effect_toggle" in s)
+                                         ((icon_only or blank or copy_kind or s.get("reactive_state"))
                                           and group_mode != "no"))
         name_tags = []
         default_name = ""
@@ -323,11 +326,11 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             rec["v"] = 1
         if o["notes"]:
             rec["no"] = o["notes"]
-        if "effect_toggle" in s:
+        if "effect_toggle" in s and not own_look:
             rec["fx"] = s["effect_toggle"]  # lights/effects on or off
             if inherit:
                 rec["inh"] = 1
-        if "shading_only" in s:
+        if "shading_only" in s and not own_look:
             rec["sh"] = 1  # shading-only style
             if inherit:
                 rec["inh"] = 1  # tags copied from the base skin

@@ -96,6 +96,17 @@ GENERIC_TYPES = {"", "style", "styles", "material", "materials", "part", "parts"
                  "variant", "variants", "mesh", "pattern", "progressive", "option", "options"}
 
 
+# A style channel whose type or option names mention these holds reactive states, e.g. the FNAF skins'
+# "Full Damage" style. Those styles fold into the base card but keep their own tags (they look
+# different), and the outfit gets the reactive tag.
+REACTIVE_WORDS = ("reactive", "react", "damage")
+
+
+def is_reactive_channel(ctype, options):
+    names = " ".join([ctype] + [o.get("name") or "" for o in options[1:]]).lower()
+    return any(w in names for w in REACTIVE_WORDS)
+
+
 def channel_type(v):
     t = v.get("type")
     if isinstance(t, dict):
@@ -158,6 +169,7 @@ def style_entries(base):
         options = v.get("options") or []
         if channel.lower() in SKIP_CHANNELS or len(options) > MAX_OPTIONS_PER_CHANNEL:
             continue
+        reactive_channel = is_reactive_channel(ctype, options)
         for opt in options[1:]:
             img = opt.get("image")
             tag = opt.get("tag") or ""
@@ -176,6 +188,9 @@ def style_entries(base):
                 style_name = f"{ctype}: {style_name.strip()}"  # "Off" -> "Hat: Off"
             if ctype:
                 e["channel_type"] = ctype
+            if reactive_channel:
+                e["reactive_state"] = True
+                e["reactive"] = True
             e.update({
                 "id": f"{base['id']}::{channel}::{tag}",
                 "of": base["id"],
@@ -254,6 +269,8 @@ def main():
                                for v in o.get("_variants") or [] if v.get("options")}
         o.pop("_variants", None)
         o["styles"] = len(styles)
+        if any(st.get("reactive_state") for st in styles):
+            o["reactive"] = True  # has reactive styles, even if Fortnite-API doesn't flag it
         entries.append(o)
         entries += styles
     shading = [e for e in entries if "shading_only" in e]
@@ -268,6 +285,11 @@ def main():
               f"{sum(n for k, n in toggles.items() if k[2] == 'unsorted')} unsorted. By channel / type:")
         for (ch, ct, kind), n in toggles.most_common(30):
             print(f"  {n:4}  {ch} / {ct or '(no type)'} -> {kind}")
+    reactive = [e for e in entries if e.get("reactive_state")]
+    if reactive:
+        fams = Counter((e["of"], e["channel"]) for e in reactive)
+        print(f"Reactive styles: {len(reactive)} in {len(fams)} channels (fold into their base card, keep their own tags). "
+              "Style names: " + ", ".join(sorted({e["style"] for e in reactive})[:40]))
     names = sorted({e["style"] for e in shading})
     if names:
         print("  Shading-only style names: " + ", ".join(names[:60]) + (" …" if len(names) > 60 else ""))

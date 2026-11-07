@@ -74,6 +74,35 @@ Helpful files the site publishes:
 - [`data/tags.csv`](https://midmeantime.github.io/tagged-FN-db/data/tags.csv): every entry's current tags.
 - [`data/style_groups.csv`](https://midmeantime.github.io/tagged-FN-db/data/style_groups.csv): skins whose style previews are crests or logos, likely candidates for `group = themes`, with their style names.
 
+### Common fixes
+
+**A style was folded into its main skin, but it really looks different.** Some styles are folded into the main skin's card automatically: shading-only styles ("Gradient", "Toon"…), lighting on/off toggles, and styles whose preview is only an icon. Folded styles copy the main skin's tags. If one actually changes the outfit, for example an "Off" style that removes a cape:
+
+1. Open the main skin on the site and click the style's thumbnail in the popup.
+2. Copy the style's ID from the bottom of the popup. Style IDs have two `::`, like `Character_Example::Parts::Stage2`.
+3. Add a row to `data/overrides.csv` with that full ID and `no` in the `group` column:
+
+   | id | name | add_tags | remove_tags | verified | notes | group | caption | caption_replace |
+   |---|---|---|---|---|---|---|---|---|
+   | Character_Example::Parts::Stage2 | Example (Cape Off) | | | | | no | | |
+
+4. Open a pull request. Once it's merged, the style gets its own card, and the next tagging run tags it from its own image. Until then it shows as "Not tagged yet". If you know the right tags, fill in `add_tags` in the same row so it's correct right away.
+
+Use the style's own ID, not the main skin's: `no` on a main skin keeps all of its styles apart, and a wildcard ID (`*`) only sets `group` for main skins.
+
+**A skin reacts in game (changes as you play) but isn't tagged "reactive outfit".** Reactive skins are detected from Fortnite-API data, which misses some. To add the tag:
+
+1. Copy the main skin's ID from the bottom of its popup.
+2. Add a row with `reactive_outfit` in `add_tags`:
+
+   | id | name | add_tags | remove_tags | verified | notes | group | caption | caption_replace |
+   |---|---|---|---|---|---|---|---|---|
+   | Character_Example | Example | reactive_outfit | | | | | | |
+
+3. Open a pull request. The tag appears under **Outfit traits** on the site after the next deploy.
+
+To tag every skin in a family at once, end the ID with `*` (`Character_Example*`); that covers its styles too. To remove the tag from a skin that isn't reactive, put `reactive_outfit` in `remove_tags` instead.
+
 ### Improve the vocabulary
 
 After each tagging run, [`data/suggestions.md`](data/suggestions.md) lists tags the model wanted to use but couldn't, most common first. To add tags, open a pull request against `tagging/vocab.json`: put each tag in the category where it fits, and list any tag that isn't a real Danbooru tag in `_extras`. New tags apply to entries the next time they're tagged.
