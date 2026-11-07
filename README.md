@@ -10,7 +10,7 @@ The tags were written by an AI model (Claude Haiku) that looked at each outfit's
 
 - **Search** matches names, in-game descriptions and tags.
 - **Filters** on the left group tags by category. Click a tag once to require it, again to exclude it, and a third time to clear it. "Match any tag" switches from all-of to any-of.
-- **Styles:** most selectable styles appear as their own cards, so a style with a different color or look can be found by its own tags. Styles that only change the team or house (like the Hogwarts houses or club kits), or whose preview is just a crest or swatch, are folded into the main skin's card and appear as previews in its popup.
+- **Styles:** most selectable styles appear as their own cards, so a style with a different color or look can be found by its own tags. Styles that only change the shading (like "Gradient"), only change the team or house (like the Hogwarts houses or club kits), or whose preview is just a crest or swatch are folded into the main skin's card and appear as previews in its popup.
 - **The popup** shows the skin's tags by category, an AI-written description, all of its styles, and a full-body promo image when one exists.
 - **Review status** filters show what has been checked by hand (✓), which tags the model was unsure about, and where the image didn't show the shoes.
 - **Links** to filtered views can be shared; the filters are kept in the URL.
@@ -33,8 +33,10 @@ Tags follow [Danbooru](https://danbooru.donmai.us/wiki_pages/tag_groups) naming 
 
 Each selectable style is its own entry, with an ID like `BASEID::Channel::Tag`. A few kinds of style are handled specially, so they don't need their own tagging or clutter the grid:
 
-- **Shading-only styles** ("Gradient", "Cel Shaded", "Toon"…) are the same outfit with different shading. They copy the main skin's tags and swap in the right shading tag.
+- **Shading-only styles** ("Gradient", "Cel Shaded", "Toon"…) are the same outfit with different shading. They copy the main skin's tags, swap in the right shading tag, and fold into the main skin's card.
 - **Icon-only styles**, whose preview is a swatch, emblem or logo rather than the character, copy the main skin's tags and take their colors from the icon.
+- **Reactive styles**, like the Five Nights at Freddy's skins' damage states, are detected when a style channel's name or styles mention "reactive" or "damage". They fold into the main skin's card but keep their own tags, since they look different, and the whole outfit is tagged `reactive_outfit`.
+- **On/off styles** fold into the main skin's card too. Lighting and effect toggles copy the main skin's tags. Accessory toggles ("Cape: Off", "Hat: Off") keep their own tags.
 - **Team, house and club styles** are marked by hand as "themes". Each style gets its team or house as a tag (`slytherin`, `hufflepuff`…), and its description is rewritten from the main skin's, changing only the team or house and its colors.
 - Style pickers with lots of near-identical options (jersey numbers and similar) are skipped.
 
@@ -59,7 +61,7 @@ Hand edits live in `data/overrides.csv`. Edit it on GitHub (or in your fork) and
 | `add_tags`, `remove_tags` | Tags separated by spaces or commas, in Danbooru style (`red_hair`). Tags outside the vocabulary are allowed and appear under "Other". |
 | `verified` | `yes` once every tag on the skin has been checked. Shows a ✓ on the site. |
 | `notes` | Shown in the popup. |
-| `group` | For skins whose styles are different teams or houses: `themes`, or `themes:Material` to name the style channel. `yes` folds the styles into one card without team tags; `no` keeps them as separate cards. |
+| `group` | For skins whose styles are different teams or houses: `themes`, or `themes:Material` to name the style channel. `yes` folds the styles into one card without team tags; `no` keeps them as separate cards. On a single style: `no` gives it its own card and tags, `icon` marks its image as just a preview. |
 | `caption` | Replaces the AI description. |
 | `caption_replace` | Swaps words in the description, e.g. `Gryffindor => Slytherin; red => green`. |
 
@@ -76,7 +78,7 @@ Helpful files the site publishes:
 
 ### Common fixes
 
-**A style was folded into its main skin, but it really looks different.** Some styles are folded into the main skin's card automatically: shading-only styles ("Gradient", "Toon"…), lighting on/off toggles, and styles whose preview is only an icon. Folded styles copy the main skin's tags. If one actually changes the outfit, for example an "Off" style that removes a cape:
+**A style was folded into its main skin, but it really looks different.** Some styles are folded into the main skin's card automatically: shading-only styles ("Gradient", "Toon"…), lighting and accessory on/off toggles, reactive states, and styles whose preview is only an icon or came through blank. Most folded styles copy the main skin's tags. If one actually changes the outfit, for example an "Off" style that removes a cape:
 
 1. Open the main skin on the site and click the style's thumbnail in the popup.
 2. Copy the style's ID from the bottom of the popup. Style IDs have two `::`, like `Character_Example::Parts::Stage2`.
@@ -89,6 +91,19 @@ Helpful files the site publishes:
 4. Open a pull request. Once it's merged, the style gets its own card, and the next tagging run tags it from its own image. Until then it shows as "Not tagged yet". If you know the right tags, fill in `add_tags` in the same row so it's correct right away.
 
 Use the style's own ID, not the main skin's: `no` on a main skin keeps all of its styles apart, and a wildcard ID (`*`) only sets `group` for main skins.
+
+**A style's preview is just an icon, but it shows up as its own card.** Styles whose preview image is only a crest, logo, color swatch or blank square are usually caught automatically. They fold into the main skin's card and show the main outfit with the preview in the corner. If one slips through, it shows its icon as if it were the whole outfit, either as its own card or as a full-size style in the popup. To fix it:
+
+1. Open the style and copy its ID from the bottom of the popup (the one with two `::`, like `Character_Example::Material::Mat2`).
+2. Add a row with that full ID and `icon` in the `group` column:
+
+   | id | name | add_tags | remove_tags | verified | notes | group | caption | caption_replace |
+   |---|---|---|---|---|---|---|---|---|
+   | Character_Example::Material::Mat2 | Example (No) | | | | | icon | | |
+
+3. Open a pull request. Once it's merged, the style folds into the main card, copies the main skin's tags (taking colors from the icon, if the model saw any), and its icon appears in the corner of the main outfit's picture.
+
+Use `icon` rather than `yes`: `yes` only folds a style in, so its icon still stands in for the outfit.
 
 **A skin reacts in game (changes as you play) but isn't tagged "reactive outfit".** Reactive skins are detected from Fortnite-API data, which misses some. To add the tag:
 

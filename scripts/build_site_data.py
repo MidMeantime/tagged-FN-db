@@ -95,9 +95,10 @@ def swap_words(text, old, new):
 WARNINGS = set()  # problems in the overrides worth printing in the build log
 
 # Captions where the model said the style's image was blank, so its own tags are useless.
+# Only used together with a near-empty tag list, so a loose match is safe.
 BLANK_CAPTION = re.compile(
-    r"\b(?:image|picture|it) is (?:almost |essentially |mostly |nearly )?(?:entirely |completely )?(?:blank|empty)"
-    r"|\bblank (?:white )?(?:image|field|background|canvas)|nothing (?:is )?visible|no outfit (?:is )?visible", re.I)
+    r"\b(?:blank|empty)\b|nothing (?:is )?visible|no (?:visible )?(?:character|outfit)s? (?:is |are )?visible"
+    r"|no visible (?:character|outfit)|cannot be (?:determined|identified|seen|described|made out)", re.I)
 
 
 def load_overrides(all_ids):
@@ -109,8 +110,8 @@ def load_overrides(all_ids):
             continue
         targets = [i for i in all_ids if i.startswith(rid[:-1])] if rid.endswith("*") else [rid]
         raw_group = row.get("group", "").strip()
-        if raw_group and raw_group.partition(":")[0].strip().lower() not in ("themes", "theme", "yes", "no", "y", "n", "true", "false"):
-            WARNINGS.add(f"{rid}: group '{raw_group}' isn't recognized, so it was ignored. Use themes, yes or no.")
+        if raw_group and raw_group.partition(":")[0].strip().lower() not in ("themes", "theme", "yes", "no", "y", "n", "true", "false", "icon"):
+            WARNINGS.add(f"{rid}: group '{raw_group}' isn't recognized, so it was ignored. Use themes, yes, no or icon.")
         if rid.endswith("*") and not targets:
             WARNINGS.add(f"{rid}: matches no skins.")
         for sid in targets:
@@ -128,7 +129,7 @@ def load_overrides(all_ids):
             g = "" if (rid.endswith("*") and "::" in sid) else row.get("group", "").strip()
             mode, _, chans = g.partition(":")
             mode = mode.strip().lower()
-            if mode in ("themes", "theme", "yes", "no", "y", "n", "true", "false"):
+            if mode in ("themes", "theme", "yes", "no", "y", "n", "true", "false", "icon"):
                 o["group"] = {"theme": "themes", "y": "yes", "true": "yes", "n": "no", "false": "no"}.get(mode, mode)
                 # Accept "themes:Outfit", "themes::Outfit" and "themes: Outfit, Parts".
                 names = {c.strip(" :").lower() for c in chans.split(",") if c.strip(" :")}
@@ -217,7 +218,8 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
         own_look = bool(s.get("of")) and o["group"] == "no"
         copy_kind = ("shading_only" in s or "effect_toggle" in s) and not own_look
         inherit = base_ok and copy_kind
-        icon_only = bool(s.get("of") and m.get("icon_only"))
+        # group = icon on a style's own row: its image is only a preview (swatch, emblem, blank...).
+        icon_only = bool(s.get("of") and (m.get("icon_only") or o["group"] == "icon"))
         # The model got a blank image for this style (it says so, and found almost nothing to tag).
         blank = bool(s.get("of") and m and len(m.get("tags", [])) < 4 and BLANK_CAPTION.search(m.get("caption", "")))
         # Grouping: the style's own override wins, then the base skin's, then the default.
