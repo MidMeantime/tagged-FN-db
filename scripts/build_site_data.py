@@ -242,8 +242,10 @@ def build_records(skins, model_tags, vocab, theme_caps=None):
             base_group == "themes" and o["group"] != "no" and s.get("channel", "") in themed_channels(s["of"])))
         # Icon-only and shading-only styles are the base outfit, so they fold into its card unless group = no.
         grouped = bool(s.get("of")) and (themed or group_mode == "yes" or
-                                         ((icon_only or blank or copy_kind or s.get("reactive_state")
-                                           or s.get("part_toggle")) and group_mode != "no"))
+                                         ((icon_only or blank or copy_kind or s.get("reactive_state"))
+                                          and group_mode != "no"))
+        # Accessory toggles ("Glasses: Off", "Cape: Off") really look different, so they keep their own
+        # cards. To fold a family's broken ones, use a row like Character_X*::Parts with group = icon.
         name_tags = []
         default_name = ""
         if s.get("of"):

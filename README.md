@@ -36,7 +36,7 @@ Each selectable style is its own entry, with an ID like `BASEID::Channel::Tag`. 
 - **Shading-only styles** ("Gradient", "Cel Shaded", "Toon"…) are the same outfit with different shading. They copy the main skin's tags, swap in the right shading tag, and fold into the main skin's card.
 - **Icon-only styles**, whose preview is a swatch, emblem or logo rather than the character, copy the main skin's tags and take their colors from the icon.
 - **Reactive styles**, like the Five Nights at Freddy's skins' damage states, are detected when a style channel's name or styles mention "reactive" or "damage". They fold into the main skin's card but keep their own tags, since they look different, and the whole outfit is tagged `reactive_outfit`.
-- **On/off styles** fold into the main skin's card too. Lighting and effect toggles copy the main skin's tags. Accessory toggles ("Cape: Off", "Hat: Off") keep their own tags.
+- **On/off styles** that switch lighting or effects fold into the main skin's card and copy its tags. Accessory toggles ("Glasses: Off", "Hat: On") keep their own cards and tags, since they change how the outfit looks.
 - **Team, house and club styles** are marked by hand as "themes". Each style gets its team or house as a tag (`slytherin`, `hufflepuff`…), and its description is rewritten from the main skin's, changing only the team or house and its colors.
 - Style pickers with lots of near-identical options (jersey numbers and similar) are skipped.
 
@@ -78,7 +78,7 @@ Helpful files the site publishes:
 
 ### Common fixes
 
-**A style was folded into its main skin, but it really looks different.** Some styles are folded into the main skin's card automatically: shading-only styles ("Gradient", "Toon"…), lighting and accessory on/off toggles, reactive states, and styles whose preview is only an icon or came through blank. Most folded styles copy the main skin's tags. If one actually changes the outfit, for example an "Off" style that removes a cape:
+**A style was folded into its main skin, but it really looks different.** Some styles are folded into the main skin's card automatically: shading-only styles ("Gradient", "Toon"…), lighting on/off toggles, reactive states, and styles whose preview is only an icon or came through blank. Most folded styles copy the main skin's tags. If one actually changes the outfit, for example an "Off" style that removes a cape:
 
 1. Open the main skin on the site and click the style's thumbnail in the popup.
 2. Copy the style's ID from the bottom of the popup. Style IDs have two `::`, like `Character_Example::Parts::Stage2`.
