@@ -1,0 +1,158 @@
+{
+ "Character_BlockStack::Outfit::Outfit2": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack::Outfit::Outfit3": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack::Outfit::Outfit4": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack::Outfit::Outfit5": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack::Outfit::Outfit6": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack_Ziggy::Outfit::Outfit2": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack_Ziggy::Outfit::Outfit3": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack_Ziggy::Outfit::Outfit4": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack_Ziggy::Outfit::Outfit5": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_BlockStack_Ziggy::Outfit::Outfit6": {
+  "caption": "A mix-and-match customizable stacked androgynous block character.",
+  "src": "A mix-and-match customizable stacked androgynous block character."
+ },
+ "Character_ChromeSiren::Emissive::Emissive3": {
+  "caption": "A woman in s",
+  "src": "A woman in sleek blue and black futuristic power armor with a high blue ponytail, cat-eared headset, pauldrons, gauntlets, and a brown utility belt with a thigh holster."
+ },
+ "Character_DroveRay::Material::Mat2": {
+  "caption": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and green-and-silver striped tie, with a green-lined cape and dark trousers paired with black boots.",
+  "src": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and red-and-gold striped tie, with a red-lined cape and dark trousers paired with black boots."
+ },
+ "Character_DroveRay::Material::Mat3": {
+  "caption": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and blue-and-bronze striped tie, with a blue-lined cape and dark trousers paired with black boots.",
+  "src": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and red-and-gold striped tie, with a red-lined cape and dark trousers paired with black boots."
+ },
+ "Character_DroveRay::Material::Mat4": {
+  "caption": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and yellow-and-black striped tie, with a yellow-lined cape and dark trousers paired with black boots.",
+  "src": "A curly-haired boy wears a long black school robe over a green sweater vest, white collared shirt, and red-and-gold striped tie, with a red-lined cape and dark trousers paired with black boots."
+ },
+ "Character_DroveRay_B::Material::Mat2": {
+  "caption": "A young man with short black hair wears a dark grey hooded robe over a green sweater vest, white collared shirt, and green-and-silver striped necktie, with black pants and black boots.",
+  "src": "A young man with short black hair wears a dark grey hooded robe over a green sweater vest, white collared shirt, and red-and-gold striped necktie, with black pants and black boots."
+ },
+ "Character_DroveRay_C::Material::Mat2": {
+  "caption": "A young man wears a dark grey hooded robe over a green sweater vest, white collared shirt, green and silver striped necktie, black trousers and black boots.",
+  "src": "A young man wears a dark grey hooded robe over a green sweater vest, white collared shirt, red and gold striped necktie, black trousers and black boots."
+ },
+ "Character_DroveRay_C::Material::Mat4": {
+  "caption": "A young man wears a dark grey hooded robe over a green sweater vest, white collared shirt, yellow and black striped necktie, black trousers and black boots.",
+  "src": "A young man wears a dark grey hooded robe over a green sweater vest, white collared shirt, red and gold striped necktie, black trousers and black boots."
+ },
+ "Character_DroveRay_D::Material::Mat2": {
+  "caption": "A dark-haired boy wears a long black Hogwarts-style school robe over a green sweater vest, white collared shirt, green and silver striped tie, and black trousers with black lace-up boots.",
+  "src": "A dark-haired boy wears a long black Hogwarts-style school robe over a green sweater vest, white collared shirt, red and gold striped tie, and black trousers with black lace-up boots."
+ },
+ "Character_DroveRay_D::Material::Mat3": {
+  "caption": "A dark-haired boy wears a long black Hogwarts-style school robe over a green sweater vest, white collared shirt, blue and silver striped tie, and black trousers with black lace-up boots.",
+  "src": "A dark-haired boy wears a long black Hogwarts-style school robe over a green sweater vest, white collared shirt, red and gold striped tie, and black trousers with black lace-up boots."
+ },
+ "Character_DroveRay_D::Material::Mat4": {
+  "caption": "A dark-haired boy wears a long black Hogwarts",
+  "src": "A dark-haired boy wears a long black Hogwarts-style school robe over a green sweater vest, white collared shirt, red and gold striped tie, and black trousers with black lace-up boots."
+ },
+ "Character_FoundKelp_Bolt::Emissive::Emissive6": {
+  "caption": "A bald muscular man wears a gold and black metallic",
+  "src": "A bald muscular man wears a gold and black metallic sci-fi power armor suit with red accents, a high collar jacket, a utility belt, and armored boots."
+ },
+ "Character_LivelySugar_Syrup::MaterialParamSets3::Emissive1": {
+  "caption": "A glamorous blonde woman wears a leopard-print fur jacket over a black bra, with black shorts, a gold belt, a teal holster, black gloves, gold chain jewelry, and tall black heeled boots, with tattoos on her arms and legs.",
+  "src": "A glamorous blonde woman wears a leopard-print fur jacket over a black bra, with black shorts, a gold belt, a teal holster, black gloves, gold chain jewelry, and tall black heeled boots, with tattoos on her arms and legs."
+ },
+ "Character_PlankCoverAge::Parts::Stage2": {
+  "caption": "A woman with short blonde hair wears a purple and black racing jumpsuit with blue trim, checkered patterns, black gloves, and matching boots.",
+  "src": "A woman with short blonde hair wears a purple and black racing jumpsuit with blue trim, checkered patterns, black gloves, and matching boots."
+ },
+ "Character_PlankCoverAge_D::Parts::Stage2": {
+  "caption": "A woman with long black hair in a ponytail wears a purple and blue racing jumpsuit with checkered patterns, black gloves, and purple-trimmed racing boots.",
+  "src": "A woman with long black hair in a ponytail wears a purple and blue racing jumpsuit with checkered patterns, black gloves, and purple-trimmed racing boots."
+ },
+ "Character_PlankCoverAge_E::Parts::Stage2": {
+  "caption": "A woman with short wavy brown hair wears a purple and blue racing jumpsuit with checkered patterns, black gloves, shoulder armor, and black and purple racing boots.",
+  "src": "A woman with short wavy brown hair wears a purple and blue racing jumpsuit with checkered patterns, black gloves, shoulder armor, and black and purple racing boots."
+ },
+ "Character_PlankCoverWay::Parts::Stage2": {
+  "caption": "A blonde young man wears a purple and blue racing jumpsuit with checkered patterns, black gloves, carbon-look shoulder pads, and purple-and-blue boots.",
+  "src": "A blonde young man wears a purple and blue racing jumpsuit with checkered patterns, black gloves, carbon-look shoulder pads, and purple-and-blue boots."
+ },
+ "Character_PlankCoverWay_B::Parts::Stage2": {
+  "caption": "A man with short dark hair wears a purple and blue racing jumpsuit with checkered patterns",
+  "src": "A man with short dark hair wears a purple and blue racing jumpsuit with checkered patterns, black gloves, and black-and-purple racing boots."
+ },
+ "Character_PlankCoverWay_E::Parts::Stage2": {
+  "caption": "A man with slicked-back black hair wears a purple and blue racing suit with checkered",
+  "src": "A man with slicked-back black hair wears a purple and blue racing suit with checkered patterns, black shoulder pads, black gloves, and high-top racing boots."
+ },
+ "Character_SynthContact::Emissive::Emissive4": {
+  "caption": "A futuristic armored soldier in dark grey and black power armor with a black helmet featuring a glowing red emblem, carrying an axe and wearing a bullet bandolier.",
+  "src": "A futuristic armored soldier in blue and black power armor with a black helmet featuring a glowing red emblem, carrying an axe and wearing a bullet bandolier."
+ },
+ "Character_SynthContact::Emissive::Emissive6": {
+  "caption": "A futurist",
+  "src": "A futuristic armored soldier in blue and black power armor with a black helmet featuring a glowing red emblem, carrying an axe and wearing a bullet bandolier."
+ },
+ "Character_ToadCycle::Material::Mat2": {
+  "caption": "A blonde girl in a dark grey Hogwarts",
+  "src": "A blonde girl in a dark grey Hogwarts-style robe with red lining, a green sweater vest, a red striped tie, and a green pleated skirt with black tights and flat Mary Jane shoes."
+ },
+ "Character_ToadCycle_B::Material::Mat2": {
+  "caption": "A dark-skinned girl with a low ponytail wears a grey hooded school robe over a green cardigan, white collared shirt, green and silver striped tie, pleated skirt, pantyhose, and dark shoes.",
+  "src": "A dark-skinned girl with a low ponytail wears a grey hooded school robe over a green cardigan, white collared shirt, red and gold striped tie, pleated skirt, pantyhose, and dark shoes."
+ },
+ "Character_ToadCycle_B::Material::Mat4": {
+  "caption": "A dark-skinned girl with a low ponytail wears a grey hooded school robe over a green cardigan, white collared shirt, yellow and black striped tie, pleated skirt, pantyhose, and dark shoes.",
+  "src": "A dark-skinned girl with a low ponytail wears a grey hooded school robe over a green cardigan, white collared shirt, red and gold striped tie, pleated skirt, pantyhose, and dark shoes."
+ },
+ "Character_ToadCycle_C::Material::Mat2": {
+  "caption": "A dark-haired girl wears a grey hooded Hogwarts-style robe over a green Slytherin-striped cardigan, white collared shirt, green-and-silver striped necktie, and pleated grey skirt with dark tights and black shoes.",
+  "src": "A dark-haired girl wears a grey hooded Hogwarts-style robe over a green Gryffindor-striped cardigan, white collared shirt, red-and-gold striped necktie, and pleated grey skirt with dark tights and black shoes."
+ },
+ "Character_ToadCycle_D::Material::Mat2": {
+  "caption": "A female wizard student wears a long dark robe over a green cardigan with a silver-and-green striped tie, a pleated skirt, black tights, and black Mary Jane shoes.",
+  "src": "A female wizard student wears a long dark robe over a green cardigan with a red-and-gold striped tie, a pleated skirt, black tights, and black Mary Jane shoes."
+ },
+ "Character_ToadCycle_D::Material::Mat4": {
+  "caption": "A female wizard student wears a long dark robe over a green card",
+  "src": "A female wizard student wears a long dark robe over a green cardigan with a red-and-gold striped tie, a pleated skirt, black tights, and black Mary Jane shoes."
+ },
+ "Character_ToadCycle_E::Material::Mat3": {
+  "caption": "A dark-skinned girl with wavy brown hair wears a long dark blue Ravenclaw-style robe with bronze lining over a blue sweater vest, white collared shirt, bronze striped tie, pleated skirt, dark tights and black Mary Jane shoes.",
+  "src": "A dark-skinned girl with wavy brown hair wears a long dark green Gryffindor-style robe with red lining over a green sweater vest, white collared shirt, red striped tie, pleated skirt, dark tights and black Mary Jane shoes."
+ },
+ "Character_VileSting_Crude::Emissive::Emissive2": {
+  "caption": "A black-",
+  "src": "A black-haired woman with a blunt bob wears a red and dark teal sci-fi bodysuit with gold trim and armor plating, holding two curved red blades."
+ },
+ "Character_VileSting_Crude::Emissive::Emissive3": {
+  "caption": "A black-haired woman with a blunt bob wears a red and black sci-fi bodysuit with gold trim and armor plating, holding two curved red blades.",
+  "src": "A black-haired woman with a blunt bob wears a red and dark teal sci-fi bodysuit with gold trim and armor plating, holding two curved red blades."
+ }
+}
