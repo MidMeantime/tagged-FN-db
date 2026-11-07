@@ -77,10 +77,27 @@ SHADING_WORDS = {
 }
 FILLER_WORDS = {"style", "styled", "version", "look", "mode", "with", "and", "&", "+", "-", "/"}
 
+# "Toon" styles are always the cel-shaded version of the outfit, but Epic often mixes "toon" into
+# other words: "Toon Daphne", "iToonSpeed". So any "toon" in a style name counts, even inside a
+# word, except in real words that just happen to contain it.
+TOON_TAGS = ["toon_(style)", "cel_shading"]
+TOON_EXCEPTIONS = ("platoon", "pontoon", "spittoon", "festoon")
+
 
 def shading_only_tags(style_name):
     """Return the shading tags for a shading-only style name, or None if the name means more than that."""
-    words = re.findall(r"[a-z]+(?:-[a-z]+)?|[&+/]", (style_name or "").lower())
+    name = (style_name or "").lower()
+    words = re.findall(r"[a-z]+(?:-[a-z]+)?|[&+/]", name)
+    stripped = name
+    for w in TOON_EXCEPTIONS:
+        stripped = stripped.replace(w, "")
+    if "toon" in stripped:
+        tags = list(TOON_TAGS)
+        for w in words:  # keep extra shading words, e.g. "Toon Outline"
+            for t in SHADING_WORDS.get(w, []):
+                if t not in tags:
+                    tags.append(t)
+        return tags
     if not words or not any(w in SHADING_WORDS and SHADING_WORDS[w] for w in words):
         return None
     if any(w not in SHADING_WORDS and w not in FILLER_WORDS for w in words):
