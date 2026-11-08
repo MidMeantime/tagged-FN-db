@@ -6227,6 +6227,12 @@
   0.8057,
   0.9492
  ],
+ "https://fortnite-api.com/images/cosmetics/br/character_rumbashowy/featured.png": [
+  0.3428,
+  0.1309,
+  0.7354,
+  0.9346
+ ],
  "https://fortnite-api.com/images/cosmetics/br/character_rumblebeat_beach/featured.png": [
   0.3555,
   0.0635,
@@ -8927,11 +8933,1595 @@
   0.7832,
   0.9619
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_058_athena_commando_m_skidude_ger/featured.png": [
+  0.3223,
+  0.043,
+  0.7881,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_059_athena_commando_m_skidude_chn/featured.png": [
+  0.3311,
+  0.042,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_060_athena_commando_m_skidude_kor/featured.png": [
+  0.3291,
+  0.042,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_061_athena_commando_f_skigirl/featured.png": [
+  0.3779,
+  0.0547,
+  0.7861,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_062_athena_commando_f_skigirl_usa/featured.png": [
+  0.3789,
+  0.0527,
+  0.7891,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_063_athena_commando_f_skigirl_can/featured.png": [
+  0.2598,
+  0.041,
+  0.7451,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_064_athena_commando_f_skigirl_gbr/featured.png": [
+  0.375,
+  0.0527,
+  0.792,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_065_athena_commando_f_skigirl_fra/featured.png": [
+  0.3711,
+  0.0537,
+  0.79,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_066_athena_commando_f_skigirl_ger/featured.png": [
+  0.2559,
+  0.04,
+  0.7451,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_067_athena_commando_f_skigirl_chn/featured.png": [
+  0.3721,
+  0.0547,
+  0.7842,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_068_athena_commando_f_skigirl_kor/featured.png": [
+  0.3789,
+  0.0508,
+  0.791,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_069_athena_commando_f_pinkbear/featured.png": [
+  0.0,
+  0.0,
+  1.0,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_070_athena_commando_m_cupid/featured.png": [
+  0.3311,
+  0.0576,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_071_athena_commando_m_wukong/featured.png": [
+  0.3193,
+  0.0146,
+  0.8242,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_072_athena_commando_m_scout/featured.png": [
+  0.3408,
+  0.0439,
+  0.7969,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_073_athena_commando_f_scuba/featured.png": [
+  0.2607,
+  0.0186,
+  0.7627,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_074_athena_commando_f_stripe/featured.png": [
+  0.3779,
+  0.0527,
+  0.7871,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_075_athena_commando_f_stripe/featured.png": [
+  0.3701,
+  0.0381,
+  0.7881,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_076_athena_commando_f_sup/featured.png": [
+  0.2578,
+  0.04,
+  0.7451,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_077_athena_commando_m_sup/featured.png": [
+  0.3281,
+  0.0723,
+  0.79,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_078_athena_commando_m_camo/featured.png": [
+  0.3438,
+  0.0635,
+  0.7871,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_079_athena_commando_f_camo/featured.png": [
+  0.2578,
+  0.0361,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_080_athena_commando_m_space/featured.png": [
+  0.3555,
+  0.0381,
+  0.7852,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_081_athena_commando_f_space/featured.png": [
+  0.252,
+  0.0322,
+  0.7559,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_082_athena_commando_m_scavenger/featured.png": [
+  0.3252,
+  0.0527,
+  0.79,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_083_athena_commando_f_tactical/featured.png": [
+  0.2578,
+  0.041,
+  0.7451,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_084_athena_commando_m_assassin/featured.png": [
+  0.3584,
+  0.0674,
+  0.7822,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_085_athena_commando_m_twitch/featured.png": [
+  0.3311,
+  0.0537,
+  0.7881,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_086_athena_commando_m_redsilk/featured.png": [
+  0.3311,
+  0.0498,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_087_athena_commando_f_redsilk/featured.png": [
+  0.3789,
+  0.0566,
+  0.7891,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_088_athena_commando_m_spaceblack/featured.png": [
+  0.3604,
+  0.0498,
+  0.7891,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_089_athena_commando_m_retrogrey/featured.png": [
+  0.3291,
+  0.0635,
+  0.8037,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_090_athena_commando_m_tactical/featured.png": [
+  0.0962,
+  0.0283,
+  0.8945,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_091_athena_commando_m_redshirt/featured.png": [
+  0.3232,
+  0.0723,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_092_athena_commando_f_redshirt/featured.png": [
+  0.2559,
+  0.041,
+  0.7461,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_093_athena_commando_m_dinosaur/featured.png": [
+  0.0,
+  0.0,
+  0.8291,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_094_athena_commando_m_rider/featured.png": [
+  0.3311,
+  0.0479,
+  0.79,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_095_athena_commando_m_founder/featured.png": [
+  0.3271,
+  0.0557,
+  0.7881,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_096_athena_commando_f_founder/featured.png": [
+  0.2598,
+  0.0498,
+  0.7461,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_097_athena_commando_f_rockerpunk/featured.png": [
+  0.3779,
+  0.0127,
+  0.7881,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_098_athena_commando_f_stpatty/featured.png": [
+  0.2627,
+  0.0,
+  0.7441,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_099_athena_commando_f_scathach/featured.png": [
+  0.2607,
+  0.0469,
+  0.7461,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_100_athena_commando_m_cuchulainn/featured.png": [
+  0.0,
+  0.0,
+  0.7344,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_101_athena_commando_m_stealth/featured.png": [
+  0.3438,
+  0.0459,
+  0.7861,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_102_athena_commando_m_raven/featured.png": [
+  0.3506,
+  0.0605,
+  0.792,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_103_athena_commando_m_bunny/featured.png": [
+  0.3281,
+  0.0166,
+  0.7939,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_104_athena_commando_f_bunny/featured.png": [
+  0.3857,
+  0.0117,
+  0.8047,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_105_athena_commando_f_spaceblack/featured.png": [
+  0.3789,
+  0.0508,
+  0.7969,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_106_athena_commando_f_taxi/featured.png": [
+  0.377,
+  0.0537,
+  0.79,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_107_athena_commando_f_pajamaparty/featured.png": [
+  0.3789,
+  0.0,
+  0.8047,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_108_athena_commando_m_fishhead/featured.png": [
+  0.3262,
+  0.0381,
+  0.7979,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_109_athena_commando_m_pizza/featured.png": [
+  0.3438,
+  0.0234,
+  0.7949,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_110_athena_commando_f_circuitbreaker/featured.png": [
+  0.3789,
+  0.0371,
+  0.7881,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_111_athena_commando_f_robo/featured.png": [
+  0.3779,
+  0.0596,
+  0.8008,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_112_athena_commando_m_brite/featured.png": [
+  0.3262,
+  0.0576,
+  0.7979,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_113_athena_commando_m_blueace/featured.png": [
+  0.3252,
+  0.0557,
+  0.8018,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_114_athena_commando_f_tacticalwoodland/featured.png": [
+  0.3789,
+  0.0527,
+  0.7891,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_115_athena_commando_m_carbideblue/featured.png": [
+  0.3555,
+  0.0684,
+  0.7842,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_116_athena_commando_m_carbideblack/featured.png": [
+  0.3301,
+  0.0645,
+  0.7881,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_117_athena_commando_m_tacticaljungle/featured.png": [
+  0.3428,
+  0.0566,
+  0.7842,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_118_athena_commando_f_valor/featured.png": [
+  0.3857,
+  0.0225,
+  0.8047,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_119_athena_commando_f_candy/featured.png": [
+  0.3848,
+  0.0293,
+  0.8262,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_120_athena_commando_f_graffiti/featured.png": [
+  0.2539,
+  0.0449,
+  0.751,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_122_athena_commando_m_metal/featured.png": [
+  0.3457,
+  0.0596,
+  0.7881,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_123_athena_commando_f_metal/featured.png": [
+  0.2529,
+  0.0391,
+  0.7441,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_124_athena_commando_f_auroraglow/featured.png": [
+  0.2598,
+  0.041,
+  0.7451,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_125_athena_commando_m_tacticalwoodland/featured.png": [
+  0.3271,
+  0.0576,
+  0.79,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_126_athena_commando_m_auroraglow/featured.png": [
+  0.3311,
+  0.0703,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_127_athena_commando_m_hazmat/featured.png": [
+  0.3555,
+  0.0,
+  0.7969,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_128_athena_commando_f_hazmat/featured.png": [
+  0.2734,
+  0.0596,
+  0.7393,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_129_athena_commando_m_deco/featured.png": [
+  0.3564,
+  0.0527,
+  0.8105,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_130_athena_commando_m_merman/featured.png": [
+  0.3232,
+  0.0459,
+  0.8047,
+  0.9697
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_131_athena_commando_m_warpaint/featured.png": [
+  0.3271,
+  0.0635,
+  0.79,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_132_athena_commando_m_venus/featured.png": [
+  0.2949,
+  0.0205,
+  0.9062,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_133_athena_commando_f_deco/featured.png": [
+  0.2549,
+  0.0195,
+  0.7627,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_134_athena_commando_m_jailbird/featured.png": [
+  0.3262,
+  0.0381,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_135_athena_commando_f_jailbird/featured.png": [
+  0.2646,
+  0.0342,
+  0.7451,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_136_athena_commando_m_streetbasketball/featured.png": [
+  0.3379,
+  0.0566,
+  0.7881,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_137_athena_commando_f_streetbasketball/featured.png": [
+  0.3721,
+  0.0586,
+  0.79,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_138_athena_commando_m_psburnout/featured.png": [
+  0.3564,
+  0.0762,
+  0.793,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_139_athena_commando_m_fighterpilot/featured.png": [
+  0.1846,
+  0.0361,
+  0.8066,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_140_athena_commando_m_visitor/featured.png": [
+  0.3594,
+  0.0527,
+  0.8037,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_141_athena_commando_m_darkeagle/featured.png": [
+  0.3262,
+  0.0537,
+  0.7969,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_142_athena_commando_m_wwiipilot/featured.png": [
+  0.3291,
+  0.0557,
+  0.8037,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_143_athena_commando_f_darkninja/featured.png": [
+  0.3721,
+  0.0576,
+  0.7959,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_144_athena_commando_m_soccerdudea/featured.png": [
+  0.3604,
+  0.0625,
+  0.7881,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_145_athena_commando_m_soccerdudeb/featured.png": [
+  0.3594,
+  0.0576,
+  0.7871,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_146_athena_commando_m_soccerdudec/featured.png": [
+  0.3604,
+  0.0635,
+  0.7881,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_147_athena_commando_m_soccerduded/featured.png": [
+  0.3584,
+  0.0508,
+  0.7852,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_148_athena_commando_f_soccergirla/featured.png": [
+  0.2617,
+  0.0205,
+  0.7549,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_149_athena_commando_f_soccergirlb/featured.png": [
+  0.3789,
+  0.0488,
+  0.7861,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_150_athena_commando_f_soccergirlc/featured.png": [
+  0.2598,
+  0.0312,
+  0.7461,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_151_athena_commando_f_soccergirld/featured.png": [
+  0.3789,
+  0.0566,
+  0.7871,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_152_athena_commando_f_carbideorange/featured.png": [
+  0.2578,
+  0.0518,
+  0.7451,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_153_athena_commando_f_carbideblack/featured.png": [
+  0.2363,
+  0.0449,
+  0.7568,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_154_athena_commando_m_gumshoe/featured.png": [
+  0.3301,
+  0.0537,
+  0.7881,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_155_athena_commando_f_gumshoe/featured.png": [
+  0.373,
+  0.0498,
+  0.7881,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_156_athena_commando_f_fuzzybearind/featured.png": [
+  0.2598,
+  0.0098,
+  0.792,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_157_athena_commando_m_starsandstripes/featured.png": [
+  0.3457,
+  0.0635,
+  0.7891,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_158_athena_commando_f_starsandstripes/featured.png": [
+  0.3721,
+  0.0576,
+  0.7861,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_159_athena_commando_m_gumshoedark/featured.png": [
+  0.334,
+  0.0527,
+  0.7891,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_160_athena_commando_m_speedyred/featured.png": [
+  0.3604,
+  0.0645,
+  0.79,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_161_athena_commando_m_drift/featured.png": [
+  0.3271,
+  0.0137,
+  0.7891,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_162_athena_commando_f_streetracer/featured.png": [
+  0.2607,
+  0.0361,
+  0.7441,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_163_athena_commando_f_viking/featured.png": [
+  0.375,
+  0.041,
+  0.8047,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_164_athena_commando_m_viking/featured.png": [
+  0.3184,
+  0.0,
+  0.8008,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_165_athena_commando_m_darkviking/featured.png": [
+  0.3379,
+  0.0674,
+  0.7881,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_166_athena_commando_f_lifeguard/featured.png": [
+  0.3857,
+  0.0566,
+  0.79,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_167_athena_commando_m_tacticalbadass/featured.png": [
+  0.3311,
+  0.0566,
+  0.7871,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_168_athena_commando_m_shark/featured.png": [
+  0.2764,
+  0.0176,
+  0.792,
+  0.9785
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_169_athena_commando_m_luchador/featured.png": [
+  0.3535,
+  0.0703,
+  0.7861,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_170_athena_commando_f_luchador/featured.png": [
+  0.3789,
+  0.0605,
+  0.7998,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_171_athena_commando_m_sharpdresser/featured.png": [
+  0.3301,
+  0.0527,
+  0.792,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_172_athena_commando_f_sharpdresser/featured.png": [
+  0.2617,
+  0.042,
+  0.752,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_173_athena_commando_f_starfishuniform/featured.png": [
+  0.3838,
+  0.0488,
+  0.7871,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_174_athena_commando_f_carbidewhite/featured.png": [
+  0.3691,
+  0.0645,
+  0.8057,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_175_athena_commando_m_celestial/featured.png": [
+  0.3164,
+  0.0029,
+  0.7031,
+  0.9912
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_176_athena_commando_m_lifeguard/featured.png": [
+  0.3301,
+  0.0508,
+  0.79,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_177_athena_commando_m_streetracercobra/featured.png": [
+  0.3506,
+  0.0576,
+  0.7891,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_179_athena_commando_f_scuba/featured.png": [
+  0.2607,
+  0.0205,
+  0.749,
+  0.9922
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_180_athena_commando_m_scuba/featured.png": [
+  0.2969,
+  0.0625,
+  0.8018,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_182_athena_commando_m_modernmilitary/featured.png": [
+  0.0,
+  0.0,
+  0.8057,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_183_athena_commando_m_modernmilitaryred/featured.png": [
+  0.3428,
+  0.0645,
+  0.7988,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_184_athena_commando_m_durrburgerworker/featured.png": [
+  0.3574,
+  0.0342,
+  0.7861,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_185_athena_commando_m_durrburgerhero/featured.png": [
+  0.3311,
+  0.0,
+  0.79,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_186_athena_commando_m_exercise/featured.png": [
+  0.3359,
+  0.0381,
+  0.7979,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_187_athena_commando_f_fuzzybearpanda/featured.png": [
+  0.2607,
+  0.0068,
+  0.7832,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_188_athena_commando_f_streetracerwhite/featured.png": [
+  0.252,
+  0.0264,
+  0.7451,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_189_athena_commando_f_exercise/featured.png": [
+  0.2617,
+  0.0264,
+  0.7461,
+  0.9668
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_190_athena_commando_m_streetracerwhite/featured.png": [
+  0.3301,
+  0.0439,
+  0.79,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_191_athena_commando_m_sushichef/featured.png": [
+  0.3584,
+  0.0518,
+  0.79,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_192_athena_commando_m_hippie/featured.png": [
+  0.3262,
+  0.0479,
+  0.79,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_193_athena_commando_f_hippie/featured.png": [
+  0.3867,
+  0.0625,
+  0.793,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_194_athena_commando_f_ravenquill/featured.png": [
+  0.3906,
+  0.084,
+  0.7754,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_195_athena_commando_f_bling/featured.png": [
+  0.0615,
+  0.1011,
+  0.936,
+  0.9097
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_196_athena_commando_m_biker/featured.png": [
+  0.3311,
+  0.0615,
+  0.7871,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_197_athena_commando_f_biker/featured.png": [
+  0.2627,
+  0.0273,
+  0.7451,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_198_athena_commando_m_bluesamurai/featured.png": [
+  0.3252,
+  0.0039,
+  0.8076,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_199_athena_commando_f_bluesamurai/featured.png": [
+  0.3643,
+  0.0195,
+  0.8154,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_200_athena_commando_m_darkpaintballer/featured.png": [
+  0.3301,
+  0.0508,
+  0.7969,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_201_athena_commando_m_desertops/featured.png": [
+  0.3438,
+  0.0459,
+  0.7861,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_202_athena_commando_f_desertops/featured.png": [
+  0.3779,
+  0.0449,
+  0.79,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_203_athena_commando_m_cloakedstar/featured.png": [
+  0.3281,
+  0.0566,
+  0.832,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_204_athena_commando_m_garageband/featured.png": [
+  0.3525,
+  0.0264,
+  0.79,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_205_athena_commando_f_garageband/featured.png": [
+  0.3818,
+  0.0342,
+  0.7979,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_206_athena_commando_m_bling/featured.png": [
+  0.3574,
+  0.0664,
+  0.7842,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_207_athena_commando_m_footballdudea/featured.png": [
+  0.3311,
+  0.042,
+  0.8037,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_208_athena_commando_m_footballdudeb/featured.png": [
+  0.3633,
+  0.0498,
+  0.8105,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_209_athena_commando_m_footballdudec/featured.png": [
+  0.3594,
+  0.0488,
+  0.8076,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_210_athena_commando_f_footballgirla/featured.png": [
+  0.3828,
+  0.043,
+  0.8135,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_211_athena_commando_f_footballgirlb/featured.png": [
+  0.3828,
+  0.0459,
+  0.8105,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_212_athena_commando_f_footballgirlc/featured.png": [
+  0.3799,
+  0.0469,
+  0.8115,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_214_athena_commando_f_footballreferee/featured.png": [
+  0.2617,
+  0.0371,
+  0.7471,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_215_athena_commando_m_footballreferee/featured.png": [
+  0.3574,
+  0.0605,
+  0.7891,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_216_athena_commando_f_medic/featured.png": [
+  0.2578,
+  0.0303,
+  0.7471,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_217_athena_commando_m_medic/featured.png": [
+  0.3311,
+  0.0498,
+  0.8037,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_218_athena_commando_m_greenberet/featured.png": [
+  0.3525,
+  0.0586,
+  0.7842,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_219_athena_commando_m_hacivat/featured.png": [
+  0.332,
+  0.0254,
+  0.79,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_220_athena_commando_f_clown/featured.png": [
+  0.2607,
+  0.0283,
+  0.7637,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_221_athena_commando_m_clown/featured.png": [
+  0.3467,
+  0.0342,
+  0.7881,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_222_athena_commando_f_darkviking/featured.png": [
+  0.2559,
+  0.0,
+  0.7617,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_223_athena_commando_m_dieselpunk/featured.png": [
+  0.3291,
+  0.0566,
+  0.7949,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_224_athena_commando_f_dieselpunk/featured.png": [
+  0.376,
+  0.0508,
+  0.7969,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_225_athena_commando_m_octoberfest/featured.png": [
+  0.3252,
+  0.0459,
+  0.791,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_226_athena_commando_f_octoberfest/featured.png": [
+  0.3799,
+  0.0439,
+  0.793,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_227_athena_commando_f_vampire/featured.png": [
+  0.3789,
+  0.0078,
+  0.8037,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_228_athena_commando_m_vampire/featured.png": [
+  0.3252,
+  0.041,
+  0.8115,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_229_athena_commando_f_darkbomber/featured.png": [
+  0.3789,
+  0.0518,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_230_athena_commando_m_werewolf/featured.png": [
+  0.3496,
+  0.0645,
+  0.792,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_231_athena_commando_f_redriding/featured.png": [
+  0.2607,
+  0.0381,
+  0.7578,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_232_athena_commando_f_halloweentomato/featured.png": [
+  0.3828,
+  0.04,
+  0.7949,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_233_athena_commando_m_fortnitedj/featured.png": [
+  0.3281,
+  0.0,
+  0.7891,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_234_athena_commando_m_llamarider/featured.png": [
+  0.1504,
+  0.0762,
+  0.7832,
+  0.9922
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_235_athena_commando_m_scarecrow/featured.png": [
+  0.3291,
+  0.0205,
+  0.8213,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_236_athena_commando_f_scarecrow/featured.png": [
+  0.2559,
+  0.0,
+  0.749,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_237_athena_commando_f_cowgirl/featured.png": [
+  0.376,
+  0.04,
+  0.7969,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_238_athena_commando_f_footballgirld/featured.png": [
+  0.3828,
+  0.0439,
+  0.8096,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_239_athena_commando_m_footballduded/featured.png": [
+  0.334,
+  0.043,
+  0.8027,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_240_athena_commando_f_plague/featured.png": [
+  0.377,
+  0.0537,
+  0.791,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_241_athena_commando_m_plague/featured.png": [
+  0.3311,
+  0.04,
+  0.8008,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_242_athena_commando_f_bullseye/featured.png": [
+  0.2607,
+  0.0391,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_243_athena_commando_m_pumpkinslice/featured.png": [
+  0.3506,
+  0.0107,
+  0.7998,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_244_athena_commando_m_pumpkinsuit/featured.png": [
+  0.335,
+  0.0205,
+  0.7842,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_245_athena_commando_f_durrburgerpjs/featured.png": [
+  0.252,
+  0.0244,
+  0.7539,
+  0.9727
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_246_athena_commando_f_grave/featured.png": [
+  0.3789,
+  0.0527,
+  0.7861,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_247_athena_commando_m_guanyu/featured.png": [
+  0.1699,
+  0.0107,
+  0.8633,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_248_athena_commando_m_blackwidow/featured.png": [
+  0.3223,
+  0.0127,
+  0.8115,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_249_athena_commando_f_blackwidow/featured.png": [
+  0.3809,
+  0.0283,
+  0.8086,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_250_athena_commando_m_evilcowboy/featured.png": [
+  0.3516,
+  0.0518,
+  0.7949,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_251_athena_commando_f_muertos/featured.png": [
+  0.2422,
+  0.0459,
+  0.75,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_252_athena_commando_m_muertos/featured.png": [
+  0.2871,
+  0.0059,
+  0.749,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_253_athena_commando_m_militaryfashion2/featured.png": [
+  0.082,
+  0.0195,
+  0.8184,
+  0.9805
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_254_athena_commando_m_zombie/featured.png": [
+  0.3438,
+  0.0635,
+  0.7852,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_255_athena_commando_f_halloweenbunny/featured.png": [
+  0.2725,
+  0.0283,
+  0.7695,
+  0.9482
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_256_athena_commando_m_pumpkin/featured.png": [
+  0.3506,
+  0.0039,
+  0.7959,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_257_athena_commando_m_samuraiultra/featured.png": [
+  0.3467,
+  0.0596,
+  0.792,
+  0.915
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_258_athena_commando_f_fuzzybearhalloween/featured.png": [
+  0.2559,
+  0.0098,
+  0.793,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_259_athena_commando_m_streetops/featured.png": [
+  0.3242,
+  0.0488,
+  0.792,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_260_athena_commando_f_streetops/featured.png": [
+  0.2559,
+  0.0449,
+  0.748,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_261_athena_commando_m_raptorarcticcamo/featured.png": [
+  0.3486,
+  0.0625,
+  0.7969,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_262_athena_commando_m_madcommander/featured.png": [
+  0.3125,
+  0.0273,
+  0.8105,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_263_athena_commando_f_madcommander/featured.png": [
+  0.2637,
+  0.0322,
+  0.751,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_264_athena_commando_m_animaljackets/featured.png": [
+  0.335,
+  0.0391,
+  0.8115,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_265_athena_commando_f_animaljackets/featured.png": [
+  0.3975,
+  0.1699,
+  0.7686,
+  0.9268
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_266_athena_commando_f_llamarider/featured.png": [
+  0.1992,
+  0.1016,
+  0.7598,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_267_athena_commando_m_robotred/featured.png": [
+  0.3301,
+  0.0713,
+  0.8008,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_268_athena_commando_m_rockerpunk/featured.png": [
+  0.3359,
+  0.041,
+  0.7725,
+  0.9668
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_269_athena_commando_m_wizard/featured.png": [
+  0.3271,
+  0.0332,
+  0.8008,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_270_athena_commando_f_witch/featured.png": [
+  0.374,
+  0.0166,
+  0.8193,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_271_athena_commando_f_sushichef/featured.png": [
+  0.3721,
+  0.0361,
+  0.8057,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_272_athena_commando_m_hornedmask/featured.png": [
+  0.3652,
+  0.0723,
+  0.7939,
+  0.9326
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_273_athena_commando_f_hornedmask/featured.png": [
+  0.2646,
+  0.0293,
+  0.7549,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_274_athena_commando_m_feathers/featured.png": [
+  0.3311,
+  0.0166,
+  0.79,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_275_athena_commando_m_sniperhood/featured.png": [
+  0.333,
+  0.0488,
+  0.7979,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_276_athena_commando_f_sniperhood/featured.png": [
+  0.2598,
+  0.0342,
+  0.7461,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_277_athena_commando_m_moth/featured.png": [
+  0.3428,
+  0.0322,
+  0.7812,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_278_athena_commando_m_yeti/featured.png": [
+  0.3291,
+  0.0488,
+  0.8008,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_279_athena_commando_m_tacticalsanta/featured.png": [
+  0.3213,
+  0.0449,
+  0.7969,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_280_athena_commando_m_snowman/featured.png": [
+  0.3555,
+  0.0,
+  0.8008,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_281_athena_commando_f_snowboard/featured.png": [
+  0.2568,
+  0.0264,
+  0.748,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_286_athena_commando_f_neoncat/featured.png": [
+  0.3516,
+  0.0293,
+  0.7637,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_287_athena_commando_m_arcticsniper/featured.png": [
+  0.2842,
+  0.0684,
+  0.7607,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_288_athena_commando_m_iceking/featured.png": [
+  0.2285,
+  0.0244,
+  0.832,
+  0.9746
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_290_athena_commando_f_bluebadass/featured.png": [
+  0.3779,
+  0.0537,
+  0.7842,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_291_athena_commando_m_dieselpunk02/featured.png": [
+  0.3545,
+  0.0508,
+  0.793,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_292_athena_commando_f_dieselpunk02/featured.png": [
+  0.2588,
+  0.0254,
+  0.749,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_293_athena_commando_m_ravenwinter/featured.png": [
+  0.3496,
+  0.0596,
+  0.79,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_294_athena_commando_f_redknightwinter/featured.png": [
+  0.2588,
+  0.0293,
+  0.7451,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_295_athena_commando_m_cupidwinter/featured.png": [
+  0.3291,
+  0.0547,
+  0.7881,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_296_athena_commando_m_math/featured.png": [
+  0.3311,
+  0.0498,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_297_athena_commando_f_math/featured.png": [
+  0.2617,
+  0.0459,
+  0.7471,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_298_athena_commando_f_icemaiden/featured.png": [
+  0.3721,
+  0.0283,
+  0.8271,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_299_athena_commando_m_snowninja/featured.png": [
+  0.3301,
+  0.0264,
+  0.8193,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_300_athena_commando_f_angel/featured.png": [
+  0.2588,
+  0.001,
+  0.7617,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_301_athena_commando_m_rhino/featured.png": [
+  0.3369,
+  0.0234,
+  0.8008,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_302_athena_commando_f_nutcracker/featured.png": [
+  0.2588,
+  0.0,
+  0.7607,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_303_athena_commando_f_snowfairy/featured.png": [
+  0.2588,
+  0.0176,
+  0.748,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_304_athena_commando_m_gnome/featured.png": [
+  0.3213,
+  0.0,
+  0.791,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_308_athena_commando_f_fortnitedj/featured.png": [
+  0.2539,
+  0.0293,
+  0.7832,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_309_athena_commando_m_streetgoth/featured.png": [
+  0.3555,
+  0.0557,
+  0.793,
+  0.9629
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_310_athena_commando_f_streetgoth/featured.png": [
   0.3955,
   0.1113,
   0.7891,
   0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_311_athena_commando_m_reindeer/featured.png": [
+  0.3457,
+  0.0039,
+  0.8066,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_312_athena_commando_f_funkops/featured.png": [
+  0.3789,
+  0.04,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_313_athena_commando_m_kpopfashion/featured.png": [
+  0.0869,
+  0.0234,
+  0.8301,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_314_athena_commando_m_krampus/featured.png": [
+  0.3301,
+  0.0,
+  0.8027,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_316_athena_commando_f_winterholiday/featured.png": [
+  0.2607,
+  0.0361,
+  0.7461,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_317_athena_commando_m_winterghoul/featured.png": [
+  0.3555,
+  0.0,
+  0.7861,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_318_athena_commando_m_demon/featured.png": [
+  0.3145,
+  0.0273,
+  0.8184,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_319_athena_commando_f_nautilus/featured.png": [
+  0.2549,
+  0.0342,
+  0.7559,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_320_athena_commando_m_nautilus/featured.png": [
+  0.3174,
+  0.0254,
+  0.7959,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_321_athena_commando_m_militaryfashion1/featured.png": [
+  0.3389,
+  0.0498,
+  0.7998,
+  0.9424
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_322_athena_commando_m_techops/featured.png": [
+  0.3301,
+  0.0449,
+  0.793,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_323_athena_commando_m_barbarian/featured.png": [
+  0.3213,
+  0.0039,
+  0.8457,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_324_athena_commando_f_barbarian/featured.png": [
+  0.3672,
+  0.0596,
+  0.8018,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_325_athena_commando_m_wavyman/featured.png": [
+  0.3506,
+  0.0068,
+  0.792,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_326_athena_commando_f_wavyman/featured.png": [
+  0.2783,
+  0.0498,
+  0.7754,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_327_athena_commando_m_bluemystery/featured.png": [
+  0.084,
+  0.04,
+  0.8379,
+  0.9922
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_328_athena_commando_f_tennis/featured.png": [
+  0.2598,
+  0.041,
+  0.7471,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_329_athena_commando_f_snowninja/featured.png": [
+  0.248,
+  0.0273,
+  0.7676,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_330_athena_commando_f_icequeen/featured.png": [
+  0.0,
+  0.0,
+  1.0,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_331_athena_commando_m_taxi/featured.png": [
+  0.3311,
+  0.0576,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_332_athena_commando_m_prisoner/featured.png": [
+  0.3193,
+  0.0127,
+  0.8174,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_333_athena_commando_m_squishy/featured.png": [
+  0.335,
+  0.0215,
+  0.791,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_334_athena_commando_m_scrapyard/featured.png": [
+  0.3223,
+  0.0488,
+  0.8242,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_336_athena_commando_m_dragonmask/featured.png": [
+  0.3467,
+  0.0,
+  0.7949,
+  0.96
  ],
  "https://fortnite-api.com/images/cosmetics/br/cid_337_athena_commando_f_celestial/featured.png": [
   0.3135,
@@ -8945,17 +10535,1619 @@
   0.7539,
   0.9521
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_339_athena_commando_m_robottrouble/featured.png": [
+  0.3174,
+  0.0293,
+  0.8115,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_340_athena_commando_f_robottrouble/featured.png": [
+  0.2529,
+  0.002,
+  0.7598,
+  0.9795
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_342_athena_commando_m_streetracermetallic/featured.png": [
+  0.3574,
+  0.0498,
+  0.793,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_343_athena_commando_m_cupiddark/featured.png": [
+  0.0918,
+  0.0312,
+  0.9062,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_344_athena_commando_m_icecream/featured.png": [
+  0.3311,
+  0.0117,
+  0.7881,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_345_athena_commando_m_lovellama/featured.png": [
+  0.3252,
+  0.0322,
+  0.792,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_346_athena_commando_m_dragonninja/featured.png": [
+  0.3721,
+  0.0439,
+  0.832,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_347_athena_commando_m_pirateprogressive/featured.png": [
+  0.292,
+  0.0625,
+  0.7734,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_348_athena_commando_f_medusa/featured.png": [
+  0.3174,
+  0.0361,
+  0.7891,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_349_athena_commando_m_banana/featured.png": [
+  0.3438,
+  0.0,
+  0.7822,
+  0.8691
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_350_athena_commando_m_masterkey/featured.png": [
+  0.2764,
+  0.0928,
+  0.8564,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_351_athena_commando_f_fireelf/featured.png": [
+  0.3281,
+  0.0576,
+  0.9531,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_352_athena_commando_f_shiny/featured.png": [
+  0.2734,
+  0.0605,
+  0.7764,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_353_athena_commando_f_bandolier/featured.png": [
+  0.3789,
+  0.0498,
+  0.793,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_354_athena_commando_m_munitionsexpert/featured.png": [
+  0.3311,
+  0.0537,
+  0.7881,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_355_athena_commando_m_farmer/featured.png": [
+  0.3555,
+  0.0127,
+  0.8066,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_356_athena_commando_f_farmer/featured.png": [
+  0.373,
+  0.0586,
+  0.7852,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_357_athena_commando_m_orangecamo/featured.png": [
+  0.3311,
+  0.0508,
+  0.793,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_358_athena_commando_m_aztec/featured.png": [
+  0.3301,
+  0.0518,
+  0.7979,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_359_athena_commando_f_aztec/featured.png": [
+  0.2559,
+  0.0039,
+  0.7598,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_360_athena_commando_m_techopsblue/featured.png": [
+  0.3271,
+  0.0459,
+  0.793,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_361_athena_commando_m_bandageninja/featured.png": [
+  0.3232,
+  0.0342,
+  0.7949,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_362_athena_commando_f_bandageninja/featured.png": [
+  0.3779,
+  0.0215,
+  0.7842,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_363_athena_commando_m_sciops/featured.png": [
+  0.335,
+  0.0586,
+  0.793,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_364_athena_commando_f_sciops/featured.png": [
+  0.251,
+  0.0332,
+  0.75,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_365_athena_commando_m_luckyrider/featured.png": [
+  0.3555,
+  0.0508,
+  0.79,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_366_athena_commando_m_tropical/featured.png": [
+  0.3555,
+  0.0566,
+  0.7871,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_367_athena_commando_f_tropical/featured.png": [
+  0.0908,
+  0.0391,
+  0.9502,
+  0.9707
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_369_athena_commando_f_devilrock/featured.png": [
+  0.3848,
+  0.0518,
+  0.9531,
+  0.9668
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_370_athena_commando_m_evilsuit/featured.png": [
+  0.1494,
+  0.0703,
+  0.9082,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_371_athena_commando_m_speedymidnight/featured.png": [
+  0.3301,
+  0.0596,
+  0.7891,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_376_athena_commando_m_darkshaman/featured.png": [
+  0.3574,
+  0.0215,
+  0.8184,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_377_athena_commando_f_darkshaman/featured.png": [
+  0.2607,
+  0.0303,
+  0.748,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_378_athena_commando_m_furnaceface/featured.png": [
+  0.0,
+  0.0,
+  0.7822,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_379_athena_commando_m_battlehoundfire/featured.png": [
+  0.3525,
+  0.0234,
+  0.7861,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_380_athena_commando_f_darkviking_fire/featured.png": [
+  0.2441,
+  0.0,
+  0.9531,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_381_athena_commando_f_baseballkitbash/featured.png": [
+  0.2637,
+  0.0381,
+  0.7617,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_382_athena_commando_m_baseballkitbash/featured.png": [
+  0.3301,
+  0.0518,
+  0.8271,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_383_athena_commando_f_cacti/featured.png": [
+  0.3789,
+  0.0039,
+  0.8174,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_384_athena_commando_m_streetassassin/featured.png": [
+  0.3027,
+  0.0,
+  0.8613,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_385_athena_commando_m_pilotskull/featured.png": [
+  0.3301,
+  0.0479,
+  0.8115,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_386_athena_commando_m_streetopsstealth/featured.png": [
+  0.332,
+  0.0488,
+  0.7949,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_387_athena_commando_f_golf/featured.png": [
+  0.2402,
+  0.041,
+  0.7441,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_388_athena_commando_m_thebomb/featured.png": [
+  0.3301,
+  0.0,
+  0.8027,
+  0.9229
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_390_athena_commando_m_evilbunny/featured.png": [
+  0.3232,
+  0.0332,
+  0.7959,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_391_athena_commando_m_hoppityheist/featured.png": [
+  0.3232,
+  0.0635,
+  0.7842,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_392_athena_commando_f_bountybunny/featured.png": [
+  0.3789,
+  0.0508,
+  0.7842,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_393_athena_commando_m_shiny/featured.png": [
+  0.3252,
+  0.04,
+  0.7871,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_394_athena_commando_m_moonlightassassin/featured.png": [
+  0.3574,
+  0.0107,
+  0.7988,
+  0.9688
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_395_athena_commando_f_shatterfly/featured.png": [
+  0.2588,
+  0.0459,
+  0.7441,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_396_athena_commando_f_swashbuckler/featured.png": [
+  0.2637,
+  0.0439,
+  0.7568,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_398_athena_commando_m_treasurehunterfashion/featured.png": [
+  0.3613,
+  0.0625,
+  0.791,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_399_athena_commando_f_ashtonboardwalk/featured.png": [
+  0.1992,
+  0.0225,
+  0.8125,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_400_athena_commando_m_ashtonsaltlake/featured.png": [
+  0.2373,
+  0.0283,
+  0.8945,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_401_athena_commando_m_miner/featured.png": [
+  0.3291,
+  0.04,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_403_athena_commando_m_rooster/featured.png": [
+  0.2891,
+  0.0,
+  0.8174,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_404_athena_commando_f_bountyhunter/featured.png": [
+  0.3867,
+  0.0244,
+  0.7988,
+  0.9775
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_405_athena_commando_f_masako/featured.png": [
+  0.3623,
+  0.0098,
+  0.7822,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_406_athena_commando_m_stormtracker/featured.png": [
+  0.3135,
+  0.0625,
+  0.793,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_407_athena_commando_m_battlesuit/featured.png": [
+  0.2969,
+  0.0566,
+  0.8125,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_408_athena_commando_f_strawberrypilot/featured.png": [
+  0.251,
+  0.0801,
+  0.8193,
+  0.9697
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_409_athena_commando_m_bunkerman/featured.png": [
+  0.3291,
+  0.0791,
+  0.7959,
+  0.9268
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_410_athena_commando_m_cyberscavenger/featured.png": [
+  0.3193,
+  0.0176,
+  0.7949,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_411_athena_commando_f_cyberscavenger/featured.png": [
+  0.251,
+  0.0342,
+  0.749,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_412_athena_commando_f_raptor/featured.png": [
+  0.2617,
+  0.041,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_413_athena_commando_m_streetdemon/featured.png": [
+  0.3291,
+  0.0537,
+  0.793,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_414_athena_commando_f_militaryfashion/featured.png": [
+  0.375,
+  0.0459,
+  0.7998,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_415_athena_commando_f_assassinsuit/featured.png": [
+  0.2822,
+  0.0566,
+  0.7959,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_416_athena_commando_m_assassinsuit/featured.png": [
+  0.3184,
+  0.0732,
+  0.7402,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_418_athena_commando_f_geisha/featured.png": [
+  0.2568,
+  0.0254,
+  0.7549,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_419_athena_commando_m_pug/featured.png": [
+  0.332,
+  0.0713,
+  0.7988,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_420_athena_commando_f_whitetiger/featured.png": [
+  0.0781,
+  0.0283,
+  0.8809,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_421_athena_commando_m_maskedwarrior/featured.png": [
+  0.3301,
+  0.0518,
+  0.793,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_422_athena_commando_f_maskedwarrior/featured.png": [
+  0.374,
+  0.0635,
+  0.7861,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_423_athena_commando_f_painter/featured.png": [
+  0.3701,
+  0.0557,
+  0.791,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_424_athena_commando_m_vigilante/featured.png": [
+  0.3076,
+  0.0264,
+  0.6572,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_425_athena_commando_f_cyberrunner/featured.png": [
+  0.374,
+  0.0596,
+  0.7969,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_426_athena_commando_f_demonhunter/featured.png": [
+  0.2539,
+  0.0166,
+  0.7705,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_427_athena_commando_m_demonhunter/featured.png": [
+  0.3584,
+  0.0557,
+  0.7939,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_428_athena_commando_m_urbanscavenger/featured.png": [
+  0.3574,
+  0.0605,
+  0.792,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_429_athena_commando_f_neonlines/featured.png": [
+  0.0605,
+  0.0283,
+  0.8525,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_430_athena_commando_m_stormsoldier/featured.png": [
+  0.3125,
+  0.083,
+  0.8311,
+  0.9951
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_431_athena_commando_f_stormpilot/featured.png": [
+  0.374,
+  0.0576,
+  0.791,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_432_athena_commando_m_balloonhead/featured.png": [
+  0.3281,
+  0.0244,
+  0.8145,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_433_athena_commando_f_tacticaldesert/featured.png": [
+  0.3789,
+  0.0527,
+  0.79,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_434_athena_commando_f_stealthhonor/featured.png": [
+  0.3779,
+  0.0537,
+  0.7891,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_435_athena_commando_m_munitionsexpertgreenplastic/featured.png": [
+  0.3262,
+  0.0605,
+  0.7881,
+  0.9834
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_436_athena_commando_m_reconspecialist/featured.png": [
+  0.3301,
+  0.0469,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_437_athena_commando_f_aztececlipse/featured.png": [
+  0.377,
+  0.0156,
+  0.8008,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_438_athena_commando_m_winterghouleclipse/featured.png": [
+  0.3271,
+  0.0,
+  0.7852,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_439_athena_commando_f_skullbriteeclipse/featured.png": [
+  0.2568,
+  0.043,
+  0.7529,
+  0.9658
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_440_athena_commando_f_bullseyegreenplastic/featured.png": [
+  0.2793,
+  0.0723,
+  0.7324,
+  0.9473
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_441_athena_commando_f_cyberscavengerblue/featured.png": [
+  0.249,
+  0.0303,
+  0.748,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_442_athena_commando_f_bannera/featured.png": [
+  0.3789,
+  0.0518,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_443_athena_commando_f_bannerb/featured.png": [
+  0.3789,
+  0.0566,
+  0.791,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_444_athena_commando_f_bannerc/featured.png": [
+  0.2617,
+  0.043,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_445_athena_commando_f_bannerd/featured.png": [
+  0.3789,
+  0.0537,
+  0.792,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_446_athena_commando_m_bannera/featured.png": [
+  0.3301,
+  0.0547,
+  0.791,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_447_athena_commando_m_bannerb/featured.png": [
+  0.3281,
+  0.0557,
+  0.793,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_448_athena_commando_m_bannerc/featured.png": [
+  0.3301,
+  0.0596,
+  0.793,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_449_athena_commando_m_bannerd/featured.png": [
+  0.3301,
+  0.0615,
+  0.792,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_450_athena_commando_f_butterfly/featured.png": [
+  0.3848,
+  0.0508,
+  0.8086,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_451_athena_commando_m_caterpillar/featured.png": [
+  0.3262,
+  0.0352,
+  0.7969,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_452_athena_commando_f_cyberfu/featured.png": [
+  0.2432,
+  0.042,
+  0.749,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_453_athena_commando_f_glowbro/featured.png": [
+  0.2549,
+  0.0381,
+  0.748,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_454_athena_commando_m_glowbro/featured.png": [
+  0.3555,
+  0.0469,
+  0.793,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_455_athena_commando_f_jellyfish/featured.png": [
+  0.2656,
+  0.0215,
+  0.7451,
+  0.9678
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_456_athena_commando_f_sarong/featured.png": [
+  0.2617,
+  0.0352,
+  0.7461,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_457_athena_commando_f_spacegirl/featured.png": [
+  0.3818,
+  0.0449,
+  0.792,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_458_athena_commando_m_techmage/featured.png": [
+  0.3555,
+  0.0312,
+  0.7881,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_459_athena_commando_f_zodiac/featured.png": [
+  0.2627,
+  0.0361,
+  0.7686,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_460_athena_commando_f_britebombersummer/featured.png": [
+  0.3828,
+  0.0586,
+  0.791,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_461_athena_commando_m_driftsummer/featured.png": [
+  0.3584,
+  0.0234,
+  0.79,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_462_athena_commando_m_heistsummer/featured.png": [
+  0.3311,
+  0.0605,
+  0.792,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_463_athena_commando_m_hairy/featured.png": [
+  0.3271,
+  0.0283,
+  0.8008,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_464_athena_commando_m_flamingo/featured.png": [
+  0.3535,
+  0.04,
+  0.791,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_465_athena_commando_m_puffyvest/featured.png": [
+  0.3311,
+  0.0547,
+  0.793,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_466_athena_commando_m_weirdobjectscreature/featured.png": [
+  0.3154,
+  0.1484,
+  0.8389,
+  0.9932
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_467_athena_commando_m_weirdobjectspolice/featured.png": [
+  0.3379,
+  0.0557,
+  0.8154,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_468_athena_commando_f_tenniswhite/featured.png": [
+  0.3721,
+  0.0527,
+  0.792,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_469_athena_commando_f_battlesuit/featured.png": [
+  0.3789,
+  0.042,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_470_athena_commando_m_anarchy/featured.png": [
+  0.3232,
+  0.0635,
+  0.791,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_471_athena_commando_f_bani/featured.png": [
+  0.2598,
+  0.0459,
+  0.75,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_472_athena_commando_f_cyberkarate/featured.png": [
+  0.2451,
+  0.0244,
+  0.7441,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_473_athena_commando_m_cyberkarate/featured.png": [
+  0.3555,
+  0.0586,
+  0.8164,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_474_athena_commando_m_lasagna/featured.png": [
+  0.2852,
+  0.1035,
+  0.8037,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_475_athena_commando_m_multibot/featured.png": [
+  0.2451,
+  0.085,
+  0.8467,
+  0.9814
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_476_athena_commando_f_futurebiker/featured.png": [
+  0.374,
+  0.0371,
+  0.793,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_477_athena_commando_f_spacesuit/featured.png": [
+  0.377,
+  0.0596,
+  0.7939,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_478_athena_commando_f_worldcup/featured.png": [
+  0.2578,
+  0.04,
+  0.7451,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_479_athena_commando_f_davinci/featured.png": [
+  0.0684,
+  0.0283,
+  0.8594,
+  0.9209
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_480_athena_commando_f_bubblegum/featured.png": [
+  0.2598,
+  0.042,
+  0.7441,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_481_athena_commando_f_geode/featured.png": [
+  0.2627,
+  0.0303,
+  0.7578,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_482_athena_commando_f_pizzapit/featured.png": [
+  0.3799,
+  0.0576,
+  0.792,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_483_athena_commando_f_graffitiremix/featured.png": [
+  0.2842,
+  0.083,
+  0.8135,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_484_athena_commando_m_knightremix/featured.png": [
+  0.2949,
+  0.0283,
+  0.8496,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_485_athena_commando_f_sparkleremix/featured.png": [
+  0.3164,
+  0.0967,
+  0.8623,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_486_athena_commando_f_streetracerdrift/featured.png": [
+  0.3125,
+  0.0625,
+  0.7686,
+  0.9346
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_487_athena_commando_m_djremix/featured.png": [
+  0.3447,
+  0.0156,
+  0.8057,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_488_athena_commando_m_rustremix/featured.png": [
+  0.2891,
+  0.041,
+  0.8174,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_489_athena_commando_m_voyagerremix/featured.png": [
+  0.2734,
+  0.0,
+  0.8623,
+  0.8975
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_490_athena_commando_m_bluebadass/featured.png": [
+  0.3604,
+  0.0635,
+  0.8018,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_491_athena_commando_m_bonewasp/featured.png": [
+  0.335,
+  0.0488,
+  0.8037,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_492_athena_commando_m_bronto/featured.png": [
+  0.3301,
+  0.0303,
+  0.792,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_493_athena_commando_f_jurassicarchaeology/featured.png": [
+  0.373,
+  0.0498,
+  0.7969,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_494_athena_commando_m_mechpilotshark/featured.png": [
+  0.333,
+  0.0547,
+  0.7979,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_495_athena_commando_f_mechpilotshark/featured.png": [
+  0.3945,
+  0.0547,
+  0.7939,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_496_athena_commando_m_survivalspecialist/featured.png": [
+  0.3311,
+  0.0439,
+  0.793,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_497_athena_commando_f_wildwest/featured.png": [
+  0.2588,
+  0.0283,
+  0.7471,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_498_athena_commando_m_wildwest/featured.png": [
+  0.3418,
+  0.0586,
+  0.7871,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_499_athena_commando_f_astronautevil/featured.png": [
+  0.3789,
+  0.0518,
+  0.7969,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_501_athena_commando_m_frostmystery/featured.png": [
+  0.3555,
+  0.0586,
+  0.874,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_502_athena_commando_f_reverb/featured.png": [
+  0.2637,
+  0.0352,
+  0.7461,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_503_athena_commando_f_tacticalwoodlandfuture/featured.png": [
+  0.2627,
+  0.041,
+  0.7441,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_504_athena_commando_m_lopex/featured.png": [
+  0.3564,
+  0.0381,
+  0.8105,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_505_athena_commando_m_militiamascotburger/featured.png": [
+  0.3291,
+  0.0312,
+  0.8018,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_506_athena_commando_m_militiamascottomato/featured.png": [
+  0.334,
+  0.0,
+  0.8037,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_507_athena_commando_m_starwalker/featured.png": [
+  0.3555,
+  0.0098,
+  0.8008,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_508_athena_commando_m_syko/featured.png": [
+  0.3262,
+  0.04,
+  0.8096,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_509_athena_commando_m_wisemaster/featured.png": [
+  0.3213,
+  0.041,
+  0.8008,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_510_athena_commando_f_angeleclipse/featured.png": [
+  0.2627,
+  0.0,
+  0.7637,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_511_athena_commando_m_cubepaintwildcard/featured.png": [
+  0.3594,
+  0.0674,
+  0.7871,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_512_athena_commando_f_cubepaintredknight/featured.png": [
+  0.3701,
+  0.0166,
+  0.792,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_513_athena_commando_m_cubepaintjonesy/featured.png": [
+  0.3438,
+  0.0645,
+  0.7852,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_514_athena_commando_f_toxickitty/featured.png": [
+  0.3848,
+  0.0469,
+  0.7871,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_515_athena_commando_m_barbequelarry/featured.png": [
+  0.3047,
+  0.0801,
+  0.8008,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_516_athena_commando_m_blackwidowrogue/featured.png": [
+  0.3174,
+  0.0117,
+  0.8115,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_517_athena_commando_m_darkeaglefire/featured.png": [
+  0.3301,
+  0.0537,
+  0.7969,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_518_athena_commando_m_wwii_pilotscifi/featured.png": [
+  0.3291,
+  0.0576,
+  0.8027,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_519_athena_commando_m_raptorblackops/featured.png": [
+  0.3232,
+  0.042,
+  0.8115,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_520_athena_commando_m_paddedarmor/featured.png": [
+  0.3301,
+  0.043,
+  0.8154,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_521_athena_commando_m_tacticalbiker/featured.png": [
+  0.3232,
+  0.0527,
+  0.8037,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_522_athena_commando_m_bullseye/featured.png": [
+  0.3311,
+  0.0488,
+  0.792,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_523_athena_commando_f_cupid/featured.png": [
+  0.417,
+  0.0635,
+  0.7666,
+  0.9336
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_524_athena_commando_f_futurebikerwhite/featured.png": [
+  0.375,
+  0.0352,
+  0.8008,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_525_athena_commando_f_lemonlime/featured.png": [
+  0.2627,
+  0.0107,
+  0.7803,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_527_athena_commando_f_streetfashionred/featured.png": [
+  0.2412,
+  0.0459,
+  0.7549,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_528_athena_commando_m_blackmondayhouston_7dgbt/featured.png": [
+  0.2949,
+  0.0576,
+  0.7891,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_529_athena_commando_m_blackmondaykansas_hwd90/featured.png": [
+  0.2793,
+  0.0352,
+  0.7666,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_530_athena_commando_f_blackmonday_1bv6j/featured.png": [
+  0.3184,
+  0.0557,
+  0.7646,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_531_athena_commando_m_sleepytime/featured.png": [
+  0.2861,
+  0.0068,
+  0.7715,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_532_athena_commando_f_punchy/featured.png": [
+  0.3809,
+  0.0488,
+  0.7949,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_533_athena_commando_m_streeturchin/featured.png": [
+  0.3301,
+  0.0605,
+  0.8037,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_534_athena_commando_m_peelymech/featured.png": [
+  0.2324,
+  0.0557,
+  0.8506,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_535_athena_commando_m_traveler/featured.png": [
+  0.3359,
+  0.0078,
+  0.791,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_537_athena_commando_m_jumpstart/featured.png": [
+  0.333,
+  0.0254,
+  0.8027,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_538_athena_commando_m_taco/featured.png": [
+  0.3555,
+  0.0234,
+  0.791,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_539_athena_commando_f_streetgothcandy/featured.png": [
+  0.3809,
+  0.0449,
+  0.7939,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_540_athena_commando_m_meteormanremix/featured.png": [
+  0.2715,
+  0.0645,
+  0.8848,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_541_athena_commando_m_graffitigold/featured.png": [
+  0.3359,
+  0.0469,
+  0.7959,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_542_athena_commando_f_carbidefrostmystery/featured.png": [
+  0.2344,
+  0.0439,
+  0.7568,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_543_athena_commando_m_llamahero/featured.png": [
+  0.334,
+  0.0,
+  0.7998,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_544_athena_commando_m_kurohomura/featured.png": [
+  0.3174,
+  0.1025,
+  0.7959,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_545_athena_commando_f_sushininja/featured.png": [
+  0.251,
+  0.0215,
+  0.7549,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_546_athena_commando_f_tacticalred/featured.png": [
+  0.3789,
+  0.0518,
+  0.79,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_547_athena_commando_f_meteorwoman/featured.png": [
+  0.2461,
+  0.0391,
+  0.7539,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_548_athena_commando_m_yellowcamoa/featured.png": [
+  0.3301,
+  0.0596,
+  0.7891,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_549_athena_commando_m_yellowcamob/featured.png": [
+  0.3457,
+  0.0762,
+  0.7881,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_550_athena_commando_m_yellowcamoc/featured.png": [
+  0.3311,
+  0.0498,
+  0.7891,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_551_athena_commando_m_yellowcamod/featured.png": [
+  0.3447,
+  0.04,
+  0.7861,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_552_athena_commando_f_taxiupgrade/featured.png": [
+  0.2578,
+  0.0459,
+  0.7451,
+  0.96
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_553_athena_commando_m_brightgunnerremix/featured.png": [
+  0.3555,
+  0.0537,
+  0.7959,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_554_athena_commando_f_militiamascotcuddle/featured.png": [
+  0.3857,
+  0.0332,
+  0.8262,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_556_athena_commando_f_rebirthdefaulta/featured.png": [
+  0.3838,
+  0.0537,
+  0.792,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_557_athena_commando_f_rebirthdefaultb/featured.png": [
+  0.2402,
+  0.0205,
+  0.7451,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_558_athena_commando_f_rebirthdefaultc/featured.png": [
+  0.2383,
+  0.0381,
+  0.7461,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_559_athena_commando_f_rebirthdefaultd/featured.png": [
+  0.374,
+  0.0479,
+  0.7939,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_560_athena_commando_m_rebirthdefaulta/featured.png": [
+  0.3359,
+  0.0586,
+  0.7988,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_561_athena_commando_m_rebirthdefaultb/featured.png": [
+  0.3311,
+  0.0635,
+  0.8008,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_562_athena_commando_m_rebirthdefaultc/featured.png": [
+  0.3467,
+  0.0566,
+  0.792,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_563_athena_commando_m_rebirthdefaultd/featured.png": [
+  0.3379,
+  0.0459,
+  0.7988,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_564_athena_commando_m_tacticalfisherman/featured.png": [
+  0.3379,
+  0.0586,
+  0.7754,
+  0.9365
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_565_athena_commando_f_rockclimber/featured.png": [
+  0.3369,
+  0.0557,
+  0.8213,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_566_athena_commando_m_crazyeight/featured.png": [
+  0.4102,
+  0.0596,
+  0.8252,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_567_athena_commando_f_rebirthmedic/featured.png": [
+  0.3281,
+  0.0498,
+  0.8242,
+  0.9639
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_570_athena_commando_m_slurpmonster/featured.png": [
+  0.3018,
+  0.0586,
+  0.8164,
+  0.9717
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_571_athena_commando_f_sheath/featured.png": [
+  0.3271,
+  0.0723,
+  0.8223,
+  0.9746
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_572_athena_commando_m_viper/featured.png": [
+  0.3096,
+  0.0811,
+  0.8223,
+  0.9414
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_573_athena_commando_m_haunt/featured.png": [
+  0.3447,
+  0.0,
+  1.0,
+  0.9854
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_574_athena_commando_f_cuberockerpunk/featured.png": [
+  0.2607,
+  0.0,
+  0.7559,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_575_athena_commando_f_bulletblue/featured.png": [
+  0.3818,
+  0.0322,
+  0.8057,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_576_athena_commando_m_codsquadplaid/featured.png": [
+  0.3555,
+  0.0645,
+  0.793,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_577_athena_commando_f_codsquadplaid/featured.png": [
+  0.2578,
+  0.0322,
+  0.7695,
+  0.9648
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_578_athena_commando_f_fisherman/featured.png": [
+  0.2578,
+  0.043,
+  0.7441,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_579_athena_commando_f_redridingremix/featured.png": [
+  0.3438,
+  0.0234,
+  0.8076,
+  0.9912
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_580_athena_commando_m_cuddleteamdark/featured.png": [
+  0.333,
+  0.0156,
+  0.7969,
+  0.957
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_581_athena_commando_m_darkdino/featured.png": [
+  0.3564,
+  0.0205,
+  0.7871,
+  0.9619
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_582_athena_commando_f_darkdino/featured.png": [
+  0.2627,
+  0.0,
+  0.7529,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_583_athena_commando_f_noshhunter/featured.png": [
+  0.2578,
+  0.0352,
+  0.7451,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_584_athena_commando_m_nosh/featured.png": [
+  0.3301,
+  0.0215,
+  0.7949,
+  0.9238
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_585_athena_commando_f_flowerskeleton/featured.png": [
+  0.2617,
+  0.001,
+  0.749,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_586_athena_commando_f_punkdevil/featured.png": [
+  0.3896,
+  0.0547,
+  0.7881,
+  0.9434
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_587_athena_commando_m_devilrock/featured.png": [
+  0.3477,
+  0.0322,
+  0.7988,
+  0.9756
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_588_athena_commando_m_goatrobe/featured.png": [
+  0.3223,
+  0.0264,
+  0.8047,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_589_athena_commando_m_soccerzombiea/featured.png": [
+  0.3389,
+  0.0566,
+  0.79,
+  0.9521
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_590_athena_commando_m_soccerzombieb/featured.png": [
+  0.3271,
+  0.0508,
+  0.793,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_591_athena_commando_m_soccerzombiec/featured.png": [
+  0.3311,
+  0.0576,
+  0.7939,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_592_athena_commando_m_soccerzombied/featured.png": [
+  0.3359,
+  0.0459,
+  0.793,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_593_athena_commando_f_soccerzombiea/featured.png": [
+  0.3779,
+  0.0508,
+  0.7891,
+  0.9512
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_594_athena_commando_f_soccerzombieb/featured.png": [
+  0.373,
+  0.0576,
+  0.79,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_595_athena_commando_f_soccerzombiec/featured.png": [
+  0.2637,
+  0.0352,
+  0.7471,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_596_athena_commando_f_soccerzombied/featured.png": [
+  0.2656,
+  0.0205,
+  0.7539,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_597_athena_commando_m_freak/featured.png": [
+  0.335,
+  0.0527,
+  0.791,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_598_athena_commando_m_mastermind/featured.png": [
+  0.377,
+  0.0566,
+  0.7861,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_599_athena_commando_m_phantom/featured.png": [
+  0.333,
+  0.041,
+  0.8574,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_600_athena_commando_m_skeletonhunter/featured.png": [
+  0.2314,
+  0.0273,
+  0.8779,
+  0.9629
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_601_athena_commando_f_palespooky/featured.png": [
+  0.3594,
+  0.0518,
+  0.7871,
+  0.9443
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_602_athena_commando_m_nanasplit/featured.png": [
+  0.3545,
+  0.0283,
+  0.751,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_603_athena_commando_m_spookyneon/featured.png": [
+  0.3486,
+  0.0674,
+  0.7949,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_604_athena_commando_f_razor/featured.png": [
+  0.2549,
+  0.0137,
+  0.7441,
+  0.9551
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_605_athena_commando_m_tourbus/featured.png": [
   0.3105,
   0.0732,
   0.7725,
   0.9609
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_606_athena_commando_f_jetski/featured.png": [
+  0.374,
+  0.0479,
+  0.7842,
+  0.9492
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_607_athena_commando_m_jetski/featured.png": [
+  0.3301,
+  0.0547,
+  0.7939,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_608_athena_commando_f_modernwitch/featured.png": [
+  0.3838,
+  0.0,
+  0.8115,
+  0.9502
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_609_athena_commando_m_submariner/featured.png": [
+  0.3516,
+  0.0518,
+  0.7969,
+  0.959
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_610_athena_commando_m_shiitakeshaolin/featured.png": [
   0.3486,
   0.0449,
   0.8096,
   0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_611_athena_commando_m_weepingwoods/featured.png": [
+  0.3428,
+  0.0762,
+  0.7852,
+  0.9453
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_612_athena_commando_f_streetopspink/featured.png": [
+  0.25,
+  0.04,
+  0.7588,
+  0.9541
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_613_athena_commando_m_columbus_7y4qe/featured.png": [
+  0.3457,
+  0.0557,
+  0.7998,
+  0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_614_athena_commando_m_missinglink/featured.png": [
+  0.3291,
+  0.0205,
+  0.7822,
+  0.958
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_615_athena_commando_f_bane/featured.png": [
+  0.3252,
+  0.0,
+  0.8574,
+  0.9277
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_616_athena_commando_f_cavalrybandit/featured.png": [
+  0.3096,
+  0.0938,
+  0.8711,
+  0.9404
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_617_athena_commando_f_forestqueen/featured.png": [
+  0.2568,
+  0.0215,
+  0.7549,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_618_athena_commando_m_forestdweller/featured.png": [
+  0.3359,
+  0.0,
+  0.7988,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_619_athena_commando_f_techllama/featured.png": [
+  0.3779,
+  0.0508,
+  0.7842,
+  0.9531
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_620_athena_commando_l_bigchuggus/featured.png": [
+  0.3105,
+  0.042,
+  0.8584,
+  0.9395
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_621_athena_commando_m_bonesnake/featured.png": [
+  0.3223,
+  0.0488,
+  0.8164,
+  0.9609
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_622_athena_commando_m_bulletblue/featured.png": [
+  0.335,
+  0.0576,
+  0.792,
+  0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_623_athena_commando_m_frogman/featured.png": [
+  0.3311,
+  0.0645,
+  0.7949,
+  0.9561
  ],
  "https://fortnite-api.com/images/cosmetics/br/cid_624_athena_commando_m_teriyakiwarrior/featured.png": [
   0.3604,
@@ -8975,11 +12167,23 @@
   0.793,
   0.959
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_627_athena_commando_f_snufflesleader/featured.png": [
+  0.3818,
+  0.0938,
+  0.8018,
+  0.9434
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_628_athena_commando_m_holidaytime/featured.png": [
   0.3223,
   0.041,
   0.792,
   0.959
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_629_athena_commando_m_snowglobe/featured.png": [
+  0.3545,
+  0.0254,
+  0.791,
+  0.9619
  ],
  "https://fortnite-api.com/images/cosmetics/br/cid_630_athena_commando_m_kane/featured.png": [
   0.3213,
@@ -13925,6 +17129,12 @@
   0.8027,
   0.9492
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_npc_athena_commando_f_marauderelite/featured.png": [
+  0.2646,
+  0.0479,
+  0.748,
+  0.9639
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_npc_athena_commando_m_alienrobot/featured.png": [
   0.3213,
   0.0303,
@@ -13955,6 +17165,18 @@
   0.7881,
   0.96
  ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_npc_athena_commando_m_maraudergrunt/featured.png": [
+  0.3252,
+  0.0127,
+  0.7891,
+  0.9551
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/cid_npc_athena_commando_m_marauderheavy/featured.png": [
+  0.2725,
+  0.0,
+  0.8877,
+  0.9678
+ ],
  "https://fortnite-api.com/images/cosmetics/br/cid_random/featured.png": [
   0.2129,
   0.2646,
@@ -13984,6 +17206,12 @@
   0.0195,
   0.6348,
   0.9722
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/063ef93d017300ce/renderimage_0.png": [
+  0.3555,
+  0.042,
+  0.6953,
+  1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/08ea54dcde617141/renderimage_0.png": [
   0.1973,
@@ -14020,6 +17248,12 @@
   0.0322,
   0.8145,
   0.9878
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/154d21f1d07150f6/renderimage_0.png": [
+  0.2891,
+  0.0225,
+  0.7412,
+  1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2256b0545922a4c1/renderimage_0.png": [
   0.2217,
@@ -14087,6 +17321,12 @@
   0.8643,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4384dbb6566f7c24/renderimage_0.png": [
+  0.3066,
+  0.041,
+  0.6504,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4630059b3b684ceb/renderimage_0.png": [
   0.2646,
   0.0146,
@@ -14111,10 +17351,22 @@
   0.8257,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/50dfe0ed4f655686/renderimage_0.png": [
+  0.2822,
+  0.0264,
+  0.6914,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/51687a62bf279eae/renderimage_0.png": [
   0.3081,
   0.0186,
   0.6929,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5722b078a0f958f8/renderimage_0.png": [
+  0.0,
+  0.0,
+  1.0,
   1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5a62c7f439961b9b/renderimage_0.png": [
@@ -14128,6 +17380,12 @@
   0.0605,
   0.6211,
   0.9561
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/63d797a940747f12/renderimage_0.png": [
+  0.2168,
+  0.0303,
+  0.7676,
+  1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/69d3c4e7187936cd/renderimage_0.png": [
   0.25,
@@ -14315,6 +17573,12 @@
   0.6611,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cbcad97d0b2a5673/renderimage_0.png": [
+  0.2725,
+  0.0273,
+  0.7139,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cef8b334ff05fd37/renderimage_0.png": [
   0.3066,
   0.0635,
@@ -14349,6 +17613,12 @@
   0.3481,
   0.0259,
   0.6875,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d9ba0fad6e9dc557/renderimage_0.png": [
+  0.2568,
+  0.0098,
+  0.7061,
   1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/dfc9687d43abd0f2/renderimage_0.png": [
@@ -14387,6 +17657,12 @@
   0.9053,
   0.8701
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f6a929ea12b6abb2/renderimage_0.png": [
+  0.3291,
+  0.0244,
+  0.6816,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fcb7fce7d10c21e0/renderimage_0.png": [
   0.2012,
   0.0107,
@@ -14397,6 +17673,12 @@
   0.2627,
   0.0439,
   0.7246,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd8f33f9438fa7a2/renderimage_0.png": [
+  0.2305,
+  0.0156,
+  0.7402,
   1.0
  ]
 }
