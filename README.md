@@ -14,6 +14,7 @@ The tags were written by an AI model (Claude Haiku) that looked at each outfit's
 - **Icons / Full body** in the header switches the cards between the locker icons and full-body images. The site remembers your choice.
 - **The popup** shows the skin's tags by category, an AI-written description, and all of its styles. It opens on the full-body image when there is one, with a button to switch to the icon.
 - **Review status** filters show what has been checked by hand (✓), which tags the model was unsure about, and where the image didn't show the shoes.
+- **Collections:** save skins into named collections from any skin's popup. They appear in the sidebar, where you can view, rename, delete or share each one. Collections are kept in your browser, so use **Export** now and then for a backup (and **Import** to restore it or move it to another device). **Copy share link** packs a collection into a URL that anyone can open and save as their own.
 - **Links** to filtered views can be shared; the filters are kept in the URL.
 - **All tags** can be downloaded as a CSV from the link in the footer.
 

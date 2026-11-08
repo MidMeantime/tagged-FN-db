@@ -14,12 +14,57 @@
   let skins = [], cats = [], tagCat = {}, results = [], shown = 0, byId = {}, groupedCount = {};
   let savedView = "icon";
   try { savedView = localStorage.getItem("view") || "icon"; } catch (e) { /* storage blocked */ }
-  const state = { view: savedView, styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
+  const state = { col: "", shared: null, view: savedView, styles: true, q: "", sort: "new", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() };
 
   const pretty = (t) => t.replace(/_/g, " ");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const group = (s) => s.sr || s.r || "Unknown";
   const chapterOf = (s) => (s.ch ? `Chapter ${s.ch}` : "Unknown");
+
+  // ---------- collections (saved in this browser) ----------
+  // [{ id, name, items: [skin or style IDs] }]. localStorage can be blocked or cleared, so it's wrapped
+  // in try/catch and falls back to memory for the visit; "Export" gives people a backup file.
+  let collections = [];
+  try { collections = JSON.parse(localStorage.getItem("collections") || "[]"); } catch (e) { collections = []; }
+  if (!Array.isArray(collections)) collections = [];
+  function saveCollections() {
+    try { localStorage.setItem("collections", JSON.stringify(collections)); return true; }
+    catch (e) { return false; }
+  }
+  const colById = (id) => collections.find((c) => c.id === id);
+  const inAnyCollection = (id) => collections.some((c) => c.items.includes(id));
+  function newCollection(name, items = []) {
+    name = (name || "").trim().slice(0, 60) || `Collection ${collections.length + 1}`;
+    const c = { id: "c" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name, items: [...new Set(items)] };
+    collections.push(c);
+    saveCollections();
+    return c;
+  }
+  function toggleInCollection(colId, skinId, on) {
+    const c = colById(colId);
+    if (!c) return;
+    const has = c.items.includes(skinId);
+    if (on && !has) c.items.push(skinId);
+    if (!on && has) c.items = c.items.filter((x) => x !== skinId);
+    saveCollections();
+  }
+  // Share links pack a collection into the URL: deflate-compressed when the browser can, else plain.
+  const b64url = (bytes) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const unb64url = (s) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (ch) => ch.charCodeAt(0));
+  async function packShare(c) {
+    const json = new TextEncoder().encode(JSON.stringify({ n: c.name, i: c.items }));
+    if (window.CompressionStream) {
+      const z = await new Response(new Blob([json]).stream().pipeThrough(new CompressionStream("deflate-raw"))).arrayBuffer();
+      return "z" + b64url(new Uint8Array(z));
+    }
+    return "j" + b64url(json);
+  }
+  async function unpackShare(s) {
+    let bytes = unb64url(s.slice(1));
+    if (s[0] === "z") bytes = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"))).arrayBuffer());
+    const o = JSON.parse(new TextDecoder().decode(bytes));
+    return { name: String(o.n || "Shared collection").slice(0, 60), items: (o.i || []).filter((x) => typeof x === "string") };
+  }
 
   // ---------- URL hash state (makes filtered views shareable) ----------
   function readHash() {
@@ -28,6 +73,8 @@
     state.sort = p.get("sort") || "new";
     state.any = p.get("any") === "1";
     state.styles = p.get("ns") !== "1";
+    state.col = p.get("col") || "";
+    if (state.col && !colById(state.col)) state.col = "";
     if (p.get("v")) state.view = p.get("v") === "body" ? "body" : "icon";
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       state[k] = new Set((p.get(key) || "").split(",").filter(Boolean));
@@ -39,6 +86,8 @@
     if (state.sort !== "new") p.set("sort", state.sort);
     if (state.any) p.set("any", "1");
     if (!state.styles) p.set("ns", "1");
+    if (state.col) p.set("col", state.col);
+    if (state.shared) p.set("share", state.shared.packed);
     if (state.view === "body") p.set("v", "body");
     for (const [k, key] of [["inc", "t"], ["exc", "x"], ["grp", "g"], ["ch", "c"], ["status", "s"]]) {
       if (state[k].size) p.set(key, [...state[k]].join(","));
@@ -49,7 +98,10 @@
 
   // ---------- filtering ----------
   function passesBase(s) {
-    if (!state.styles && s.of && !s.grp) return false;  // grouped styles live inside their base card
+    if (state.shared) { if (!state.shared.set.has(s.id)) return false; }
+    else if (state.col) { const c = colById(state.col); if (!c || !c.items.includes(s.id)) return false; }
+    // Inside a collection every saved entry shows, even styles normally hidden or folded away.
+    else if (!state.styles && s.of && !s.grp) return false;  // grouped styles live inside their base card
     if (state.q) {
       const words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
       if (!words.every((w) => s._hay.includes(w))) return false;
@@ -105,10 +157,14 @@
     results = fold(base.filter(passesTags)).sort((a, b) => sorter(a.head, b.head));
     renderFacets(state.any ? fold(base) : results);
     renderActive();
+    renderCollections();
     const nStyles = results.filter((c) => c.head.of).length;
     $("#count").textContent = `${results.length.toLocaleString()} results` +
       (nStyles ? ` (${(results.length - nStyles).toLocaleString()} skins + ${nStyles.toLocaleString()} styles)` : "");
     $("#empty").hidden = results.length > 0;
+    $("#empty").textContent = state.col && colById(state.col) && !colById(state.col).items.length
+      ? "This collection is empty. Open any skin and tick the collection in its popup."
+      : "No skins match these filters.";
     $("#grid").innerHTML = "";
     shown = 0;
     renderMore();
@@ -163,12 +219,37 @@
     }).join("");
   }
 
+  function renderCollections() {
+    $("#colCount").textContent = collections.length ? `(${collections.length})` : "";
+    $("#colList").innerHTML = collections.length
+      ? collections.map((c) => `<button class="chip ${state.col === c.id ? "on" : ""}" data-kind="col" data-val="${esc(c.id)}">${esc(c.name)}<span class="n">${c.items.length}</span></button>`).join("")
+      : `<p class="hint">Save skins from their popup to build named collections. They're kept in this browser.</p>`;
+    $("#colActions").hidden = !state.col;
+    const banner = $("#sharedBanner");
+    banner.hidden = !state.shared;
+    if (state.shared) {
+      banner.innerHTML = `Viewing a shared collection: <b>${esc(state.shared.name)}</b> (${state.shared.items.length})
+        <button class="link-btn" id="saveShared">Save to my collections</button>
+        <button class="link-btn" id="closeShared">Close</button>`;
+    }
+  }
+
+  function renderDetailCollections(s) {
+    const box = $("#dCollections");
+    box.dataset.id = s.id;
+    box.innerHTML = `<h4>Collections</h4>
+      <div class="d-col-list">${collections.map((c) => `
+        <label class="d-col"><input type="checkbox" data-col-check="${esc(c.id)}" ${c.items.includes(s.id) ? "checked" : ""}> ${esc(c.name)}</label>`).join("")}</div>
+      <form class="col-new" id="dColNew"><input placeholder="New collection…" maxlength="60" aria-label="New collection name"><button>Add</button></form>`;
+  }
+
   function renderActive() {
     const parts = [];
     if (state.q) parts.push(`<button class="chip on" data-kind="q" data-val="">“${esc(state.q)}” ✕</button>`);
     for (const t of state.inc) parts.push(chip("tag", t, pretty(t) + " ✕"));
     for (const t of state.exc) parts.push(chip("tag", t, "not " + pretty(t) + " ✕"));
     for (const k of ["grp", "ch", "status"]) for (const v of state[k]) parts.push(chip(k, v, (STATUSES[v] || v) + " ✕"));
+    if (state.col && colById(state.col)) parts.unshift(`<button class="chip on" data-kind="col" data-val="">★ ${esc(colById(state.col).name)} ✕</button>`);
     $("#active").innerHTML = parts.join("");
   }
 
@@ -202,7 +283,7 @@
           ? `<div class="card-media body">${fitImg(s.alt, s.ab, 3 / 4, s.n)}</div>`
           : `<div class="card-media${state.view === "body" ? " body icon-fallback" : ""}"><img loading="lazy" src="${esc(viaStyle && !crest ? hit.img : s.img)}" alt="${esc(s.n)}"></div>`}
         ${crest ? `<img class="card-crest" loading="lazy" src="${esc(hit.img)}" alt="${esc(hit.sty)}" title="${esc(hit.sty)} style">` : ""}
-        <div class="name">${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}${extra}</div>
+        <div class="name">${inAnyCollection(hit.id) || inAnyCollection(s.id) ? '<span class="star" title="In one of your collections">★</span>' : ""}${esc(s.n)}${s.v ? '<span class="badge" title="Tags checked by hand">✓</span>' : ""}${extra}</div>
         <div class="sub">${viaStyle ? `<span class="style-badge">${esc(hit.sty)}</span> · ` : s.of ? '<span class="style-badge">style</span> · ' : ""}${esc(group(s))}${s.ch ? ` · C${esc(s.ch)}S${esc(s.se)}` : ""}${s.u ? " · untagged" : ""}</div>
       </button>`;
     }).join(""));
@@ -244,6 +325,7 @@
     $("#dStyles").innerHTML = family.length > 1 ? family.map((x) => `
       <button class="style-thumb ${x.id === s.id ? "cur" : ""}" data-style-id="${esc(x.id)}" title="${esc(x.sty || "Default style")}">
         <img loading="lazy" src="${esc(x.img)}" alt="${esc(x.sty || "Default style")}"></button>`).join("") : "";
+    renderDetailCollections(s);
     $("#dName").textContent = s.n;
     $("#dMeta").textContent = [s.grp && s.sty && `Style: ${s.sty}`, group(s), s.st && `Set: ${s.st}`, s.ch && `Chapter ${s.ch}, Season ${s.se}`, s.a && `Added ${s.a}`].filter(Boolean).join(" · ");
     $("#dDesc").textContent = s.d || "";
@@ -286,6 +368,9 @@
       else state.inc.add(val);
     } else if (kind === "q") {
       state.q = ""; $("#search").value = "";
+    } else if (kind === "col") {
+      state.col = state.col === val ? "" : val;
+      state.shared = null;
     } else {
       state[kind].has(val) ? state[kind].delete(val) : state[kind].add(val);
     }
@@ -310,6 +395,82 @@
     if (card) return openDetail(card.dataset.id);
   });
   $("#detail").addEventListener("click", (e) => { if (e.target === $("#detail")) $("#detail").close(); });
+  // Refresh stars and the collection view once the popup closes (not while it's open, to keep scroll).
+  let collectionsChanged = false;
+  $("#detail").addEventListener("close", () => { if (collectionsChanged) { collectionsChanged = false; update(); } });
+  $("#dCollections").addEventListener("change", (e) => {
+    const cb = e.target.closest("[data-col-check]");
+    if (!cb) return;
+    toggleInCollection(cb.dataset.colCheck, $("#dCollections").dataset.id, cb.checked);
+    collectionsChanged = true;
+  });
+  $("#dCollections").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const input = e.target.querySelector("input");
+    const c = newCollection(input.value, [$("#dCollections").dataset.id]);
+    collectionsChanged = true;
+    renderDetailCollections(byId[$("#dCollections").dataset.id]);
+    flash(`Saved to "${c.name}"`);
+  });
+
+  // Sidebar: new / rename / delete / share / export / import
+  $("#colNew").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const c = newCollection($("#colNewName").value);
+    $("#colNewName").value = "";
+    flash(`Created "${c.name}". Add skins from their popup.`);
+    renderCollections();
+  });
+  $("#colActions").addEventListener("click", async (e) => {
+    const act = e.target.closest("[data-col-act]")?.dataset.colAct;
+    const c = colById(state.col);
+    if (!act || !c) return;
+    if (act === "rename") {
+      const name = prompt("Rename collection", c.name);
+      if (name && name.trim()) { c.name = name.trim().slice(0, 60); saveCollections(); update(); }
+    } else if (act === "delete") {
+      if (confirm(`Delete the collection "${c.name}"? The skins themselves aren't affected.`)) {
+        collections = collections.filter((x) => x !== c); saveCollections(); state.col = ""; update();
+      }
+    } else if (act === "share") {
+      const url = location.origin + location.pathname + "#share=" + await packShare(c);
+      try { await navigator.clipboard.writeText(url); flash("Share link copied"); }
+      catch (err) { prompt("Copy this link to share the collection:", url); }
+    }
+  });
+  $("#colExport").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify({ collections }, null, 1)], { type: "application/json" });
+    const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: "skin-finder-collections.json" });
+    a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  $("#colImport").addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      let added = 0;
+      for (const c of data.collections || []) {
+        if (c && c.name && Array.isArray(c.items)) { newCollection(c.name, c.items.filter((x) => typeof x === "string")); added++; }
+      }
+      flash(`Imported ${added} collection${added === 1 ? "" : "s"}`);
+      update();
+    } catch (err) { flash("That file isn't a Skin Finder collections export"); }
+  });
+  $("#sharedBanner").addEventListener("click", (e) => {
+    if (e.target.id === "saveShared" && state.shared) {
+      const c = newCollection(state.shared.name, state.shared.items);
+      state.shared = null; state.col = c.id; flash(`Saved "${c.name}"`); update();
+    } else if (e.target.id === "closeShared") {
+      state.shared = null; update();
+    }
+  });
+  let flashTimer;
+  function flash(msg) {
+    const el = $("#flash");
+    el.textContent = msg; el.hidden = false;
+    clearTimeout(flashTimer); flashTimer = setTimeout(() => { el.hidden = true; }, 2200);
+  }
 
   let t;
   $("#search").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value.trim(); update(); }, 150); });
@@ -328,7 +489,7 @@
     $("#grid").classList.toggle("body-view", state.view === "body");
   }
   $("#clearAll").addEventListener("click", () => {
-    Object.assign(state, { q: "", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() });
+    Object.assign(state, { col: "", shared: null, q: "", any: false, inc: new Set(), exc: new Set(), grp: new Set(), ch: new Set(), status: new Set() });
     $("#search").value = ""; $("#tagSearch").value = ""; $("#matchAny").checked = false; update();
   });
   $("#filtersToggle").addEventListener("click", () => $("#filters").classList.toggle("open"));
@@ -348,6 +509,11 @@
         _hay: [s.n, s.d, s.st, s.sr, s.r, s.c, s.sty, ...s.t.map(pretty)].join(" ").toLowerCase(),
       }));
       readHash();
+      const share = new URLSearchParams(location.hash.slice(1)).get("share");
+      if (share) {
+        unpackShare(share).then((c) => { state.shared = { ...c, packed: share, set: new Set(c.items) }; update(); })
+          .catch(() => flash("That share link couldn't be read"));
+      }
       $("#search").value = state.q;
       $("#sort").value = state.sort;
       $("#matchAny").checked = state.any;

@@ -38,6 +38,21 @@
     </div>
     <label class="match"><input type="checkbox" id="showStyles" checked> Show alternate styles as their own cards</label>
     <p class="hint">Click a tag to require it, click again to exclude it, a third time to clear.</p>
+    <details class="facet" id="colFacet" open>
+      <summary>Collections <span class="n" id="colCount"></span></summary>
+      <div id="colList" class="chips"></div>
+      <p id="colActions" class="col-actions" hidden>
+        <button class="link-btn" data-col-act="share">Copy share link</button> ·
+        <button class="link-btn" data-col-act="rename">Rename</button> ·
+        <button class="link-btn" data-col-act="delete">Delete</button>
+      </p>
+      <form id="colNew" class="col-new"><input id="colNewName" placeholder="New collection name" maxlength="60" aria-label="New collection name"><button>Add</button></form>
+      <p class="col-backup">
+        <button class="link-btn" id="colExport" type="button">Export</button> ·
+        <label class="link-btn">Import<input type="file" id="colImport" accept="application/json,.json" hidden></label>
+        <span class="hint">a backup of your collections</span>
+      </p>
+    </details>
     <input id="tagSearch" type="search" placeholder="Find a tag…" autocomplete="off">
     <details class="facet" open>
       <summary>Rarity / series</summary>
@@ -55,6 +70,7 @@
   </aside>
 
   <main>
+    <div id="sharedBanner" class="shared-banner" hidden></div>
     <div class="status-bar">
       <span id="count"></span>
       <div id="active" class="chips active"></div>
@@ -79,6 +95,7 @@
       <p id="dDesc" class="desc"></p>
       <p id="dCaption" class="caption"></p>
       <div id="dStyles" class="styles-strip"></div>
+      <div id="dCollections" class="d-collections"></div>
       <div id="dTags"></div>
       <p class="detail-links"><a id="dReport" target="_blank" rel="noopener">Suggest a tag fix</a> <span id="dId" class="mono"></span></p>
     </div>
@@ -89,6 +106,7 @@
   Images and item data from <a href="https://fortnite-api.com" rel="noopener">Fortnite-API</a>. Tags were made by AI and corrected by hand, so some may be wrong.
   Not affiliated with or endorsed by Epic Games. <a href="data/tags.csv">Download all tags (CSV)</a>
 </footer>
+<div id="flash" class="flash" role="status" hidden></div>
 <script src="app.js"></script>
 </body>
 </html>
