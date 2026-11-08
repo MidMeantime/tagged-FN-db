@@ -51,6 +51,14 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd32a1861a3483a3/renderimage_0.png"
  },
+ "CID_745_Athena_Commando_M_RavenQuill": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b2eebee08432f2b6/renderimage_0.png"
+ },
+ "CID_746_Athena_Commando_F_FuzzyBear": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cef8b334ff05fd37/renderimage_0.png"
+ },
  "CID_762_Athena_Commando_M_BrightGunnerSpy": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b543dc15a69ff69b/renderimage_0.png"
@@ -66,6 +74,10 @@
  "CID_A_094_Athena_Commando_F_Cavern_33LMC": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b1c43c6a2cb9cecd/renderimage_0.png"
+ },
+ "CID_A_146_Athena_Commando_M_Pliant_E": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/08ea54dcde617141/renderimage_0.png"
  },
  "CID_A_152_Athena_Commando_F_Musician": {
   "seen": "2026-11-06",
@@ -102,6 +114,10 @@
  "Character_Boredom": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/119b826c811a60a7/renderimage_0.png"
+ },
+ "Character_BrandCreed": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7dada1d37dd74140/renderimage_0.png"
  },
  "Character_BrightLarva": {
   "seen": "2026-11-06",
@@ -151,6 +167,10 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/04f64976e70d1fe7/renderimage_0.png"
  },
+ "Character_GumOutlaw": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0f57833a8e075bef/renderimage_0.png"
+ },
  "Character_HayBrush": {
   "seen": "2026-11-07",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5e34f47e0eb993fe/renderimage_0.png"
@@ -158,6 +178,10 @@
  "Character_HollyDessert": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/474127248604f0c7/renderimage_0.png"
+ },
+ "Character_InsightBawl": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0e6ada1f404630c6/renderimage_0.png"
  },
  "Character_LabVapor": {
   "seen": "2026-11-06",
@@ -258,6 +282,10 @@
  "Character_StaticShades": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2d7d556889b34ca6/renderimage_0.png"
+ },
+ "Character_SteamMarauder": {
+  "seen": "2026-11-08",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fcb7fce7d10c21e0/renderimage_0.png"
  },
  "Character_SweetCuddle": {
   "seen": "2026-11-06",
