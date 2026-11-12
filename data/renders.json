@@ -67,6 +67,10 @@
   "seen": "2026-11-07",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/154d21f1d07150f6/renderimage_0.png"
  },
+ "CID_545_Athena_Commando_F_SushiNinja": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1aea64350eba393f/renderimage_0.png"
+ },
  "CID_581_Athena_Commando_M_DarkDino": {
   "seen": "2026-11-10",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/96384bb2879d9eab/renderimage_0.png"
@@ -158,6 +162,10 @@
  "CID_A_379_Athena_Commando_F_VampireHunter": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/efcd6d3a1e6637ae/renderimage_0.png"
+ },
+ "CID_A_430_Athena_Commando_M_SpectacleWeb": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0fc2b6e3994dbd59/renderimage_0.png"
  },
  "CID_A_442_Athena_Commando_F_PennantSeasOne_B": {
   "seen": "2026-11-10",
@@ -315,6 +323,14 @@
   "seen": "2026-11-08",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0e6ada1f404630c6/renderimage_0.png"
  },
+ "Character_Jumpsuit_Mutable": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/672f3c176c0b6214/renderimage_0.png"
+ },
+ "Character_Jumpsuit_Scrap_Mutable": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d6073cf76e0c981f/renderimage_0.png"
+ },
  "Character_LabVapor": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7ea599c2c7a351c5/renderimage_0.png"
@@ -350,6 +366,14 @@
  "Character_OpenEnded": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/92b4b1868bd2b4fe/renderimage_0.png"
+ },
+ "Character_OutletVerve": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ee70aec3cbc9713d/renderimage_0.png"
+ },
+ "Character_PaperBlaze": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/9c6fb689d1bd8492/renderimage_0.png"
  },
  "Character_PennantSeasShade_B": {
   "seen": "2026-11-06",
@@ -462,6 +486,10 @@
  "Character_SweetCuddle": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8792899e24a5ef83/renderimage_0.png"
+ },
+ "Character_SweetLetter": {
+  "seen": "2026-11-12",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/32e1e9cd0b48165a/renderimage_0.png"
  },
  "Character_TackleShow": {
   "seen": "2026-11-11",
