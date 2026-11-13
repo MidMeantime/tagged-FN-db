@@ -4085,6 +4085,12 @@
   0.792,
   0.958
  ],
+ "https://fortnite-api.com/images/cosmetics/br/character_locketsnug/featured.png": [
+  0.3145,
+  0.0537,
+  0.792,
+  0.915
+ ],
  "https://fortnite-api.com/images/cosmetics/br/character_lonedice/featured.png": [
   0.3301,
   0.0,
@@ -17357,6 +17363,12 @@
   0.7446,
   0.8423
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/25b74de90f04edde/renderimage_0.png": [
+  0.0,
+  0.0,
+  1.0,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2753c6904941f7ae/renderimage_0.png": [
   0.0186,
   0.0498,
@@ -17417,6 +17429,18 @@
   0.8301,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3c39ea4f94e79906/renderimage_0.png": [
+  0.0503,
+  0.0186,
+  0.9346,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3f2c28df282126b4/renderimage_0.png": [
+  0.2031,
+  0.0225,
+  0.9189,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/40b9ad9c5bfe9834/renderimage_0.png": [
   0.2607,
   0.0186,
@@ -17475,6 +17499,12 @@
   0.1602,
   0.0449,
   0.8418,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4a4d77bec5febd87/renderimage_0.png": [
+  0.2178,
+  0.083,
+  0.7754,
   1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4f2eb21b6ddc6c6c/renderimage_0.png": [
@@ -17735,6 +17765,12 @@
   0.8555,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a6868bfd4b850983/renderimage_0.png": [
+  0.2554,
+  0.042,
+  0.7524,
+  0.9824
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ab59aeefbfd4a083/renderimage_0.png": [
   0.167,
   0.0059,
@@ -17787,6 +17823,12 @@
   0.1758,
   0.0391,
   0.7393,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b8b2128e580b14d1/renderimage_0.png": [
+  0.3149,
+  0.063,
+  0.6748,
   1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ba82097687a94fb6/renderimage_0.png": [
@@ -17867,6 +17909,12 @@
   0.7139,
   1.0
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ce38a1573f4944b0/renderimage_0.png": [
+  0.2334,
+  0.0225,
+  0.7686,
+  1.0
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cef8b334ff05fd37/renderimage_0.png": [
   0.3066,
   0.0635,
@@ -17890,6 +17938,12 @@
   0.0361,
   0.6289,
   1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d18f93694cdc9afb/renderimage_0.png": [
+  0.0332,
+  0.0659,
+  0.9868,
+  0.8896
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d5235097a4fd8fcc/renderimage_0.png": [
   0.167,
@@ -17939,10 +17993,28 @@
   0.9756,
   0.9258
  ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e22eacd6dc1ab816/renderimage_0.png": [
+  0.2725,
+  0.0283,
+  0.7217,
+  0.9717
+ ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ea551fbb2ba3f67d/renderimage_0.png": [
   0.2705,
   0.084,
   0.71,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ed977d1450c25bb2/renderimage_0.png": [
+  0.2339,
+  0.0205,
+  0.7866,
+  1.0
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/edbe728784ab99f7/renderimage_0.png": [
+  0.2979,
+  0.0088,
+  0.7119,
   1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/ee70aec3cbc9713d/renderimage_0.png": [
@@ -17992,6 +18064,12 @@
   0.001,
   0.9053,
   0.8701
+ ],
+ "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f5fa0ef4e67cfd9a/renderimage_0.png": [
+  0.2578,
+  0.0449,
+  0.7314,
+  1.0
  ],
  "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f657b48ca703927c/renderimage_0.png": [
   0.2031,
