@@ -3,6 +3,14 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/83c0d74846919781/renderimage_0.png"
  },
+ "CID_073_Athena_Commando_F_Scuba": {
+  "seen": "2026-11-15",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/604d8759ecbd868f/renderimage_0.png"
+ },
+ "CID_091_Athena_Commando_M_RedShirt": {
+  "seen": "2026-11-15",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8e677febeb465ac4/renderimage_0.png"
+ },
  "CID_121_Athena_Commando_M_Graffiti": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4384dbb6566f7c24/renderimage_0.png"
@@ -403,6 +411,10 @@
   "seen": "2026-11-10",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fe0560d938307337/renderimage_0.png"
  },
+ "Character_NeonGlow": {
+  "seen": "2026-11-15",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a83a60abfb5f0e77/renderimage_0.png"
+ },
  "Character_NinjaWarrior": {
   "seen": "2026-11-07",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bdecd93e38d47fde/renderimage_0.png"
@@ -530,6 +542,10 @@
  "Character_SourWire": {
   "seen": "2026-11-11",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cf8f17908eae4afc/renderimage_0.png"
+ },
+ "Character_SparkArcher": {
+  "seen": "2026-11-15",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c4e31304a57174d7/renderimage_0.png"
  },
  "Character_StaticShades": {
   "seen": "2026-11-06",
