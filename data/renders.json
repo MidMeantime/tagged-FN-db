@@ -83,6 +83,14 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/63d797a940747f12/renderimage_0.png"
  },
+ "CID_361_Athena_Commando_M_BandageNinja": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b29f185b74ac9fc8/renderimage_0.png"
+ },
+ "CID_362_Athena_Commando_F_BandageNinja": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8d1bacf83d7c6375/renderimage_0.png"
+ },
  "CID_372_Athena_Commando_F_Pirate01": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/50dfe0ed4f655686/renderimage_0.png"
@@ -158,6 +166,10 @@
  "CID_726_Athena_Commando_M_TargetPractice": {
   "seen": "2026-11-17",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/39366e45dbbcf73c/renderimage_0.png"
+ },
+ "CID_727_Athena_Commando_M_Tailor": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/304055aac8d3568a/renderimage_0.png"
  },
  "CID_745_Athena_Commando_M_RavenQuill": {
   "seen": "2026-11-08",
@@ -275,9 +287,29 @@
   "seen": "2026-11-11",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/01b00ee12e5deb4f/renderimage_0.png"
  },
+ "CID_A_261_Athena_Commando_M_Headband": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/696c2a208e3d6921/renderimage_0.png"
+ },
+ "CID_A_262_Athena_Commando_M_HeadbandK": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f19f520af9bf64e8/renderimage_0.png"
+ },
+ "CID_A_263_Athena_Commando_M_HeadbandS": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/395ab0afc35ca29f/renderimage_0.png"
+ },
+ "CID_A_264_Athena_Commando_F_HeadbandS": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7092641e2682d845/renderimage_0.png"
+ },
  "CID_A_308_Athena_Commando_F_Sunshine": {
   "seen": "2026-11-11",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/88a5e1c8d93c1f3a/renderimage_0.png"
+ },
+ "CID_A_334_Athena_Commando_M_Sleek_U06KF": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c86ab2ae619a48ab/renderimage_0.png"
  },
  "CID_A_379_Athena_Commando_F_VampireHunter": {
   "seen": "2026-11-06",
@@ -290,6 +322,22 @@
  "CID_A_430_Athena_Commando_M_SpectacleWeb": {
   "seen": "2026-11-12",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0fc2b6e3994dbd59/renderimage_0.png"
+ },
+ "CID_A_432_Athena_Commando_M_Ensemble": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/df26d7ed7bc35b39/renderimage_0.png"
+ },
+ "CID_A_433_Athena_Commando_M_EnsembleSnake": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f3c326f782a2da2a/renderimage_0.png"
+ },
+ "CID_A_434_Athena_Commando_M_EnsembleMaroon": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8008ea2dee1d95a1/renderimage_0.png"
+ },
+ "CID_A_435_Athena_Commando_F_Ensemble": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2027c2ccd698d5eb/renderimage_0.png"
  },
  "CID_A_442_Athena_Commando_F_PennantSeasOne_B": {
   "seen": "2026-11-10",
@@ -606,6 +654,10 @@
  "Character_PreciseRuffian": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c3a44dff66cdfd10/renderimage_0.png"
+ },
+ "Character_PreppyBeret": {
+  "seen": "2026-11-18",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8e636f0f9bfca0b8/renderimage_0.png"
  },
  "Character_PrismGlee": {
   "seen": "2026-11-10",
