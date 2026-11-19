@@ -235,6 +235,10 @@
   "seen": "2026-11-13",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3f2c28df282126b4/renderimage_0.png"
  },
+ "CID_A_031_Athena_Commando_M_Builder": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a7bb333baa16b9c5/renderimage_0.png"
+ },
  "CID_A_057_Athena_Commando_F_TheGoldenSkeleton": {
   "seen": "2026-11-09",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fddb66c0e26e5988/renderimage_0.png"
@@ -306,6 +310,10 @@
  "CID_A_308_Athena_Commando_F_Sunshine": {
   "seen": "2026-11-11",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/88a5e1c8d93c1f3a/renderimage_0.png"
+ },
+ "CID_A_325_Athena_Commando_F_Scout": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8bd00cc7f8467d29/renderimage_0.png"
  },
  "CID_A_334_Athena_Commando_M_Sleek_U06KF": {
   "seen": "2026-11-18",
@@ -382,6 +390,14 @@
  "Character_BoastJoint": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/764245f1c0535262/renderimage_0.png"
+ },
+ "Character_BoldDormRise": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/a3cdcbdbdf7eb9f9/renderimage_0.png"
+ },
+ "Character_BoldDormWork": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/4e595e26c4ae9f09/renderimage_0.png"
  },
  "Character_Boredom": {
   "seen": "2026-11-06",
@@ -474,6 +490,10 @@
  "Character_FairyMochi": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/5a62c7f439961b9b/renderimage_0.png"
+ },
+ "Character_FelineWarrior": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/65242eceaf640390/renderimage_0.png"
  },
  "Character_Firework": {
   "seen": "2026-11-10",
@@ -695,6 +715,10 @@
   "seen": "2026-11-10",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/0c006cff2506c893/renderimage_0.png"
  },
+ "Character_RobustTorn": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8f07dc6665cbe0c2/renderimage_0.png"
+ },
  "Character_RookGeckoRod": {
   "seen": "2026-11-13",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b8b2128e580b14d1/renderimage_0.png"
@@ -866,6 +890,10 @@
  "Character_Virtuous": {
   "seen": "2026-11-07",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/867ac43cc98102f2/renderimage_1.png"
+ },
+ "Character_VouchTrig": {
+  "seen": "2026-11-19",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/78ceb55992c8349f/renderimage_0.png"
  },
  "Character_VoyagerCuboid": {
   "seen": "2026-11-11",
