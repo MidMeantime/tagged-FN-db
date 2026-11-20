@@ -3,6 +3,10 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/83c0d74846919781/renderimage_0.png"
  },
+ "CID_070_Athena_Commando_M_Cupid": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/bf81ee70e2f6f491/renderimage_0.png"
+ },
  "CID_073_Athena_Commando_F_Scuba": {
   "seen": "2026-11-15",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/604d8759ecbd868f/renderimage_0.png"
@@ -55,6 +59,10 @@
   "seen": "2026-11-13",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/25b74de90f04edde/renderimage_0.png"
  },
+ "CID_264_Athena_Commando_M_AnimalJackets": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3e550f7ad5097be8/renderimage_0.png"
+ },
  "CID_265_Athena_Commando_F_AnimalJackets": {
   "seen": "2026-11-13",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/edbe728784ab99f7/renderimage_0.png"
@@ -99,6 +107,10 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fd8f33f9438fa7a2/renderimage_0.png"
  },
+ "CID_393_Athena_Commando_M_Shiny": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3364d8e3a0e89a89/renderimage_0.png"
+ },
  "CID_397_Athena_Commando_F_TreasureHunterFashion": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/063ef93d017300ce/renderimage_0.png"
@@ -114,6 +126,10 @@
  "CID_494_Athena_Commando_M_MechPilotShark": {
   "seen": "2026-11-17",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/23b8ac0495708546/renderimage_0.png"
+ },
+ "CID_523_Athena_Commando_F_Cupid": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/2aa76edf6d890269/renderimage_0.png"
  },
  "CID_526_Athena_Commando_F_DesertOpsSwamp": {
   "seen": "2026-11-06",
@@ -251,6 +267,10 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/b1c43c6a2cb9cecd/renderimage_0.png"
  },
+ "CID_A_127_Athena_Commando_F_MechanicalEngineerSummer": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/c0d02c382556b56b/renderimage_0.png"
+ },
  "CID_A_142_Athena_Commando_M_Pliant": {
   "seen": "2026-11-16",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/60b5c62c8ed91bb9/renderimage_0.png"
@@ -326,6 +346,10 @@
  "CID_A_396_Athena_Commando_F_Raspberry": {
   "seen": "2026-11-16",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/3fd4d3dba442b97b/renderimage_0.png"
+ },
+ "CID_A_413_Athena_Commando_M_Glare": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/57a35038b17b1092/renderimage_0.png"
  },
  "CID_A_430_Athena_Commando_M_SpectacleWeb": {
   "seen": "2026-11-12",
@@ -463,9 +487,17 @@
   "seen": "2026-11-16",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/32ac473758d7133a/renderimage_0.png"
  },
+ "Character_CyberMittHomer": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f9aa4ad01d04e230/renderimage_0.png"
+ },
  "Character_DefectGlitch": {
   "seen": "2026-11-16",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/94e56120a021c07b/renderimage_0.png"
+ },
+ "Character_DemoCrook": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/de8ade6a3e485852/renderimage_0.png"
  },
  "Character_DuneBriefMerry": {
   "seen": "2026-11-11",
@@ -522,6 +554,10 @@
  "Character_GoldCat_Claw": {
   "seen": "2026-11-16",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/74d2d5c0af7bce12/renderimage_0.png"
+ },
+ "Character_GoldenPleats": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f9f9828d189aafa8/renderimage_0.png"
  },
  "Character_GothDevil": {
   "seen": "2026-11-16",
@@ -586,6 +622,10 @@
  "Character_Jumpsuit_Scrap_Mutable": {
   "seen": "2026-11-12",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d6073cf76e0c981f/renderimage_0.png"
+ },
+ "Character_KneeLens": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/cfdc78e334c51a2f/renderimage_0.png"
  },
  "Character_LabVapor": {
   "seen": "2026-11-06",
@@ -699,6 +739,14 @@
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/47e7d66a6c617be3/renderimage_0.png"
  },
+ "Character_QuicheLorraineCrisp": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/eaefdb51f1a4406d/renderimage_0.png"
+ },
+ "Character_QuicheLorraineLime": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/d6e6d72338a00514/renderimage_0.png"
+ },
  "Character_RaggedRebel": {
   "seen": "2026-11-10",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/8a0dc268220cdf1f/renderimage_0.png"
@@ -799,9 +847,21 @@
   "seen": "2026-11-08",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/fcb7fce7d10c21e0/renderimage_0.png"
  },
+ "Character_StudyBench": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/f4dff1f825584ec0/renderimage_0.png"
+ },
  "Character_SugarBubble": {
   "seen": "2026-11-10",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/20b2e34643732605/renderimage_0.png"
+ },
+ "Character_SunBurst": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/aa0ac59be6dff0f0/renderimage_0.png"
+ },
+ "Character_SunBurstAlt": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/449ee70e069dfb3c/renderimage_0.png"
  },
  "Character_SunnySquawk": {
   "seen": "2026-11-16",
@@ -863,6 +923,10 @@
   "seen": "2026-11-09",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/7211478b4a7f6270/renderimage_0.png"
  },
+ "Character_TwinGinger": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/e8333fdc8adedb35/renderimage_0.png"
+ },
  "Character_TwinkleLoop": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/72e4366d3cf0dc83/renderimage_0.png"
@@ -899,9 +963,17 @@
   "seen": "2026-11-11",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/1f747876c2ec733a/renderimage_0.png"
  },
+ "Character_WaterMolecules": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/6b0ccd243be9db3b/renderimage_0.png"
+ },
  "Character_WingBath": {
   "seen": "2026-11-06",
   "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/afe3fa97f9e27acd/renderimage_0.png"
+ },
+ "Character_WingedEye": {
+  "seen": "2026-11-20",
+  "url": "https://fortnite-api.com/images/cosmetics/br/newdisplayassets/857303fbb0350caf/renderimage_0.png"
  },
  "Character_WordUnity": {
   "seen": "2026-11-07",
